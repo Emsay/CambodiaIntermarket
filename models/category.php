@@ -39,17 +39,14 @@
 	    }
 	    //manage car category
 	    public static function insertCarCate($car_cate,$car_prices){
-	    	$sql = "INSERT into car (car_name,car_price) values('{$car_cate}','{$car_prices}')";
+	    	$sql = "INSERT into car (car_name,prices) values('{$car_cate}','{$car_prices}')";
 	    	return runNonQuery($sql);
 	    }
 	    public static function getCarCat(){
 	        $sql = "SELECT * from car ORDER BY date_time DESC";
 	        return runQuery($sql);
 	    }
-	    public static function getCarCatID($id){
-	        $sql = "SELECT * from car where id=".$id;
-	        return runQuery($sql);
-	    }
+	    
 	    public static function updateCarCat($id,$carName,$carPrice){
 	    	$sql = "UPDATE car SET car_name='$carName', car_price='$carPrice' where id='$id'";
 	    	return runNonQuery($sql);

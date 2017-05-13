@@ -27,7 +27,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">
-                        Manage Category
+                        Manage Car
                     </h1>
                     <ol class="breadcrumb">
                         <li>
@@ -44,13 +44,13 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <div class="col-xs-10">
-                                <label>CAR MANE</label>
+                                <label>Car Name</label>
                                 <input class="form-control" name="name" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-xs-10">
-                                <label>CAR PRICE/ MONTH</label>
+                                <label>Price Per Day</label>
                                 <input class="form-control" name="prices" required>
                             </div>
                         </div>
@@ -70,8 +70,8 @@
                                     <thead >
                                         <tr>
                                             <th>#</th>
-                                            <th>CAR NAME</th>
-                                            <th>CAR PRICE/ MONTH</th>
+                                            <th>Car Type</th>
+                                            <th>Price</th>
                                             <th>ACTION</th>
                                         </tr>
                                     </thead>
@@ -84,7 +84,7 @@
                                                 <tr>
                                                     <td scope="row"><?php echo $i;?></td>
                                                     <td><?php echo $ca['car_name'];?></td>
-                                                    <td><?php echo $ca['car_price'];?></td>
+                                                    <td>$ <?php echo $ca['prices'];?></td>
                                                     <td style="width:13%" >
                                                         <a href='edit_carcat.php?id=<?php echo $ca['id'];?>' class="btn btn-primary">Edit</a>
                                                         <a style="z-index:0; margin-left:53px; margin-top:-35px;" href="delete_car.php?id=<?php echo $ca['id'];?>" onclick="return confirm('You want to delete product?')" class="btn btn-danger">Delete</a>

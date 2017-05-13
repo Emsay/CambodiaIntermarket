@@ -1,14 +1,15 @@
 <?php
     include ("authorization.php");
-    include ("../models/category.php");
+    include ("../models/admin.php");
 
     if (isset($_GET['id']) && is_numeric($_GET['id']) && $_GET['id'] > 0){
         $id = $_GET['id'];
-        $select= Category::getCarCatID($id);
+        $select= Products::getCarColorId($id);
         $row = mysqli_fetch_array($select);
         if($row){
-            $ca_name = $row['car_name'];
-            $ca_price = $row['car_price'];
+            $car_name = $row['car_name'];
+            $car_price = $row['prices'];
+            $car_color = $row['colors'];
         }else{
             echo "No result.";
         }
@@ -18,7 +19,7 @@
         $id = $_GET['id'];
         $ca_name = $_POST['name'];
         $ca_price = $_POST['price'];
-        $query = Category::updateCarCat($id,$ca_name,$ca_price);
+        $query = Products::updateCarCat($id,$ca_name,$ca_price);
         if($query){
             header ("location: car_category.php");
         }else{
@@ -58,16 +59,42 @@
             <div class="row">
                 <form role="form" method="POST" enctype="multipart/form-data" >
                     <div class="col-lg-6">
-                        <div class="form-group">
+                       <div class="form-group">
                             <div class="col-xs-10">
-                                <label>CAR NAME</label>
-                                <input class="form-control" name="name" value="<?php echo $ca_name;?>" required>
+                                <label>Car Name</label>
+                                <select class="form-control" name="car">
+                                    <option value="No Cateogry" style="display:none;">
+                                        <?php echo $car_name; ?></option>
+                                    <?php 
+                                        $car =  Products::getCarCategory();
+                                            foreach($car as $carName){?>
+                                                <option value="<?php echo $carName['id'];?>">
+                                                    <?php echo $carName['car_name']; ?>
+                                                </option>
+                                    <?php }?>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-xs-10">
-                                <label>CAR PRICE/MONTH</label>
-                                <input class="form-control" name="price" value="<?php echo $ca_price;?>" required>
+                                <label>Color</label>
+                                <select class="form-control" name="color">
+                                    <option value="No Cateogry" style="display:none;">
+                                        <?php echo $car_color; ?></option>
+                                    <?php 
+                                        $color =  Products::getColorCategory();
+                                            foreach($color as $colorName){?>
+                                                <option value="<?php echo $colorName['id'];?>">
+                                                    <?php echo $colorName['car_name']; ?>
+                                                </option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-10">
+                                <label>Price per day</label>
+                                <input class="form-control" name="prices" value="<?php echo $car_price; ?>" required>
                             </div>
                         </div>
                         <div class="form-group">

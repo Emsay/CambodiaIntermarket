@@ -128,11 +128,40 @@
             return runQuery($sql);
         }
         public static function getShopCategory(){
-            $sql = "SELECT shop.*, shop_category.shop_category from shop INNER join shop_category WHERE shop.shop_cat_id = shop_category.id AND shop.id in ( select max(id) from shop GROUP by shop_cat_id order by id desc)";
+            $sql = "SELECT shop.*, shop_category.shop_category from shop 
+                    INNER join shop_category 
+                    WHERE shop.shop_cat_id = shop_category.id 
+                    AND shop.id in ( select max(id) from shop GROUP by shop_cat_id order by id desc)";
             return runQuery($sql);
         }
         public static function listShop($id){
             $sql = "SELECT * from shop WHERE shop_cat_id =".$id;
+            return runQuery($sql);
+        }
+        //manage car category
+        public static function getCarCategory(){
+            return runQuery("SELECT * from car");
+        }
+
+        //get province
+        public static function getProvince(){
+            return runQuery("SELECT * from province");
+        }
+
+        //insert car detail
+        public static function insertCarDetail($user_id,$car_id,$province_depart_id,$province_destination_id,$date_departure,$date_destination,$price){
+            $sql = "INSERT INTO rentCarDetail (user_id,car_id,province_depart_id,province_destination_id,date_departure,date_destination,price) 
+                values ('{$user_id}','{$car_id}','{$province_depart_id}','{$province_destination_id}','{$date_departure}','{$date_destination}','{$price}')";
+            return runNonQuery($sql);
+        }
+
+        public static function getCarDetail($user_id){
+            // $sql = "SELECT * from rentCarDetail where user_id = ".$user_id;
+            $sql = "SELECT car.car_name,car.prices,province.province_name,rentCarDetail.*
+                    FROM rentCarDetail
+                    INNER JOIN car ON car.id = rentCarDetail.car_id
+                    INNER JOIN province ON province.id = rentCarDetail.province_destination_id
+                    where rentCarDetail.user_id=".$user_id;
             return runQuery($sql);
         }
         //Car rental

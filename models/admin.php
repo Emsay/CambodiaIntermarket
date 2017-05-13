@@ -80,6 +80,34 @@ class Products {
     public static function getCarCategory(){
         return runQuery("SELECT * from car");
     }
+    //manage color category
+    public static function getColorCategory(){
+        return runQuery("SELECT * from color");
+    }
+    public static function insertCarAndColor($car_id,$color_id,$price){
+        $sql = "INSERT INTO car_color (car_id, color_id, prices) 
+                            values ('{$car_id}','{$color_id}','{$price}')";
+        return runNonQuery($sql);
+    }
+    //list car with color
+    public static function getCarAndColor(){
+        $mysql = "SELECT car.car_name,
+                   color.colors,
+                   car_color.*
+                FROM car_color
+                INNER JOIN car ON car.id = car_color.car_id
+                INNER JOIN color ON color.id = car_color.color_id";
+        return runQuery($mysql);
+    }
+    //edit car color while id
+    public static function getCarColorId($id){
+           $mysql = "SELECT car.car_name,color.colors,car_color.*
+                    FROM car_color
+                    INNER JOIN car ON car.id = car_color.car_id
+                    INNER JOIN color ON color.id = car_color.color_id 
+                    where car_color.id=".$id;
+            return runQuery($mysql);
+        }
     //delete car category
     public static function delete($id){
         return runNonQuery("DELETE from car where id=".$id);
@@ -88,4 +116,5 @@ class Products {
     public static function deleted($id){
         return runNonQuery("DELETE from color where color_id=".$id);
     }
+
 }

@@ -65,6 +65,9 @@
                 <a href="car_color.php"><i class="fa fa-fw fa-edit"></i> Car Color</a>
             </li>
             <li>
+                <a href="manage_cars.php"><i class="fa fa-fw fa-edit"></i> Manage Car</a>
+            </li>
+            <li>
                 <a href="manage_post.php"><i class="fa fa-fw fa-bar-chart-o"></i> Manage Product</a>
             </li>
             <li>
