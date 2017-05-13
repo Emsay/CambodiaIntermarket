@@ -1,0 +1,252 @@
+.price2 {
+    background-color: #3B5998;
+    width: 95%;
+    border-style: solid;
+    margin-left: 8px;
+    height: 39px;
+    margin-top: 46px;
+    border-radius: 7px;
+}
+.price2:hover {
+    opacity: 0.5;
+}
+.price {
+    padding: 1px 0 0 0;
+}
+.socail{
+    padding: 1px 0 0 0;
+    margin-left: 16px;
+    margin-top: -23px;
+}
+span.actual1 {
+    text-decoration: line-through;
+    color:#000;
+}
+.total_p{
+	color:#000;
+	font-size: bold;
+}
+.displayborder {
+    width: 33%;
+    height: 363px;
+    float: left;
+    margin: 1px;
+    background-color: #fff;
+}
+.displayborder:hover{
+    border: 1px solid #fff;
+}
+.displayborder img {
+    margin-bottom: 14px;
+    padding: 12px;
+    margin-left: 0px;
+    margin-top: 4px;
+}
+.displayborder img {
+    margin-top: -12px;
+}
+.footer-middle{
+    margin-top:-15px;
+}
+.col-lg-10 {
+    width: 83.33333333%;
+    margin-bottom: 30px;
+}
+.hotline{
+    margin-top: 15px;
+}
+.loginheader{
+    float: right;
+}
+.header-top{
+    background-color: #3B5998;
+    position: fixed;
+    z-index: 10;
+    margin-left: -135px;
+}
+.icon{
+    width: 29%;
+}
+element.style {
+    width: 143px;
+    height: 96px;
+    margin-top: -35px;
+    margin-left: -20px;
+}
+@media (max-width:1366px){
+    .wrap{
+        width:80%;
+    }
+}
+.logostyle {
+    margin-top: 23px;
+    margin-left: -197px;
+}
+.main{
+    background-color: #fff;
+}
+body{
+    background-color: #fff;
+}
+.footer{
+    background-color: #fff;
+}
+.modeproduct {
+    height: 100%;
+    background-repeat: no-repeat;
+    transition: background .25s ease-in-out;
+    min-height: 662px;
+}
+.titlepro{
+    font-size: 18px;
+    font-family: 'MarkPro',sans-serif;
+    color:#00a5ff;
+}
+.footer{
+    background-color: #fff;
+}
+.skyblue li>a, .skyblue>li.showhide span {
+    color: #000;
+    font-family: arial;
+    border-right: 1px solid #ccc;
+    font-size: 15px;
+    font-weight: bold
+}
+element.style {
+    color: #fff;
+    font-size: 18px;
+    margin-left: 91px;
+    font-family: arial;
+}
+.jssora13l, .jssora13r {
+    display: block;
+    position: absolute;
+    /* size of arrow element */
+    width: 40px;
+    height: 50px;
+    cursor: pointer;
+    background: url('resources/images/a13.png') no-repeat;
+    overflow: hidden;
+}
+.jssora13l { background-position: -10px -35px; }
+.jssora13r { background-position: -70px -35px; }
+.jssora13l:hover { background-position: -130px -35px; }
+.jssora13r:hover { background-position: -190px -35px; }
+.jssora13l.jssora13ldn { background-position: -250px -35px; }
+.jssora13r.jssora13rdn { background-position: -310px -35px; }
+.jssora13l.jssora13lds { background-position: -10px -35px; opacity: .3; pointer-events: none; }
+.jssora13r.jssora13rds { background-position: -70px -35px; opacity: .3; pointer-events: none; }
+.row {
+    margin-right: -15px;
+    margin-left: 169px;
+}
+h1{
+    font-size: 20px;
+    font-family: sans-serif;
+}
+.promote {
+    width: 1075px;
+    height: 41px;
+    background-color: #3B5998;
+}
+/*text center of ruler*/
+.strike {
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap; 
+}
+
+.strike > h1 {
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.strike > h1:before,
+.strike > h1:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 9999px;
+    height: 1px;
+    background: #333;
+}
+
+.strike > h1:before {
+    right: 100%;
+    margin-right: 15px;
+}
+
+.strike > h1:after {
+    left: 100%;
+    margin-left: 15px;
+}
+.clear{
+    height: 20px;
+    clear: both;
+}
+/*fa icon*/
+.fa {
+    padding: 6px;
+    font-size: 22px;
+    width: 49px;
+    text-decoration: none;
+    margin: -9px 11px -9px -9px;
+    height: 31px;
+    border-radius: 3px;
+}
+.fa-facebook {
+  background: #3B5998;
+  color: #fff;
+}
+.fa-google {
+  background: #dd4b39;
+  color: #fff;
+}
+.fa-phone {
+  background: #ccccff;
+  color: #0000cc;
+}
+.fa-map-marker{
+    background: #333;
+    color:#ff1a1a;
+}
+.tooltip.bottom .tooltip-inner {
+    background-color:#3B5998;
+    font-size: 15px;
+}
+.tooltip.bottom .tooltip-arrow {
+    border-bottom-color:#3B5998;
+    font-size: 15px;
+}
+.socail{
+    text-align: center;
+}
+img.imglogo {
+    width: 140px;
+    height: 101px;
+    margin-top: -14px;
+    margin-left: 25px;
+}
+ul.submenu li a {
+    font-family: arial;
+    font-size: 1.2em;
+    font-size: 14px;
+}
+.caption {
+    position: absolute;
+    top: 65%;
+    left: 10%;
+    width: 100%;
+}
+.image {
+  opacity: 1;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  
+}
+.col-md-4:hover .image {
+  opacity: 0.3;
+}
