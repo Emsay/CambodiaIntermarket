@@ -101,7 +101,7 @@
 
 	   	<div class="clear"></div>
 
-		<div class="strike">
+		<!-- <div class="strike">
 		    <h1>ALL SHOP/ COMPANY</h1>
 		</div>
 
@@ -124,7 +124,7 @@
 	                    </div> 
 					</div>
 		<?php }?>
-		</div>
+		</div> -->
 
 		<div class='clear'></div>
 
