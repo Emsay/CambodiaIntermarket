@@ -2,13 +2,13 @@
 include ("../include/functions.php");
 // Product class is used instead of above four get product by category functions
 class Products {
-    public static function insert($pname,$pprice,$pdis,$total,$pcode,$pcat,$stock,$pimage,$deskh,$desen,$pinfor,$date,$paddress,$pfacebook,$pphone,$pgmail,$plocation){
-        $sql = "INSERT INTO products (pro_name,pro_price,pro_discount,total_price,pro_code,cat_id,pro_stock,pro_image,pro_descriptionKh,pro_descriptionEn,pro_information,address,create_date) values ('{$pname}','{$pprice}','{$pdis}','{$total}','{$pcode}','{$pcat}','{$stock}','{$pimage}','{$deskh}','{$desen}','{$pinfor}','{$paddress}','{$pfacebook}','{$pphone}','{$pgmail}','{$plocation}')";
+    public static function insert($pname,$pprice,$pdis,$total,$pcode,$pcat,$stock,$pimage,$deskh,$desen,$pinfor,$date,$paddress,$pfacebook,$pphone,$pgmail,$plocation,$pdate_discount){
+        $sql = "INSERT INTO products (pro_name,pro_price,pro_discount,total_price,pro_code,cat_id,pro_stock,pro_image,pro_descriptionKh,pro_descriptionEn,pro_information,address,date_dis,create_date) values ('{$pname}','{$pprice}','{$pdis}','{$total}','{$pcode}','{$pcat}','{$stock}','{$pimage}','{$deskh}','{$desen}','{$pinfor}','{$paddress}','{$pfacebook}','{$pphone}','{$pgmail}','{$plocation}','{$pdate_discount}')";
         return runNonQuery($sql);
     }
    
-    public static function edit($id,$pname,$pprice,$pdis,$total,$pcode,$pcat,$stock,$pimage,$deskh,$desen,$pinfor,$paddress,$pfacebook,$pphone,$pgmail,$plocation){
-        $sql = "UPDATE products SET pro_name='$pname',pro_price='$pprice',pro_discount='$pdis',total_price='$total',pro_code='$pcode',cat_id='$pcat',pro_stock='$stock',pro_image='$pimage',pro_descriptionKh='$deskh',pro_descriptionEn='$desen',pro_information='$pinfor',address='$paddress',facebook='$pfacebook',phone='$pphone',gmail='$pgmail',location='$plocation' where pro_id='$id'";
+    public static function edit($id,$pname,$pprice,$pdis,$total,$pcode,$pcat,$stock,$pimage,$deskh,$desen,$pinfor,$paddress,$pfacebook,$pphone,$pgmail,$plocation,$pdate_discount){
+        $sql = "UPDATE products SET pro_name='$pname',pro_price='$pprice',pro_discount='$pdis',total_price='$total',pro_code='$pcode',cat_id='$pcat',pro_stock='$stock',pro_image='$pimage',pro_descriptionKh='$deskh',pro_descriptionEn='$desen',pro_information='$pinfor',address='$paddress',facebook='$pfacebook',phone='$pphone',gmail='$pgmail',location='$plocation',date_dis='$pdate_discount' where pro_id='$id'";
         return runNonQuery($sql);
     }
     //manage products
@@ -85,29 +85,25 @@ class Products {
         return runQuery("SELECT * from color");
     }
     public static function insertCarAndColor($car_id,$color_id,$price){
-        $sql = "INSERT INTO car_color (car_id, color_id, prices) 
-                            values ('{$car_id}','{$color_id}','{$price}')";
+        $sql = "INSERT INTO car_color (car_color_id, color_id, prices) 
+                values ('{$car_id}','{$color_id}','{$price}')";
         return runNonQuery($sql);
     }
     //list car with color
     public static function getCarAndColor(){
-        $mysql = "SELECT car.car_name,
-                   color.colors,
-                   car_color.*
-                FROM car_color
-                INNER JOIN car ON car.id = car_color.car_id
-                INNER JOIN color ON color.id = car_color.color_id";
+        $mysql = "SELECT car.car_name,color.colors,car_color.* FROM car_color
+            INNER JOIN car ON car.id = car_color.id
+            INNER JOIN color ON color.id = car_color.color_id";
         return runQuery($mysql);
     }
     //edit car color while id
     public static function getCarColorId($id){
-           $mysql = "SELECT car.car_name,color.colors,car_color.*
-                    FROM car_color
-                    INNER JOIN car ON car.id = car_color.car_id
-                    INNER JOIN color ON color.id = car_color.color_id 
-                    where car_color.id=".$id;
-            return runQuery($mysql);
-        }
+       $mysql = "SELECT car.car_name,color.colors,car_color.* FROM car_color
+            INNER JOIN car ON car.id = car_color.car_id
+            INNER JOIN color ON color.id = car_color.color_id 
+            where car_color.id=".$id;
+        return runQuery($mysql);
+    }
     //delete car category
     public static function delete($id){
         return runNonQuery("DELETE from car where id=".$id);
@@ -116,5 +112,15 @@ class Products {
     public static function deleted($id){
         return runNonQuery("DELETE from color where color_id=".$id);
     }
+    //manage advertisment
+    public static function getAdv(){
+        $sql = "SELECT * from advertise";
+        return runQuery($sql);
+    }
+    public static function insertadv($image_url,$image){
+        $sql = "INSERT INTO advertise (images_url,images) values ('{$image_url}','{$image}')";
+        return runNonQuery($sql);
+    }
+
 
 }

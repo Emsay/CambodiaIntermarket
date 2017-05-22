@@ -45,7 +45,7 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <div class="col-xs-10">
-                                <label>Car Name</label>
+                                <label>Car Type</label>
                                 <select class="form-control" name="car">
                                     <option value="No Cateogry" style="display:none;">Selects Car</option>
                                     <?php 
@@ -99,7 +99,6 @@
                                             <th>Color</th>
                                             <th>Price</th>
                                             <th>Action</th>
-
                                         </tr>
                                     </thead>
                                     <tbody>

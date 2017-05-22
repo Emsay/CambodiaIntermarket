@@ -7,8 +7,8 @@
 
     if(isset($_POST['post'])){
         $description = $_POST['desc'];
-        $type = basename($_FILES['image']['type']);
-        $image = basename($_FILES['image']['name']);
+        $type = basename($_FILES['images']['type']);
+        $image = basename($_FILES['images']['name']);
         $date = date("Y/m/d H:i:s");
         $yes = 1;
         $location = $_POST['location'];
@@ -17,9 +17,9 @@
             echo "This file not respond because it is not file image.";
             $yes = 0;
         }else{
-            $to = "../uploads/".$_FILES['image']['name'];
+            $to = "../uploads/".$_FILES['images']['name'];
             echo "Hello path :".$to;
-            move_uploaded_file($_FILES['image']['tmp_name'],$to);
+            move_uploaded_file($_FILES['images']['tmp_name'],$to);
             $insert_slide = Products::insertslide($description,$image,$date,$location);
             $postSuceess="You have successfull add slide.";
             $yes=1;
@@ -68,7 +68,7 @@
                         <div class="form-group">
                             <div class="col-xs-10">
                                 <label>Selects Image</label>
-                                <input type='file' name="image" id='uploader' required><br />
+                                <input type='file' name="images" id='uploader' required><br />
                                 <img id='placeholder' style="width:200px;">
                                 <p class="success"><?php echo $postSuceess;?></p>
                             </div>

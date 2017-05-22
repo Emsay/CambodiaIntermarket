@@ -9,6 +9,7 @@
         $pname = $_POST['name'];
         $pprice = $_POST['price'];
         $pdis = $_POST['discount'];
+        $pdate_dis = $_POST['date_discount'];
         $ptotal = $_POST['total'];
         $pcode = $_POST['code'];
         $paddress = $_POST['address'];
@@ -42,7 +43,7 @@
                 $to = "../uploads/".$_FILES['image']['name'];
                 echo "Hello path ".$to;
                 move_uploaded_file($_FILES['image']['tmp_name'],$to);
-                $insert_product = Products::insert($pname,$pprice,$pdis,$ptotal,$pcode,$pcat,$stock,$pimage,$deskh,$desen,$pinfor,$paddress,$pfacebook,$pphone,$pgmail,$plocation);
+                $insert_product = Products::insert($pname,$pprice,$pdis,$ptotal,$pcode,$pcat,$stock,$pimage,$deskh,$desen,$pinfor,$paddress,$pfacebook,$pphone,$pgmail,$plocation,$pdate_dis);
                 $postSuceess="You have successfull post product. <br/><a href='listproducts.php'>Go to ListProduct</a>";
                 $yes=1;
             }
@@ -89,6 +90,12 @@
                             <div class="col-xs-10">
                                 <label>Discount</label>
                                 <input class="form-control" name="discount" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-10">
+                                <label>Date Discount</label>
+                                <input class="form-control" name="date_discount" required>
                             </div>
                         </div>
                         <div class="form-group">

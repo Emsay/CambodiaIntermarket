@@ -22,6 +22,7 @@
             $pgmail = $row['gmail'];
             $plocation = $row['location'];
             $pprice = $row['pro_price'];
+            $pdate_discount = $row['date_dis'];
             $pdis = $row['pro_discount'];
             $ptotal = $row['total_price'];
             $pcode = $row['pro_code'];
@@ -48,6 +49,7 @@
         $plocation = $_POST['location'];
         $pprice = $_POST['price'];
         $pdis = $_POST['discount'];
+        $pdate_discount = $_POST['date_discount'];
         $ptotal = $_POST['total'];
         $pcode = $_POST['code'];
         $pstock = $_POST['stock'];
@@ -61,12 +63,12 @@
         if($pimage){
             $to = "../uploads/".$_FILES['image']['name'];
             move_uploaded_file($_FILES['image']['tmp_name'],$to);
-            $edit_product = Products::edit($id,$pname,$pprice,$pdis,$ptotal,$pcode,$pcat,$pstock,$pimage,$deskh,$desen,$pinfor,$paddress,$pfacebook,$pphone,$pgmail,$plocation);
+            $edit_product = Products::edit($id,$pname,$pprice,$pdis,$ptotal,$pcode,$pcat,$pstock,$pimage,$deskh,$desen,$pinfor,$paddress,$pfacebook,$pphone,$pgmail,$plocation,$pdate_discount);
             header("Location: listproducts.php");
         }else if($_SESSION['img']){
             $to = "../uploads/".$_FILES['image']['name'];
             move_uploaded_file($_FILES['image']['tmp_name'],$to);
-            $edit_product = Products::edit($id,$pname,$pprice,$pdis,$ptotal,$pcode,$pcat,$pstock,$_SESSION['img'],$deskh,$desen,$pinfor,$paddress,$pfacebook,$pphone,$pgmail,
+            $edit_product = Products::edit($id,$pname,$pprice,$pdis,$pdate_discount,$ptotal,$pcode,$pcat,$pstock,$_SESSION['img'],$deskh,$desen,$pinfor,$paddress,$pfacebook,$pphone,$pgmail,
                 $plocation);
             header("Location: listproducts.php");
         }else{
@@ -115,6 +117,12 @@
                             <div class="col-xs-10">
                                 <label>Discount</label>
                                 <input class="form-control" name="discount" value="<?php echo $pdis; ?>" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-10">
+                                <label>Date Discount</label>
+                                <input class="form-control" name="date_discount" value="<?php echo $pdis; ?>" required>
                             </div>
                         </div>
                         <div class="form-group">

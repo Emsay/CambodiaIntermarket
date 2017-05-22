@@ -53,6 +53,30 @@
 		<div class="clear"></div>
 
 		<div class="strike">
+		    <h1>ALL SHOP/ COMPANY DISCOUNT</h1>
+		</div>
+
+		<div class="clear"></div>
+		<div class="col-md-12 col-lg-12">
+		<?php 
+			$Product =  Product::getProducts();
+				foreach ($Product as $sho){
+					?>
+					<div class="col-md-4" style="padding-right:-1px;padding-bottom:25px">
+						<a href="details.php?id=<?php echo $sho['pro_id'];?>">
+							<img class="images" style="" src="../uploads/<?php echo $sho['pro_image'];?>" />
+							<div class="overlay">
+						    	<div class="text"><?php echo 'Discount : '.$sho['pro_discount'].'%'; ?></div>
+						  	</div>
+						</a>
+						
+					</div>
+		<?php }?>
+		</div>
+
+		<div class='clear'></div>
+
+		<div class="strike">
 		    <h1>ALL PRODUCT CATEGORIES</h1>
 		</div>
 
@@ -69,7 +93,6 @@
 						</a>
 						<div class="caption">
 			            	<button type="button" class="btn btn-primary"><?php echo $cat['shop_category'];?></button>
-
 			        	</div>
 					</div>
 				<?php }?>
@@ -100,33 +123,6 @@
 	   	</div>
 
 	   	<div class="clear"></div>
-
-		<!-- <div class="strike">
-		    <h1>ALL SHOP/ COMPANY</h1>
-		</div>
-
-		<div class="clear"></div>
-		<div class="col-md-12 col-lg-12">
-		<?php 
-			$Product =  Product::getProducts();
-				foreach ($Product as $sho){
-					?>
-					<div class="col-md-3" style="padding-right:-1px;padding-bottom:25px">
-						<a href="details.php?id=<?php echo $sho['pro_id'];?>">
-							<img style="height:200px; width:450px;" src="../uploads/<?php echo $sho['pro_image'];?>" />
-						</a>
-						<div class='socail' style="margin-top: 10px;">
-	               			<a href="<?php echo $sho['facebook'];?>" class='fa fa-facebook' data-toggle='tooltip' data-placement='bottom'></a>
-							<a class='fa fa-phone' data-toggle='tooltip' data-placement='bottom' title="<?php echo $sho['phone'];?>"></a>
-							<a class='fa fa-google' data-toggle='tooltip' data-placement='bottom' title="<?php echo $sho['gmail'];?>"></a>
-							<a href="<?php echo $sho['location'];?>" class='fa fa-map-marker' data-toggle='tooltip' data-placement='bottom'></a>
-	                        <div class='clear'></div>
-	                    </div> 
-					</div>
-		<?php }?>
-		</div> -->
-
-		<div class='clear'></div>
 
 		<div class="strike">
 		    <h1>ABOUT US</h1>

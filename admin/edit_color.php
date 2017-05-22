@@ -16,7 +16,7 @@
     if(isset($_POST['submit'])){
         $id = $_GET['id'];
         $col_name = $_POST['name'];
-        $query = Category::updateColorCat($id,$col_name);
+        $query = Category::updateColorCat($id,$colorName);
         if($query){
             header ("location: car_color.php");
         }else{
@@ -59,7 +59,7 @@
                         <div class="form-group">
                             <div class="col-xs-10">
                                 <label>COLOR NAME</label>
-                                <input class="form-control" name="name" value="<?php echo $col_name;?>" required>
+                                <input class="form-control" name="name" value="<?php echo $colorName;?>" required>
                             </div>
                         </div>
                         <div class="form-group">
