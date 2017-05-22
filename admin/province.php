@@ -1,11 +1,11 @@
 <?php
     include ("authorization.php");
-    include ("../models/category.php");
+    include ("../models/admin.php");
     
     if(isset($_POST['submit'])){
-        $car_cate = $_POST['name'];
-        $car_prices = $_POST['prices'];
-        $query = Category::insertCarCate($car_cate,$car_prices);
+        $pcode = $_POST['code'];
+        $pname = $_POST['name'];
+        $query = Products::insertProvince($pcode,$pname);
         if($query){
             echo "";
         }else{
@@ -27,14 +27,14 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">
-                        Manage Car
+                        Manage Province
                     </h1>
                     <ol class="breadcrumb">
                         <li>
                             <i class="fa fa-dashboard"></i>  <a href="index.php">Dashboard</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-table"></i> Manage Car
+                            <i class="fa fa-table"></i> Manage Province
                         </li>
                     </ol>
                 </div>
@@ -44,19 +44,19 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <div class="col-xs-10">
-                                <label>Car Name</label>
+                                <label>Province Code</label>
+                                <input class="form-control" name="code" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-10">
+                                <label>Province Name</label>
                                 <input class="form-control" name="name" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-xs-10">
-                                <label>Price Per Day</label>
-                                <input class="form-control" name="prices" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-xs-10">
-                                <button type="submit" name="submit" class="btn btn-success">SAVE CAR</button>
+                                <button type="submit" name="submit" class="btn btn-success">Submit</button>
                             </div>
                         </div>
                     </div>
@@ -70,24 +70,25 @@
                                     <thead >
                                         <tr>
                                             <th>#</th>
-                                            <th>Car Type</th>
-                                            <th>Price</th>
+                                            <th>Code</th>
+                                            <th>Province</th>
                                             <th>ACTION</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
                                             $i = 1;
-                                            $category =  Category::getCarCat();
-                                                foreach($category as $ca){?>
+                                            $province =  Products::selectProvince();
+                                                foreach($province as $pro){
+                                            ?>
 
                                                 <tr>
                                                     <td scope="row"><?php echo $i;?></td>
-                                                    <td><?php echo $ca['car_name'];?></td>
-                                                    <td>$ <?php echo $ca['prices'];?></td>
+                                                    <td><?php echo $pro['code'];?></td>
+                                                    <td><?php echo $pro['province_name'];?></td>
                                                     <td style="width:13%" >
-                                                        <a href='edit_carcat.php?id=<?php echo $ca['id'];?>' class="btn btn-primary">Edit</a>
-                                                        <a style="z-index:0; margin-left:53px; margin-top:-35px;" href="delete_car.php?id=<?php echo $ca['id'];?>" onclick="return confirm('You want to delete product?')" class="btn btn-danger">Delete</a>
+                                                        <a href='' class="btn btn-primary">Edit</a>
+                                                        <a style="z-index:0; margin-left:53px; margin-top:-35px;" href="" class="btn btn-danger">Delete</a>
                                                     </td>
                                                 </tr>
                                                 

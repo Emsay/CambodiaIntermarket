@@ -149,26 +149,36 @@
         }
 
         //insert car detail
-        public static function insertCarDetail($user_id,$car_id,$province_depart_id,$province_destination_id,$date_departure,$date_destination,$price){
-            $sql = "INSERT INTO rentCarDetail (user_id,car_id,province_depart_id,province_destination_id,date_departure,date_destination,price) 
-                values ('{$user_id}','{$car_id}','{$province_depart_id}','{$province_destination_id}','{$date_departure}','{$date_destination}','{$price}')";
+        public static function insertCarDetail($user_id,$car_id,$province_depart_id,$province_destination_id,$date_departure,$date_destination){
+            $sql = "INSERT INTO rentCarDetail (user_id,car_id,province_depart_id,province_destination_id,date_departure,date_destination) 
+                values ('{$user_id}','{$car_id}','{$province_depart_id}','{$province_destination_id}','{$date_departure}','{$date_destination}')";
             return runNonQuery($sql);
         }
 
         public static function getCarDetail($user_id){
-            // $sql = "SELECT * from rentCarDetail where user_id = ".$user_id;
-            $sql = "SELECT car.car_name,car.prices,province.province_name,rentCarDetail.*
+            $sql = "SELECT car.*,province.province_name,rentCarDetail.*
                     FROM rentCarDetail
                     INNER JOIN car ON car.id = rentCarDetail.car_id
                     INNER JOIN province ON province.id = rentCarDetail.province_destination_id
                     where rentCarDetail.user_id=".$user_id;
             return runQuery($sql);
         }
-        //Car rental
-        // public static function carRentalDetails($id){
-        //     $sql = "SELECT car.car_name, car.car_price, color.colors FROM car_color INNER JOIN car ON car_color.id = car.id INNER JOIN color ON car_color.id = color.id INNER JOIN shop_category WHERE car.shop_cat_id = 8";
-        //     return runQuery($sql);
-        // }
+
+        //register client
+        public static function selectProvince(){
+            $sql = "SELECT * from province ORDER BY id DESC ";
+            return runQuery($sql);
+        }
+
+        public static function selectDistrict(){
+            $sql = "SELECT * from district ORDER BY id DESC ";
+            return runQuery($sql);
+        }
+
+        public static function selectCommune(){
+            $sql = "SELECT * from commune ORDER BY id DESC ";
+            return runQuery($sql);
+        }
 
     }
 ?>
