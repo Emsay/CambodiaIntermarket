@@ -5,19 +5,20 @@
         $user_id=1;
         $car_id = $_POST['car'];
         $departure = $_POST['departure'];
-        $date_depart = $_POST['datedepart'];
         $destination = $_POST['destination'];
+
+        $date_depart = strtotime($_POST['datedepart']);
         $date_des = strtotime($_POST['datedes']);
-        // $date_des = date('Y-m-d', strtotime($_POST['datedes']));
-        $new_date = date('Y-m-d', $date_des);
-        echo $new_date;
-        $price = 10;
-        // $query = Product::insertCarDetail($user_id,$car_id,$departure,$destination,$date_depart,$date_des,$price);
-        // if($query){
-        //     echo "";
-        // }else{
-        //     echo "";
-        // }
+
+        $new_date_depart = date('Y-m-d', $date_depart);
+        $new_date_des = date('Y-m-d', $date_des);
+
+        $query = Product::insertCarDetail($user_id,$car_id,$departure,$destination,$new_date_depart,$new_date_des);
+        if($query){
+            echo "";
+        }else{
+            echo "";
+        }
     }
 ?>
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
@@ -38,18 +39,20 @@
         <div class='col-md-12'><h4 class='title'>Transportation</h4></div>
         <form method='POST' name="form">
             <div class='col-md-8'>
-                <div>
-                    <label>Car Type</label>
-                    <select class="form-control" name="car">
-                        <option value="No Cateogry" style="display:none;">Selects Car</option>
-                        <?php 
-                            $car =  Product::getCarCategory();
-                                foreach($car as $carName){?>
-                                    <option value="<?php echo $carName['id'];?>">
-                                        <?php echo $carName['car_name']; ?>
-                                    </option>
-                        <?php }?>
-                    </select>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label>Car Type</label>
+                        <select class="form-control" name="car">
+                            <option value="No Cateogry" style="display:none;">Selects Car</option>
+                            <?php 
+                                $car =  Product::getCarCategory();
+                                    foreach($car as $carName){?>
+                                        <option value="<?php echo $carName['id'];?>">
+                                            <?php echo $carName['car_name']; ?>
+                                        </option>
+                            <?php }?>
+                        </select>
+                    </div>
                 </div>
                 <div class="form-group">
                     <div class="col-md-6">
@@ -103,26 +106,36 @@
                     <tr>
                         <th>Car Type</th>
                         <th>Go To</th>
-                        <th>Date Departure</th>
-                        <th>Date Destination</th>
-                        <th>Number of Date</th>
-                        <th>Price</th>
+                        <th style="text-align: center;">Date Departure</th>
+                        <th style="text-align: center;">Date Destination</th>
+                        <th style="text-align: center;">Number of Date</th>
+                        <th style="text-align: center;">Price</th>
                     </tr>
                 </thead>
                 <tbody>
                 <?php
                     $u_id = 1;
                     $getCarDetail = Product::getCarDetail($u_id);
-                    $numberdate = 4;
+
                     foreach($getCarDetail as $car){
+
+                        $date_depart = strtotime($car['date_departure']);
+                        $new_date_depart = date('d-M-Y', $date_depart);
+                        $dateDepart = date('d',strtotime($new_date_depart));
+
+                        $date_des = strtotime($car['date_destination']);
+                        $new_date_des = date('d-M-Y', $date_des);
+                        $dateDestina = date('d',strtotime($new_date_des));
+
+                        $totalDate = ($dateDestina-$dateDepart)+1;
                 ?>
                     <tr>
-                        <td><?=$car['car_name']; ?></td>
+                        <td><?php echo $car['car_name']; ?></td>
                         <td><?=$car['province_name']; ?></td>
-                        <td><?=$car['date_departure']; ?></td>
-                        <td><?=$car['date_destination']; ?></td>
-                        <td><?=$numberdate;?></td>
-                        <td><?=$car['prices']*4; ?></td>
+                        <td style="text-align: center;"><?=$new_date_depart; ?></td>
+                        <td style="text-align: center;"><?=$new_date_des; ?></td>
+                        <td style="text-align: center;"><?=$totalDate;?></td>
+                        <td style="text-align: center;"><?=$car['prices']*$totalDate; ?></td>
                     </tr>
                 <?php } ?>
                 </tbody>
