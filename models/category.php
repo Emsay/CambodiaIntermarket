@@ -43,7 +43,7 @@
 	    	return runNonQuery($sql);
 	    }
 	    public static function getCarCat(){
-	        $sql = "SELECT * from car ORDER BY date_time DESC";
+	        $sql = "SELECT * from car ORDER BY id DESC";
 	        return runQuery($sql);
 	    }
 	    

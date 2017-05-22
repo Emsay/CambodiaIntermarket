@@ -1,5 +1,5 @@
 <?php
-	include ("import.php");
+    include ("import.php");
 ?>
 
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -59,13 +59,7 @@
                 <a href="manage_category.php"><i class="fa fa-fw fa-edit"></i> Manage Category</a>
             </li>
             <li>
-                <a href="car_category.php"><i class="fa fa-fw fa-edit"></i> Car Category</a>
-            </li>
-            <li>
-                <a href="car_color.php"><i class="fa fa-fw fa-edit"></i> Car Color</a>
-            </li>
-            <li>
-                <a href="manage_cars.php"><i class="fa fa-fw fa-edit"></i> Manage Car</a>
+                <a href="car_category.php"><i class="fa fa-fw fa-edit"></i>Manage Car</a>
             </li>
             <li>
                 <a href="manage_post.php"><i class="fa fa-fw fa-bar-chart-o"></i> Manage Product</a>
@@ -78,6 +72,15 @@
             </li>
             <li>
                 <a href="send_mail.php"><i class="fa fa-fw fa-table"></i> Send Email</a>
+            </li>
+            <li>
+                <a href="province.php"><i class="fa fa-fw fa-table"></i>Manage Province</a>
+            </li>
+            <li>
+                <a href="district.php"><i class="fa fa-fw fa-table"></i>Manage District</a>
+            </li>
+            <li>
+                <a href="commune.php"><i class="fa fa-fw fa-table"></i>Manage Commune</a>
             </li>
         </ul>
     </div>
