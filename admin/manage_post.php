@@ -17,7 +17,6 @@
         $pphone = $_POST['phone'];
         $pgmail = $_POST['gmail'];
         $plocation = $_POST['location'];
-        $pexpire = $_POST['expire'];
         $type = basename($_FILES['image']['type']);
         $pimage = basename($_FILES['image']['name']);
         $pcat = $_POST['cat'];
@@ -59,14 +58,14 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">
-                        Manage Product
+                        Manage Shop
                     </h1>
                     <ol class="breadcrumb">
                         <li>
                             <i class="fa fa-dashboard"></i>  <a href="index.php">Dashboard</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-table"></i> PostProduct
+                            <i class="fa fa-table"></i> PostShop
                         </li>
                     </ol>
                 </div>
@@ -76,7 +75,7 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <div class="col-xs-10">
-                                <label>Product Name</label>
+                                <label>Shop Name</label>
                                 <input class="form-control" name="name" required>
                             </div>
                         </div>
@@ -100,7 +99,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-xs-10">
-                                <label>Product Code</label>
+                                <label>Shop Code</label>
                                 <input class="form-control" name="code">
                                 <p style="color:red;"><?php echo $codeErr;?></p>
                             </div>

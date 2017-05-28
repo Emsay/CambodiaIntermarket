@@ -45,7 +45,6 @@
         }else{
             $regisErr = "Register not success!";
         }
-
         
     }
 ?>

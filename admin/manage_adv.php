@@ -6,19 +6,20 @@
     $codeErr="";
 
     if(isset($_POST['post'])){
-        $image_url = $_POST['image_url'];
+        $description = $_POST['desc'];
         $type = basename($_FILES['images']['type']);
         $image = basename($_FILES['images']['name']);
-       
+        $yes = 1;
+        
         if($type != "png" && $type != "jpg" && $type != "jpeg"){
             echo "This file not respond because it is not file image.";
             $yes = 0;
         }else{
             $to = "../uploads/".$_FILES['images']['name'];
-            echo "Hello path ".$to;
+            echo "Hello path :".$to;
             move_uploaded_file($_FILES['images']['tmp_name'],$to);
-            $insert_adv = Products::insertadv($image_url,$image);
-            $postSuceess="You have successfull add the advertise.";
+            $insert_adv = Products::insertadv($description,$image);
+            $postSuceess ="You have successfull added Advertise";
             $yes=1;
         }
     }
@@ -32,14 +33,14 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">
-                        Manage Advertisment
+                        Manage Advertise
                     </h1>
                     <ol class="breadcrumb">
                         <li>
                             <i class="fa fa-dashboard"></i>  <a href="index.php">Dashboard</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-table"></i> ManageAdvertisment
+                            <i class="fa fa-table"></i> ManageAdvertise
                         </li>
                     </ol>
                 </div>
@@ -50,7 +51,7 @@
                         <div class="form-group">
                             <div class="col-xs-10">
                                 <label>Image URL</label>
-                                <input class="form-control" name="image_url" required>
+                                <textarea class="form-control" rows="3" name="desc"></textarea>
                             </div>
                         </div>
                         <div class="form-group">
@@ -66,7 +67,7 @@
                         </script>
                         <div class="form-group">
                             <div class="col-xs-10">
-                                <button type="submit" name="post" class="btn btn-success">Save Advertise</button>
+                                <button type="submit" name="post" class="btn btn-success">Submit Post</button>
                             </div>
                         </div>
                     </div>
@@ -86,18 +87,20 @@
                                     </thead>
                                     <tbody>
                                         <?php
-                                            $adv =  Products::getAdv();
-                                                foreach($adv as $ad){?>
+                                            $slides =  Products::getAdv();
+                                                $i=1;
+                                                foreach($slides as $s){?>
+                                                   
                                                 <tr>
-                                                    <td scope="row"><?php echo $ad['adv_id'];?></td>
-                                                    <td><?php echo "<img style='width:100px' src='../uploads/".$ad['images']."'/>"?></td>
-                                                    <td><?php echo $ad['images_url'];?></td>
+                                                    <td scope="row"><?php echo $i ;?></td>
+                                                    <td><?php echo "<img style='width:100px' src='../uploads/".$s['image']."'/>"?></td>
+                                                    <td><?php echo $s['images_url'];?></td>
                                                     <td style="width:13%" >
-                                                        <a style="z-index:0;" href='edite_adv.php?id=<?php echo $ad['adv_id'];?>' class="btn btn-success">Edit</a>
-                                                        <a style="z-index:0;" href="delete_adv.php?id=<?php echo $ad['adv_id'];?>" onclick="return confirm('You want to delete the advertise?')" class="btn btn-danger">Delete</a>
+                                                        <a style="z-index:0;" href='edite_slide.php?id=<?php echo $s['id'];?>' class="btn btn-success">Edit</a>
+                                                        <a style="z-index:0;" href="delete_slide.php?id=<?php echo $s['id'];?>" onclick="return confirm('You want to delete slide?')" class="btn btn-danger">Delete</a>
                                                     </td>
                                                 </tr>
-                                            <?php }?>
+                                            <?php $i++; }?>
                                     </tbody>
                                 </table>
                             </div>

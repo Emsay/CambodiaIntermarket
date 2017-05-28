@@ -113,15 +113,16 @@ class Products {
         return runNonQuery("DELETE from color where color_id=".$id);
     }
     //manage advertisment
-    public static function getAdv(){
-        $sql = "SELECT * from advertise";
-        return runQuery($sql);
-    }
-    public static function insertadv($image_url,$image){
-        $sql = "INSERT INTO advertise (images_url,images) values ('{$image_url}','{$image}')";
+    
+    public static function insertadv($description,$image){
+        $sql = "INSERT INTO advertises (images_url,image) 
+                values ('{$description}','{$image}')";
         return runNonQuery($sql);
     }
-
+    public static function getAdv(){
+        $sql = "SELECT * from advertises";
+        return runQuery($sql);
+    }
 
     //manage province
     public static function insertProvince($code,$province_name){

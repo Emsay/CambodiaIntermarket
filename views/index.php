@@ -36,7 +36,7 @@
 				});
 			</script>
 			<!-- first slide show (home) -->
-		    <div class='slider-wrapper theme-default'>
+		    <!-- <div class='slider-wrapper theme-default'>
 		      	<div id='slider' class='nivoSlider'>
 		      		<?php 
 		      			$ShowSlide=Product::showslide();
@@ -48,7 +48,7 @@
 		      		?>
 
 		      	</div>
-		    </div>
+		    </div> -->
 		</div>
 		<div class="clear"></div>
 
@@ -58,20 +58,23 @@
 
 		<div class="clear"></div>
 		<div class="col-md-12 col-lg-12">
-		<?php 
-			$Product =  Product::getProducts();
-				foreach ($Product as $sho){
-					?>
-					<div class="col-md-4" style="padding-right:-1px;padding-bottom:25px">
-						<a href="details.php?id=<?php echo $sho['pro_id'];?>">
-							<img class="images" style="" src="../uploads/<?php echo $sho['pro_image'];?>" />
-							<div class="overlay">
-						    	<div class="text"><?php echo 'Discount : '.$sho['pro_discount'].'%'; ?></div>
-						  	</div>
-						</a>
-						
-					</div>
-		<?php }?>
+			<?php 
+				$Product =  Product::getProducts();
+					foreach ($Product as $sho){
+						?>
+						<div class="col-md-4" style="padding-right:-1px;padding-bottom:25px">
+							<a href="details.php?id=<?php echo $sho['pro_id'];?>">
+								<img class="images" style="" src="../uploads/<?php echo $sho['pro_image'];?>" />
+								<div class="overlay">
+							    	<div class="text" style="font-weight:bold; font-family:arial; font-size:90%; color: #286090;">
+							    		<?php echo 'Name : '.$sho['pro_name']; ?><br>
+							    		<?php echo 'Discount : '.$sho['pro_discount'].'%'; ?><br>
+							    		<?php echo 'Close date : '.$sho['date_discount']; ?>
+							    	</div>
+							  	</div>
+							</a>
+						</div>
+			<?php }?>
 		</div>
 
 		<div class='clear'></div>
@@ -83,19 +86,19 @@
 		<div class="clear"></div>
 		<!-- manage shop category -->
 		<div class="col-md-12 col-lg-12">
-		<?php 
-			$category =  Product::getShopCategory();
+			<?php 
+				$category =  Product::getShopCategory();
 				foreach ($category as $cat){
 					?>
-					<div class="col-md-4" style="padding-right:-1px;padding-bottom:25px">
-						<a href="list_shop.php?id=<?php echo $cat['shop_cat_id'];?>">
-							<img class="image" style="height:250px;" src="../uploads/<?php echo $cat['images'];?>"/>
-						</a>
-						<div class="caption">
-			            	<button type="button" class="btn btn-primary"><?php echo $cat['shop_category'];?></button>
-			        	</div>
-					</div>
-				<?php }?>
+				<div class="col-md-4" style="padding-right:-1px;padding-bottom:25px">
+					<a href="list_shop.php?id=<?php echo $cat['shop_cat_id'];?>">
+						<img class="image" style="height:250px;" src="../uploads/<?php echo $cat['images'];?>"/>
+					</a>
+					<div class="caption">
+		            	<button type="button" class="btn btn-primary"><?php echo $cat['shop_category'];?></button>
+		        	</div>
+				</div>
+			<?php }?>
 		</div>
 		<!-- manage shop category -->
 		<div class="clear"></div>

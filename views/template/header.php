@@ -58,22 +58,22 @@
             break;
         }
     }
-    if(isset($_SESSION['login_user'])=='Undefined'){
-    	$uid = $_SESSION['uid'];
-		$userID = Product::getIdCart($uid);
-	    $row = mysqli_fetch_array($userID);
-	    if($row){
-	        $cartid = $row['cart_id'];
-	    }
-	    $mycountcart = Product::countCart($cartid);
-	    $count = mysqli_fetch_array($mycountcart);
-	    $countcart=0;
-	    if($count){
-	    	$countcart = $count[0];
-	    }
-    }else{
-    	echo "";
-    }
+  //   if(isset($_SESSION['login_user'])=='Undefined'){
+  //   	$uid = $_SESSION['uid'];
+		// $userID = Product::getIdCart($uid);
+	 //    $row = mysqli_fetch_array($userID);
+	 //    if($row){
+	 //        $cartid = $row['cart_id'];
+	 //    }
+	 //    $mycountcart = Product::countCart($cartid);
+	 //    $count = mysqli_fetch_array($mycountcart);
+	 //    $countcart=0;
+	 //    if($count){
+	 //    	$countcart = $count[0];
+	 //    }
+  //   }else{
+  //   	echo "";
+  //   }
     
 ?>
 <!DOCTYPE html>
@@ -162,12 +162,13 @@
 		<div class="col-md-4 col-xs-12">
 			<ul class="list-inline lang">
 				<li>
-					<a href="..\lang/switch_lang.php?lang=2" style="color:#fff; font-family:'Arial';font-size:14px;margin-left:91px;">English</a> |
-					<a href="..\lang/switch_lang.php?lang=1">ភាសាខ្មែរ</a>
+					<!-- <a href="..\lang/switch_lang.php?lang=2" style="color:#fff; font-family:'Arial';font-size:14px;margin-left:91px;">English</a> |
+					<a href="..\lang/switch_lang.php?lang=1">ភាសាខ្មែរ</a> -->
 				</li>
 				<?php
+
 			    if(isset($_SESSION['login_user'])=='Undefined'){
-					echo "<li>"._t_welcome." ".$_SESSION['login_user']."</li>";
+					echo "<li style='color:#fff; font-family:'Arial';font-size:14px;margin-left:91px;'>"._t_welcome." ".$_SESSION['login_user']."</li>";
 					}else{
 						echo "";
 					}
@@ -175,14 +176,14 @@
 			</ul>
 		</div>
 		<?php
-			$session_items = 0;
-	        $session_like = 0;
-	        if(!empty($_SESSION["cart_item"])){
-	            $session_items = count($_SESSION["cart_item"]);
-	        }
-	        if(!empty($_SESSION["like_item"])){
-	            $session_like = count($_SESSION["like_item"]);
-	        } 
+			// $session_items = 0;
+	  //       $session_like = 0;
+	  //       if(!empty($_SESSION["cart_item"])){
+	  //           $session_items = count($_SESSION["cart_item"]);
+	  //       }
+	  //       if(!empty($_SESSION["like_item"])){
+	  //           $session_like = count($_SESSION["like_item"]);
+	  //       } 
 	    ?>
 		<div class="col-md-4 col-xs-12 threeicon">
 			<div class="col-md-4 col-xs-4 styleicon">
@@ -201,8 +202,8 @@
 						echo '<li><a href="logout.php">'._t_logout.'</a></li>';
 					}else{
 						echo '<li>
-								<a href="login.php"> '._t_login.' |</a>
-								<a href="register.php">'._t_signup.'</a>
+								<a href="login.php"> '._t_login.' |</a>		
+								<a href="register.php">'._t_register.'</a>
 							</li>';
 					}
 				?>
@@ -248,7 +249,7 @@
 			    <div class="col-md-1"></div>
 			    <div class="col-md-2">
 			    	<?php
-						if(isset($_SESSION['login_user'])=='Undefined'){
+						/*if(isset($_SESSION['login_user'])=='Undefined'){
 							echo "<a href='profile.php?id=".$_SESSION['uid']."'>
 						    		<span class='glyphicon glyphicon-user' aria-hidden='true'>
 						    		<b>My Account</b></span>
@@ -258,24 +259,24 @@
 						    		<span class='glyphicon glyphicon-user' aria-hidden='true'>
 						    		<b>My Account</b></span>
 						    	</a>";
-						}
+						}*/
 					?>
 			    </div>
 			    <div class="col-md-2">
 					<?php
-					    if(isset($_SESSION['login_user'])=='Undefined'){
-							echo "<a href='mycart.php'>
-							<span class='cartCount'>".$countcart."</span>
-					    		<span class='glyphicon glyphicon-shopping-cart'>
-					    		<b'>Cart</b></span>
-					    	</a>";
-					    }else{
-					    	echo "<a href='mycart.php'>
-					    	<span class='cartCount'>".$session_items."</span>
-					    		<span class='glyphicon glyphicon-shopping-cart'>
-					    		<b>Cart</b></span>
-					    	</a>";
-					    }
+					  //   if(isset($_SESSION['login_user'])=='Undefined'){
+							// echo "<a href='mycart.php'>
+							// <span class='cartCount'>".$countcart."</span>
+					  //   		<span class='glyphicon glyphicon-shopping-cart'>
+					  //   		<b'>Cart</b></span>
+					  //   	</a>";
+					  //   }else{
+					  //   	echo "<a href='mycart.php'>
+					  //   	<span class='cartCount'>".$session_items."</span>
+					  //   		<span class='glyphicon glyphicon-shopping-cart'>
+					  //   		<b>Cart</b></span>
+					  //   	</a>";
+					  //   }
 					?>
 			    </div>
 		    </div>
@@ -283,115 +284,28 @@
 	 		<div class="clear"></div>
 			<!-- <div class="promote"></div> -->
 	 		<!-- desktop menu -->
-		 	<div class="hidden-xs">
-				<div class="menu">
-		            <ul class="megamenu skyblue">
-		            	<li class="dropdown1">
-						    <a href="woman.php" class="dropbtn"><?php echo _t_phnompenh;?></a>
-						    <div class="dropdown-content">
-							    <ul class="col-md-12 submenu">
-								    <li>
-								    	<a href="w_new.php"><?php echo _t_trip;?></a>
-								      	<a href="cosmetic.php"><?php echo _t_health;?></a>
-								      	<a href="w_perfume.php"><?php echo _t_shoppings;?></a>
-								      	<a href="handbag.php"><?php echo _t_troubleshooting;?></a>
-								      	<a href="w_sunglasses.php"><?php echo _t_food;?></a>
-								      	<a href="w_watch.php"><?php echo _t_cinemaandfootball;?></a>
-								      	<a href="bag.php"><?php echo _t_hostroom;?></a>
-
-								    </li>
-							    </ul>
-						    </div>
-						</li>
-						<li class="dropdown1">
-							<a class="dropbtn" href="#"><?php echo _t_cooporation;?></a>
-							<div class="dropdown-content">
-							    <ul class="col-md-12 submenu">
-								    <li>
-								    	<a href="bag.php"><?php echo _t_backpack;?></a>
-								    </li>
-							    </ul>
-						    </div>
-						</li>
-						<li class="dropdown1">
-							<a class="dropbtn" href="house.php"><?php echo _t_contactus;?></a>
-							<div class="dropdown-content">
-							    <ul class="col-md-12 submenu">
-								    <li>
-								    	<a href=""><?php echo _t_new;?></a>
-								      	<a href="siren.php"><?php echo _t_siren;?></a>
-								    </li>
-							    </ul>
-						    </div>
-						</li>
-						<li class="dropdown1">
-							<a class="dropbtn" href="aboutus.php"><?php echo _t_about;?></a>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div class="hidden-lg hidden-md hidden-sm">
-				<div class="menu">
-		            <ul class="megamenu skyblue">
-		            	<li class="dropdown1">
-						    <a href="#" class="dropbtn"><?php echo _t_woman;?></a>
-						    <div class="dropdown-content">
-							    <ul class="col-md-12 submenu">
-								    <li>
-								    	<a href="w_new.php"><?php echo _t_new;?></a>
-								      	<a href="cosmetic.php"><?php echo _t_cosmetic;?></a>
-								      	<a href="w_perfume.php"><?php echo _t_perfume;?></a>
-								      	<a href="handbag.php"><?php echo _t_bag;?></a>
-								      	<a href="w_sunglasses.php"><?php echo _t_wsunglasses;?></a>
-								      	<a href="w_watch.php"><?php echo _t_watch;?></a>
-								      	<a href="bag.php"><?php echo _t_backpack;?></a>
-
-								    </li>
-							    </ul>
-						    </div>
-						</li>
-						<li class="dropdown1">
-							<a class="dropbtn" href="#"><?php echo _t_man;?></a>
-							<div class="dropdown-content">
-							    <ul class="col-md-12 submenu">
-								    <li>
-								    	<a href="m_new.php"><?php echo _t_new;?></a>
-								    	<a href="belt.php"><?php echo _t_belt; ?></a>
-								      	<a href="m_sunglasses.php"><?php echo _t_msunglasses;?></a>
-								      	<a href="m_watch.php"><?php echo _t_watch;?></a>
-								      	<a href="m_perfume.php"><?php echo _t_perfume;?></a>
-								      	<a href="bag.php"><?php echo _t_backpack;?></a>
-								    </li>
-							    </ul>
-						    </div>
-						</li>	
-						<li class="dropdown1">
-							<a class="dropbtn" href="#"><?php echo _t_child;?></a>
-							<div class="dropdown-content">
-							    <ul class="col-md-12 submenu">
-								    <li>
-								    	<a href="bag.php"><?php echo _t_backpack;?></a>
-								    </li>
-							    </ul>
-						    </div>
-						</li>
-						<li class="dropdown1">
-							<a class="dropbtn" href="#"><?php echo _t_contactus;?></a>
-							<div class="dropdown-content">
-							    <ul class="col-md-12 submenu">
-								    <li>
-								    	<a href="h_new.php"><?php echo _t_new;?></a>
-								      	<a href="siren.php"><?php echo _t_siren;?></a>
-								    </li>
-							    </ul>
-						    </div>
-						</li>
-						<li class="dropdown1">
-							<a class="dropbtn" href="aboutus.php"><?php echo _t_about;?></a>
-						</li>
-					</ul>
-				</div>
-			</div>
+			<div class="menu">
+	            <ul class="megamenu skyblue">
+	            	<li class="dropdown1">
+					    <a href="woman.php" class=""><?php echo _t_trip;?></a>
+					</li>
+					<li class="dropdown1">
+					    <a href="woman.php" class=""><?php echo _t_shoppings;?></a>
+					</li>
+					<li class="dropdown1">
+					    <a href="woman.php" class=""><?php echo _t_troubleshooting;?></a>
+					</li>
+					<li class="dropdown1">
+					    <a href="woman.php" class=""><?php echo _t_food;?></a>
+					</li>
+					<li class="dropdown1">
+					    <a href="woman.php" class=""><?php echo _t_cinemaandfootball;?></a>
+					</li>
+					<li class="dropdown1">
+					    <a href="woman.php" class=""><?php echo _t_hostroom;?></a>
+					</li>
+				</ul>
+			</div>	
     <div class="clear"></div>
     </div>
 </div>

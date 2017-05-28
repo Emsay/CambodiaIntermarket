@@ -259,6 +259,7 @@ ul.submenu li a {
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
+  border:5px sold block;
 }
 .images {
   display: block;
@@ -277,9 +278,13 @@ ul.submenu li a {
   opacity: 0;
   transition: .5s ease;
   background-color: #fff;
+  border: 1px solid lightgray;
 }
 
 .col-md-4:hover .overlay {
   opacity: 0.9;
 }
 /*end*/
+.menu{
+  text-align: center;
+}

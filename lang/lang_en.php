@@ -29,7 +29,7 @@
 	define("_t_order","Free shipping order");
 	define("_t_title", "Cambodia Intermarket");
 	define("_t_aboutcim", "Cambodia Intermarket is a leading online shopping offering a huge range of product from fashion to cosmetic. With Cambodia intermarket you can shop for brand bag, sunglasses to skin care product, cosmetic and perfume originally shipped direct from France. Our goal is to change your online shopping experience with our best quality product, stunning price, fast delivery and dedicated professional service.");
-	define("_t_register", "You are new costomers, so need to be register with us. If you want to know more about our product, you can chat with us, we will guide with the quality product from France. Make new account with us today.");
+	define("_t_register", "Sign Up");
 	define("_t_france", "France");
 	define("_t_cambodia", "Cambodia");
 	define("_t_phone", "Phone");

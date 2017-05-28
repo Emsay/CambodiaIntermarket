@@ -127,6 +127,10 @@
             $sql = "SELECT * from slides where location=1 ORDER BY date_add DESC LIMIT 5";
             return runQuery($sql);
         }
+        //advertise backgrouund
+        public static function advs(){
+            $sqp = "SELECT * from advertise DESC LIMIT 1";
+        }
         public static function getShopCategory(){
             $sql = "SELECT shop.*, shop_category.shop_category from shop 
                     INNER join shop_category 
@@ -149,7 +153,8 @@
         }
 
         //insert car detail
-        public static function insertCarDetail($user_id,$car_id,$province_depart_id,$province_destination_id,$date_departure,$date_destination){
+        public static function insertCarDetail($user_id,$car_id,$province_depart_id,$province_destination_id
+            ,$date_departure,$date_destination){
             $sql = "INSERT INTO rentCarDetail (user_id,car_id,province_depart_id,province_destination_id,date_departure,date_destination) 
                 values ('{$user_id}','{$car_id}','{$province_depart_id}','{$province_destination_id}','{$date_departure}','{$date_destination}')";
             return runNonQuery($sql);

@@ -26,16 +26,16 @@
     transition: all 0.3s ease-in-out;
 }
 .dropdown1:hover .dropbtn {
-    background: #000;
-    color: #fff;
+    /*background: #000;
+    color: #fff;*/
     /*font-weight: bold;*/
 }
-li a, .dropbtn {
+/*li a, .dropbtn {
     display: inline-block;
     color: white;
     text-align: center;
     text-decoration: none;
-}
+}*/
 
 /*drop donw menu*/
 .submenu li a {
@@ -75,9 +75,9 @@ li a, .dropbtn {
 }
 
 .dropdown1:hover .dropdown-content {
-    display: block;
+   /* display: block;
     width: 100%;
-    border-top: 1px solid #000;
+    border-top: 1px solid #000;*/
 }
 .submenu{
 	/*margin: 5px 0 10px 0;*/
