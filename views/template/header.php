@@ -287,25 +287,26 @@
 			<div class="menu">
 	            <ul class="megamenu skyblue">
 	            	<li class="dropdown1">
-					    <a href="woman.php" class=""><?php echo _t_trip;?></a>
+					    <a href="woman.php" class="dropbtn"><?php echo _t_trip;?></a>
 					</li>
 					<li class="dropdown1">
-					    <a href="woman.php" class=""><?php echo _t_shoppings;?></a>
+					    <a href="woman.php" class="dropbtn"><?php echo _t_shoppings;?></a>
 					</li>
 					<li class="dropdown1">
-					    <a href="woman.php" class=""><?php echo _t_troubleshooting;?></a>
+					    <a href="woman.php" class="dropbtn"><?php echo _t_troubleshooting;?></a>
 					</li>
 					<li class="dropdown1">
-					    <a href="woman.php" class=""><?php echo _t_food;?></a>
+					    <a href="woman.php" class="dropbtn"><?php echo _t_food;?></a>
 					</li>
 					<li class="dropdown1">
-					    <a href="woman.php" class=""><?php echo _t_cinemaandfootball;?></a>
+					    <a href="woman.php" class="dropbtn"><?php echo _t_cinemaandfootball;?></a>
 					</li>
 					<li class="dropdown1">
-					    <a href="woman.php" class=""><?php echo _t_hostroom;?></a>
+					    <a href="woman.php" class="dropbtn"><?php echo _t_hostroom;?></a>
 					</li>
 				</ul>
-			</div>	
+			</div>
+			
     <div class="clear"></div>
     </div>
 </div>
