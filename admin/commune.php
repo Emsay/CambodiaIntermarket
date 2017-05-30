@@ -52,7 +52,7 @@
                                     <?php 
                                         $District =  Products::selectDistrict();
                                             foreach($District as $name){?>
-                                                <option value="<?php echo $name['code'];?>">
+                                                <option value="<?php echo $name['id'];?>">
                                                     <?php echo $name['district_name']; ?>
                                                 </option>
                                     <?php }?>
@@ -101,8 +101,8 @@
 
                                                 <tr>
                                                     <td scope="row"><?php echo $i;?></td>
-                                                    <td><?php echo $com['code'];?></td>
-                                                    <td><?php echo $com['commune_name'];?></td>
+                                                    <td><?php echo $com['commune_code'];?></td>
+                                                    <td><?php echo $com['communes_name'];?></td>
                                                     <td style="width:13%" >
                                                         <a href='' class="btn btn-primary">Edit</a>
                                                         <a style="z-index:0; margin-left:53px; margin-top:-35px;" href=""class="btn btn-danger">Delete</a>

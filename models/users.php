@@ -8,7 +8,7 @@
         }
 
         public static function insert($name,$company_name,$address,$email,$password,$phone,$role,$date_time){
-            $sql = "INSERT INTO users (name,company_name,address,email,password,phone_number,role,date_time) values ('{$name}','{$company_name}','{$address}','{$email}','{$password}','{$phone}','{$role}','{$date_time}')";
+            $sql = "INSERT INTO users (name,company_name,address,email,password,phone_number,role,date_add_data) values ('{$name}','{$company_name}','{$address}','{$email}','{$password}','{$phone}','{$role}','{$date_time}')";
             return runNonQuery($sql);
         }
         public static function ValidateEmail($email) {
@@ -38,6 +38,12 @@
         }
         public static function insertcart($userid){
             $sql = "INSERT INTO carts (userid) values ('{$userid}')";
+            return runNonQuery($sql);
+        }
+
+        public static function insertUserClient($name,$email,$pro,$dis,$com,$date_time){
+            $sql = "INSERT INTO users (name,email,address,date_add_data)
+                        values ('{$name}','{$email}','{{$pro},{$dis},{$com}}','{$date_time}')";
             return runNonQuery($sql);
         }
     }

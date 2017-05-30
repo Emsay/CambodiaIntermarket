@@ -84,7 +84,7 @@
 
                                                 <tr>
                                                     <td scope="row"><?php echo $i;?></td>
-                                                    <td><?php echo $pro['code'];?></td>
+                                                    <td><?php echo $pro['province_code'];?></td>
                                                     <td><?php echo $pro['province_name'];?></td>
                                                     <td style="width:13%" >
                                                         <a href='' class="btn btn-primary">Edit</a>
