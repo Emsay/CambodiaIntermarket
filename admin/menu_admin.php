@@ -50,32 +50,21 @@
                 <a href="index.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
             </li>
             <li>
-                <a href="shop_category.php"><i class="fa fa-fw fa-bar-chart-o"></i> Shop Category</a>
+                <a href="shop_category.php"><i class="fa fa-fw fa-bar-chart-o"></i> Category of product</a>
             </li>
             <li>
-                <a href="manage_shop.php"><i class="fa fa-fw fa-bar-chart-o"></i> Manage Shop</a>
+                <a href="manage_shop.php"><i class="fa fa-fw fa-bar-chart-o"></i> Manage Shop Categories</a>
             </li>
+
             <li>
-                <a href="manage_category.php"><i class="fa fa-fw fa-edit"></i> Manage Category</a>
+                <a href="manage_post.php"><i class="fa fa-fw fa-bar-chart-o"></i> Manage Product Discount</a>
             </li>
             <li>
                 <a href="car_category.php"><i class="fa fa-fw fa-edit"></i>Manage Car</a>
             </li>
-            <li>
-                <a href="manage_post.php"><i class="fa fa-fw fa-bar-chart-o"></i> Manage Product</a>
-            </li>
-            <li>
+            <!-- <li>
                 <a href="listproducts.php"><i class="fa fa-fw fa-table"></i> List Products</a>
-            </li>
-            <li>
-                <a href="manage_slide.php"><i class="fa fa-fw fa-table"></i> Manage SlideShow</a>
-            </li>
-            <li>
-                <a href="manage_adv.php"><i class="fa fa-fw fa-table"></i> Manage Advertise</a>
-            </li>
-            <li>
-                <a href="send_mail.php"><i class="fa fa-fw fa-table"></i> Send Email</a>
-            </li>
+            </li> -->   
             <li>
                 <a href="province.php"><i class="fa fa-fw fa-table"></i>Manage Province</a>
             </li>
@@ -84,6 +73,15 @@
             </li>
             <li>
                 <a href="commune.php"><i class="fa fa-fw fa-table"></i>Manage Commune</a>
+            </li>
+             <li>
+                <a href="manage_slide.php"><i class="fa fa-fw fa-table"></i> Manage SlideShow</a>
+            </li>
+            <li>
+                <a href="manage_adv.php"><i class="fa fa-fw fa-table"></i> Manage Advertise</a>
+            </li>
+             <li>
+                <a href="send_mail.php"><i class="fa fa-fw fa-table"></i> Send Email</a>
             </li>
         </ul>
     </div>

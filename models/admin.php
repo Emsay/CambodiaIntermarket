@@ -2,8 +2,10 @@
 include ("../include/functions.php");
 // Product class is used instead of above four get product by category functions
 class Products {
-    public static function insert($pname,$pprice,$pdis,$total,$pcode,$pcat,$stock,$pimage,$deskh,$desen,$pinfor,$date,$paddress,$pfacebook,$pphone,$pgmail,$plocation,$pdate_discount){
-        $sql = "INSERT INTO products (pro_name,pro_price,pro_discount,total_price,pro_code,cat_id,pro_stock,pro_image,pro_descriptionKh,pro_descriptionEn,pro_information,address,date_dis,create_date) values ('{$pname}','{$pprice}','{$pdis}','{$total}','{$pcode}','{$pcat}','{$stock}','{$pimage}','{$deskh}','{$desen}','{$pinfor}','{$paddress}','{$pfacebook}','{$pphone}','{$pgmail}','{$plocation}','{$pdate_discount}')";
+    public static function insert($pname,$pdis,$pimage,$pdate,$paddress,$pfacebook,$pphone,$pgmail,
+            $date_discount){
+        $sql = "INSERT INTO products (pro_name,pro_discount,pro_image,create_date,address,facebook,phone,gmail,date_discount) values ('{$pname}','{$pdis}','{$pimage}','{$pdate}','{$paddress}','{$pfacebook}','{$pphone}','{$pgmail}',
+            '{$date_discount}')";
         return runNonQuery($sql);
     }
    
@@ -30,16 +32,16 @@ class Products {
     public static function getCategoryId($id){
         return runQuery("SELECT * from category where cat_id=".$id);
     }
-    public static function checkCode($pcode){
-        $select_code = "SELECT pro_code from products where pro_code = '".$pcode."'";
-        $query = runQuery($select_code);        
-        $a = mysqli_num_rows($query);
-        while($row = mysqli_fetch_array($query)){
-            if($row['pro_code'] == $pcode){
-                return "already";
-            }
-        }
-    }
+    // public static function checkCode($pcode){
+    //     $select_code = "SELECT pro_code from products where pro_code = '".$pcode."'";
+    //     $query = runQuery($select_code);        
+    //     $a = mysqli_num_rows($query);
+    //     while($row = mysqli_fetch_array($query)){
+    //         if($row['pro_code'] == $pcode){
+    //             return "already";
+    //         }
+    //     }
+    // }
     ///////////////////////////////////////////////////////////////////////////////////////////
 
     //manage slideshow

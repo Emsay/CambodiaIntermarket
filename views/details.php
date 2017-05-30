@@ -9,37 +9,37 @@
     $db_handle = new DBController();
     
     $id = $_GET['id'];
-    $product =  Product::listShop($id);
+    $product =  Product::getProducts($id);
     $row = mysqli_fetch_array($product);
     if($row){
-        $pname = $row['shop_name'];
-        $total = $row['total_price'];
-        $pimage = $row['images'];
-        $stock = $row['pro_stock'];
-        $deskh = $row['pro_descriptionKh'];
-        $desen = $row['pro_descriptionEn'];
-        $pinfor = $row['pro_information'];
+        $pname = $row['pro_name'];
+        $disc = $row['pro_discount'];
+        $pimage = $row['pro_image'];
+        $pdate = $row['date_discount'];
+        $paddress = $row['address'];
+        $pface = $row['facebook'];
+        $pphone = $row['phone'];
     }
 
-    if(isset($_SESSION['login_user'])=='Undefined'){
-        if(!empty($_GET["action"])) {
-            switch($_GET["action"]) {
-                case "add":
-                    if(!empty($_POST["quantity"])) {
-                        $quantity = $_POST["quantity"];
-                        $userid = $_SESSION['uid'];
-                        $cart = Product::getcartID($userid);
-                        $row = mysqli_fetch_array($cart);
-                        if($row){
-                            $cartid = $row['cart_id'];
-                        }
-                        $insertPro_cart = Product::insertpro_cart($cartid,$id,$quantity);
+    // if(isset($_SESSION['login_user'])=='Undefined'){
+    //     if(!empty($_GET["action"])) {
+    //         switch($_GET["action"]) {
+    //             case "add":
+    //                 if(!empty($_POST["quantity"])) {
+    //                     $quantity = $_POST["quantity"];
+    //                     $userid = $_SESSION['uid'];
+    //                     $cart = Product::getcartID($userid);
+    //                     $row = mysqli_fetch_array($cart);
+    //                     if($row){
+    //                         $cartid = $row['cart_id'];
+    //                     }
+    //                     $insertPro_cart = Product::insertpro_cart($cartid,$id,$quantity);
                         
-                    }
-                break;
-            }
-        }
-    }
+    //                 }
+    //             break;
+    //         }
+    //     }
+    // }
 
     $select = "select * from products where pro_id = ".$id;
     $query = mysqli_query($db,$select);
@@ -47,9 +47,9 @@
     if($numrow>0){
         while($row = $query->fetch_object()){;
             if($_SESSION['lang']==1){
-                $disc=$row->pro_descriptionKh;
+                // $disc=$row->pro_descriptionKh;
             }else if($_SESSION['lang']==2){
-                $disc=$row->pro_descriptionEn;
+                //$disc=$row->pro_descriptionEn;
             }
         }
     }
@@ -103,10 +103,12 @@
                     </div>
                     <div class='desc1 span_3_of_2'>
                         <h3 class='m_3 p_title'><?php echo $pname;?><h3>
-                        <p class='m_5'><?php echo _t_total; echo $total;?></p>
-                        <p class="m_5 stockanimation"><?php echo $stock;?></p><br/>
-                        <input type="number" class="qty" name="quantity" value="1"><br/><br/>
-                        <a href="#toogle"><?php echo _t_readmore;?></a>
+                        <p class='m_5' style="color:red;">Discount : <?php echo $disc;?>%</p>
+                        <p class='m_5' style="color:red;">Close Date : <?php echo $pdate;?></p><br>
+                        <p class='m_3'>Contact for more information</p>
+                        <p class='m_5'>Address : <?php echo $paddress;?></p>
+                        <p class='m_5'>Facebook :<?php echo '<a href="' . $pface . '">Click for detial...</a>';?></p>
+                        <p class='m_5'>Tel Contact : 0<?php echo $pphone;?></p>
                         <p>
                             <button type="submit" class="black" name="basket">
                                 <?php echo _t_addbasket;?>
@@ -116,7 +118,7 @@
                     <!-- <div class="clearfix"></div> -->
                 </div>
             </form>
-            <form method="post" action="details.php?action=like&code=<?php echo $_GET["code"]; ?>&id=<?php echo $_GET['id']; ?>">
+         <!--    <form method="post" action="details.php?action=like&code=<?php echo $_GET["code"]; ?>&id=<?php echo $_GET['id']; ?>">
                 <a href=''>
                     <img class='etalage_thumb_image hidden' src='../uploads/<?php echo $pimage;?>' class='img-responsive'/>
                 </a>
@@ -128,9 +130,9 @@
                         <span name='heart' class="glyphicon glyphicon-heart heartdetail" aria-hidden="true"></span>
                     </button>
                 </a>
-            </form>
+            </form> -->
             
-            <div class="clearfix"></div>
+            <!-- <div class="clearfix"></div>
             <div class="col-lg-12" id='toogle'>
                 <div style="height:120px"></div>
             </div>
@@ -148,8 +150,8 @@
             </div>
             <div class="col-lg-12">
                 <div style="height:50px"></div>
-            </div>
-            <div class="col-lg-12">
+            </div> -->
+           <!--  <div class="col-lg-12">
                 <div class="col-lg-4">
                     <ul class="f-list">
                         <li>
@@ -178,7 +180,7 @@
                     </ul>
                 </div>
                 <div class="clear"></div>
-            </div>
+            </div> -->
         </div>
     </div>
     <div class="col-lg-12">

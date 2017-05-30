@@ -9,73 +9,15 @@
         public static function getProductImage($id){
             return runQuery("SELECT * FROM products WHERE pro_id = ".$id);
         }
-
-        public static function getMsunglass(){
-            return runQuery("SELECT * FROM products WHERE cat_id = 1");
-        }
-         public static function getWsunglass(){
-            return runQuery("SELECT * FROM products WHERE cat_id = 14");
-        }
-
-        public static function getMwatch(){
-            return runQuery("SELECT * FROM products WHERE cat_id = 2");
-        }
-
-        public static function getWwatch(){
-            return runQuery("SELECT * FROM products WHERE cat_id = 3");
-        }
-
-        public static function getCosmetic(){
-            return runQuery("SELECT * FROM products WHERE cat_id = 4");
-        }
-
-        public static function getHandbag(){
-            return runQuery("SELECT * FROM products WHERE cat_id = 5");
-        }
-
-        public static function getWperfume(){
-            return runQuery("SELECT * FROM products WHERE cat_id = 6");
-        }
-
-        public static function getMperfume(){
-            return runQuery("SELECT * FROM products WHERE cat_id = 7");
-        }
-
-        public static function getSiren(){
-            return runQuery("SELECT * FROM products WHERE cat_id = 8");
-        }
-        public static function getBelt(){
-            return runQuery("SELECT * FROM products WHERE cat_id = 9");
-        }
-        public static function getBag(){
-            return runQuery("SELECT * FROM products WHERE cat_id = 10");
-        }
-        public static function getWallet(){
-            return runQuery("SELECT * FROM products WHERE cat_id = 13");
-        }
-        public static function getSportbag(){
-            return runQuery("SELECT * FROM products WHERE cat_id = 11");
-        }
-        
-        public static function getMnew(){
-            return runQuery("SELECT * FROM products WHERE cat_id IN ('1','7','9','2') ORDER BY create_date DESC");
-        }
-         public static function getMan(){
-            return runQuery("SELECT * FROM products WHERE cat_id IN ('1','7','9','2') ORDER BY cat_id");
-        }
-        public static function getWnew(){
-            return runQuery("SELECT * FROM products WHERE cat_id IN ('6','5','4','3','1') ORDER BY create_date DESC");
-        }
-        public static function getWoman(){
-            return runQuery("SELECT * FROM products WHERE cat_id IN ('6','5','4','3','1') ORDER BY cat_id");
-        }
-        public static function getHouse(){
-            return runQuery("SELECT * FROM products WHERE cat_id IN ('8') ORDER BY cat_id");
-        }
-        public static function getHnew(){
-            return runQuery("SELECT * FROM products WHERE cat_id IN ('8') ORDER BY create_date DESC");
-        }
-
+        // public static function getWoman(){
+        //     return runQuery("SELECT * FROM products WHERE cat_id IN ('6','5','4','3','1') ORDER BY cat_id");
+        // }
+        // public static function getHouse(){
+        //     return runQuery("SELECT * FROM products WHERE cat_id IN ('8') ORDER BY cat_id");
+        // }
+        // public static function getHnew(){
+        //     return runQuery("SELECT * FROM products WHERE cat_id IN ('8') ORDER BY create_date DESC");
+        // }
 
         public static function getSearch($result){
             $sql = "SELECT * FROM products WHERE pro_name LIKE '%".$result."%' or pro_price LIKE '%".$result."%'";

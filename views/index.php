@@ -64,12 +64,12 @@
 						?>
 						<div class="col-md-4" style="padding-right:-1px;padding-bottom:25px">
 							<a href="details.php?id=<?php echo $sho['pro_id'];?>">
-								<img class="images" style="" src="../uploads/<?php echo $sho['pro_image'];?>" />
+								<img class="images" style="height: 300px;" src="../uploads/<?php echo $sho['pro_image'];?>" />
 								<div class="overlay">
 							    	<div class="text" style="font-weight:bold; font-family:arial; font-size:90%; color: #286090;">
 							    		<?php echo 'Name : '.$sho['pro_name']; ?><br>
 							    		<?php echo 'Discount : '.$sho['pro_discount'].'%'; ?><br>
-							    		<?php echo 'Close date : '.$sho['date_discount']; ?>
+							    		<?php echo 'Close : '.$sho['date_discount']; ?>
 							    	</div>
 							  	</div>
 							</a>

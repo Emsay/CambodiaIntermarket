@@ -342,6 +342,7 @@ li a, .dropbtn {
 .skyblue li>a,
 .skyblue>li.showhide span {
     color: #000;
+    float: inherit;
 }
 
 .skyblue>li:hover>a,

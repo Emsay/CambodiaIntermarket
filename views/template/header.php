@@ -161,18 +161,39 @@
 	<div class="header-top col-md-12 col-xs-12">
 		<div class="col-md-4 col-xs-12">
 			<ul class="list-inline lang">
-				<li>
-					<!-- <a href="..\lang/switch_lang.php?lang=2" style="color:#fff; font-family:'Arial';font-size:14px;margin-left:91px;">English</a> |
-					<a href="..\lang/switch_lang.php?lang=1">ភាសាខ្មែរ</a> -->
-				</li>
+				<!-- <a href="..\lang/switch_lang.php?lang=2" style="color:#fff; font-family:'Arial';font-size:14px;margin-left:91px;">English</a> |
+				<a href="..\lang/switch_lang.php?lang=1">ភាសាខ្មែរ</a> -->
+				<div class="col-md-3">
+					<a href="index.php">
+						<img src="resources/images/logo.png" alt="" class="imglogo" />
+					</a>
+				</div>
+				<div class="col-md-9">
 				<?php
-
+						if(!isset($_POST['search'])){
+						    $searchname = "";
+						} else {
+						    $searchname = $_POST['search'];
+						}  
+					?>
+			 		<form class="navbar-form" role="search" method="post" action="search.php">
+				        <div class="input-group">
+				            <input type="text" class="form-control" placeholder="<?php echo _t_search;?>" name="search" style="height: 35px; width: 225px;font-size: 14px;" value="<?= $searchname ?>">
+				            <div class="input-group-btn">
+				                <button class="btn btn-default" type="submit" id="submit" name="submit" style="height:35px; background: #3b5998;color:#fff;margin-top:0px;">
+				                	<i class="glyphicon glyphicon-search"></i>
+				                </button>
+				            </div>
+				        </div>
+				    </form>
+				</div>
+				<!-- <?php
 			    if(isset($_SESSION['login_user'])=='Undefined'){
 					echo "<li style='color:#fff; font-family:'Arial';font-size:14px;margin-left:91px;'>"._t_welcome." ".$_SESSION['login_user']."</li>";
 					}else{
 						echo "";
 					}
-				?>
+				?> -->
 			</ul>
 		</div>
 		<?php
@@ -195,7 +216,7 @@
 		    	</a> -->
 			</div>
 		</div>
-		<div class="col-offset-2 col-md-2 col-xs-12">
+		<div class="col-offset-2 col-md-2 col-xs-9">
 			<ul class="list-inline loginheader">
 				<?php
 					if(isset($_SESSION['login_user'])=='Undefined'){
@@ -222,13 +243,13 @@
 	<div class="header-bottom">
 	    <div class="wrap">
 		    <div class="col-md-12 headerStyle">
-			    <div class="col-md-3">
+			    <!-- <div class="col-md-3">
 			    	<a href="index.php">
 						<img src="resources/images/logo.png" alt="" class="imglogo" />
 					</a>
-			    </div>
+			    </div> -->
 			    <div class="col-md-4">
-			    	<?php
+			    	<!-- <?php
 						if(!isset($_POST['search'])){
 						    $searchname = "";
 						} else {
@@ -244,7 +265,7 @@
 				                </button>
 				            </div>
 				        </div>
-				    </form>
+				    </form> -->
 			    </div>
 			    <div class="col-md-1"></div>
 			    <div class="col-md-2">
@@ -280,7 +301,7 @@
 					?>
 			    </div>
 		    </div>
-		    <hr style="border:1px solid #eee;">
+		    <!-- <hr style="border:1px solid #eee;"> -->
 	 		<div class="clear"></div>
 			<!-- <div class="promote"></div> -->
 	 		<!-- desktop menu -->

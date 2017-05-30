@@ -7,45 +7,36 @@
 
     if(isset($_POST['post'])){
         $pname = $_POST['name'];
-        $pprice = $_POST['price'];
         $pdis = $_POST['discount'];
-        $pdate_dis = $_POST['date_discount'];
-        $ptotal = $_POST['total'];
-        $pcode = $_POST['code'];
+        $pdate_discount = strtotime($_POST['datedisc']);
         $paddress = $_POST['address'];
         $pfacebook = $_POST['facebook'];
         $pphone = $_POST['phone'];
         $pgmail = $_POST['gmail'];
-        $plocation = $_POST['location'];
         $type = basename($_FILES['image']['type']);
         $pimage = basename($_FILES['image']['name']);
-        $pcat = $_POST['cat'];
-        $deskh = $_POST['desKh'];
-        $desen = $_POST['desEn'];
-        $pinfor = $_POST['desInfo'];
-        $stock = $_POST['stock'];
         $date = date("Y/m/d H:i:s");
         $yes = 1;
-        
-        $checkCode = Products::checkCode($pcode);
-        if($checkCode=='already'){
-            $codeErr = "Product Code has already added.";
-        }else{
-            echo "";
-        }
+
+        $new_date_discount = date('Y-m-d', $pdate_discount);
+        // $checkCode = Products::checkCode($pcode);
+        // if($checkCode=='already'){
+        //     $codeErr = "Product Code has already added.";
+        // }else{
+        //     echo "";
+        // }
 
         if($type != "png" && $type != "jpg" && $type != "jpeg"){
             echo "This file not respond because it is not file image.";
             $yes = 0;
         }else{
-            if($checkCode!='already'){
-                $to = "../uploads/".$_FILES['image']['name'];
-                echo "Hello path ".$to;
-                move_uploaded_file($_FILES['image']['tmp_name'],$to);
-                $insert_product = Products::insert($pname,$pprice,$pdis,$ptotal,$pcode,$pcat,$stock,$pimage,$deskh,$desen,$pinfor,$paddress,$pfacebook,$pphone,$pgmail,$plocation,$pdate_dis);
-                $postSuceess="You have successfull post product. <br/><a href='listproducts.php'>Go to ListProduct</a>";
-                $yes=1;
-            }
+            $to = "../uploads/".$_FILES['image']['name'];
+            echo "Hello path ".$to;
+            move_uploaded_file($_FILES['image']['tmp_name'],$to);
+            $insert_product = Products::insert($pname,$pdis,$pimage,$date,$paddress,$pfacebook,$pphone,$pgmail,
+            $new_date_discount);
+            $postSuceess="You have successfull post product.";
+            $yes=1;
         }
     }
 ?>
@@ -58,14 +49,14 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">
-                        Manage Shop
+                        Manage Product Discount
                     </h1>
                     <ol class="breadcrumb">
                         <li>
                             <i class="fa fa-dashboard"></i>  <a href="index.php">Dashboard</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-table"></i> PostShop
+                            <i class="fa fa-table"></i> ManageProduct
                         </li>
                     </ol>
                 </div>
@@ -81,28 +72,14 @@
                         </div>
                         <div class="form-group">
                             <div class="col-xs-10">
-                                <label>Product Price</label>
-                                <input class="form-control" name="price" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-xs-10">
                                 <label>Discount</label>
                                 <input class="form-control" name="discount" required>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="col-xs-10">
-                                <label>Date Discount</label>
-                                <input class="form-control" name="date_discount" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-xs-10">
-                                <label>Shop Code</label>
-                                <input class="form-control" name="code">
-                                <p style="color:red;"><?php echo $codeErr;?></p>
-                            </div>
+                        <div class="col-md-10">
+                            <label class="control-label" for="date">Date Discount</label>
+                            <input class="form-control" id="date" name="datedisc" placeholder="M-D-Y" type="text"/>
+                            <!-- <span class="fa fa-calendar"></span> -->
                         </div>
                         <div class="form-group">
                             <div class="col-xs-10">
@@ -113,15 +90,15 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group">
+                       <!--  <div class="form-group">
                             <div class="col-xs-10">
                                 <input name="stock" type="radio" value="In stock">
                                 <label>In stock</label><br/>
                                 <input name="stock" type="radio" value="In stock usually within 2 weeks after order">
                                 <label>In stock usually within 2 weeks after order</label>
                             </div>
-                        </div>
-                        <div class="form-group">
+                        </div> -->
+                      <!--   <div class="form-group">
                             <div class="col-xs-10">
                                 <label>Selects category</label>
                                 <select class="form-control" name="cat">
@@ -136,7 +113,7 @@
                                     <?php }?>
                                 </select>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <div class="col-xs-10">
                                 <label>Selects Image</label>
@@ -151,24 +128,6 @@
                         
                     </div>
                     <div class="col-lg-6">
-                        <div class="form-group">
-                            <div class="col-xs-10">
-                                <label>Khmer Description</label>
-                                <textarea class="form-control" rows="3" name="desKh"></textarea>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-xs-10">
-                                <label>English Description</label>
-                                <textarea class="form-control" rows="3" name="desEn"></textarea>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-xs-10">
-                                <label>Product Information</label>
-                                <textarea class="form-control" rows="3" name="desInfo"></textarea>
-                            </div>
-                        </div>
                         <div class="form-group">
                             <div class="col-xs-10">
                                 <label>Address</label>
@@ -191,12 +150,6 @@
                             <div class="col-xs-10">
                                 <label>Email Address</label>
                                 <input class="form-control" name="gmail" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-xs-10">
-                                <label>Location Address</label>
-                                <input class="form-control" name="location" required>
                             </div>
                         </div>
                         <div class="form-group">

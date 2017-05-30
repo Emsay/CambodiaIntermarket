@@ -63,15 +63,10 @@ span.actual1 {
     position: fixed;
     z-index: 10;
     margin-left: -135px;
+    height: 82px;
 }
 .icon{
     width: 29%;
-}
-element.style {
-    width: 143px;
-    height: 96px;
-    margin-top: -35px;
-    margin-left: -20px;
 }
 @media (max-width:1366px){
     .wrap{
@@ -225,9 +220,9 @@ h1{
 }
 img.imglogo {
     width: 140px;
-    height: 101px;
-    margin-top: -14px;
-    margin-left: 25px;
+    height: 85px;
+    margin-top: -6px;
+    margin-left: 52px;
 }
 ul.submenu li a {
     font-family: arial;
@@ -287,4 +282,20 @@ ul.submenu li a {
 /*end*/
 .menu{
   text-align: center;
+}
+/*detial*/
+.m_5{
+  font-family: arial;
+}
+p.m_5 {
+    font-size: 17px;
+}
+.m_3{
+  font-family: arial;
+  font-weight: bold;
+}
+/*header style*/
+div.headerStyle {
+    margin-top: 24px;
+    height: 3px;
 }
