@@ -169,21 +169,41 @@
             return runQuery($sql);
         }
 
-        //register client
         public static function selectProvince(){
-            $sql = "SELECT * from province ORDER BY id DESC ";
+            $sql = "SELECT * from tbl_provinces ORDER BY province_name ";
             return runQuery($sql);
         }
-
-        public static function selectDistrict(){
-            $sql = "SELECT * from district ORDER BY id DESC ";
+        public static function selectDistrict($proID){
+            $sql = "SELECT * from tbl_districts where province_id=".$proID;
             return runQuery($sql);
         }
-
-        public static function selectCommune(){
-            $sql = "SELECT * from commune ORDER BY id DESC ";
+        public static function selectCommune($dis){
+            $sql = "SELECT * from tbl_communes where district_id=".$dis;
             return runQuery($sql);
         }
 
     }
+    //manage client register
+    if(isset($_GET['provinceID'])){
+        $id=$_GET['provinceID'];
+
+        $data=Product::selectDistrict($id);
+        echo '<select id="txtDistrict" name="district" class="form-control">';
+            echo '<option value="0">Select District</option>';
+        foreach ($data as $v){
+            echo '<option value="'.$v['id'].'">'.$v['district_name'].'</option>';
+        }
+        echo '<select>';
+    }
+    if(isset($_GET['districtID'])){
+        $disID = $_GET['districtID'];
+        $commune=Product::selectCommune($disID);
+        echo '<select name="commune" class="form-control">';
+        echo '<option value="0">Select Commune</option>';
+        foreach ($commune as $com){
+            echo '<option value="'.$com['id'].'">'.$com['communes_name'].'</option>';
+        }
+        echo '<select>';
+    }
+
 ?>

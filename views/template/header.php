@@ -121,7 +121,7 @@
 	<script type="text/javascript" src="resources/js/megamenu.js"></script>
 	<script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
 	<link href="resources/css/etalage.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="resoursec/css/bootstrap-datetimepicker.css">
+	<!-- <link rel="stylesheet" type="text/css" href="resoursec/css/bootstrap-datetimepicker.css"> -->
 
     <script src="resources/js/slides.min.jquery.js"></script>
     <script src="resources/js/jquery.flexisel.js"></script>

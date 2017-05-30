@@ -8,6 +8,6 @@
 | Based URL for the application
  */
 
-define("URL", "");
+define("URL", "http://localhost/cambodiaintermarket/");
 
 

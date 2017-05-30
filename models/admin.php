@@ -126,34 +126,34 @@ class Products {
 
     //manage province
     public static function insertProvince($code,$province_name){
-        $sql = "INSERT INTO province (code, province_name) 
+        $sql = "INSERT INTO tbl_provinces (province_code, province_name) 
                     values ('{$code}','{$province_name}')";
         return runNonQuery($sql);
     }
     public static function selectProvince(){
-        $sql = "SELECT * from province ORDER BY id DESC ";
+        $sql = "SELECT * from tbl_provinces ORDER BY id DESC ";
         return runQuery($sql);
     }
 
     //manage district
     public static function insertDistrict($province_code,$code,$name){
-        $sql = "INSERT INTO district(province_code, code, district_name) 
+        $sql = "INSERT INTO tbl_districts(province_id, district_code, district_name) 
                     values ('{$province_code}','{$code}','{$name}')";
         return runNonQuery($sql);
     }
     public static function selectDistrict(){
-        $sql = "SELECT * from district ORDER BY id DESC ";
+        $sql = "SELECT * from tbl_districts ORDER BY id DESC ";
         return runQuery($sql);
     }
 
     //manage commune
     public static function insertCommune($district_code,$code,$commune_name){
-        $sql = "INSERT INTO commune (district_code,code, commune_name) 
+        $sql = "INSERT INTO tbl_communes (district_id,commune_code, communes_name) 
                     values ('{$district_code}','{$code}','{$commune_name}')";
         return runNonQuery($sql);
     }
     public static function selectCommune(){
-        $sql = "SELECT * from commune ORDER BY id DESC ";
+        $sql = "SELECT * from tbl_communes ORDER BY id DESC ";
         return runQuery($sql);
     }
 

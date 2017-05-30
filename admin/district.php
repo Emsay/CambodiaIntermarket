@@ -52,7 +52,7 @@
                                     <?php 
                                         $province =  Products::selectProvince();
                                             foreach($province as $name){?>
-                                                <option value="<?php echo $name['code'];?>">
+                                                <option value="<?php echo $name['id'];?>">
                                                     <?php echo $name['province_name']; ?>
                                                 </option>
                                     <?php }?>
@@ -101,7 +101,7 @@
 
                                                 <tr>
                                                     <td scope="row"><?php echo $i;?></td>
-                                                    <td><?php echo $dis['code'];?></td>
+                                                    <td><?php echo $dis['district_code'];?></td>
                                                     <td><?php echo $dis['district_name'];?></td>
                                                     <td style="width:13%" >
                                                         <a href='' class="btn btn-primary">Edit</a>

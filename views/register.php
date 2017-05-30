@@ -47,41 +47,123 @@
         }
         
     }
+    error_reporting(0);
+    if(isset($_POST['clientSub'])){
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $pro = $_POST['province'];
+        $dis = $_POST['district'];
+        $com = $_POST['commune'];
+        $date_time = date("Y/m/d H:i:s"); 
+        $insertClient = User::insertUserClient($name,$email,$pro,$dis,$com,$date_time);
+    }
 ?>
 <head>
     <style type="text/css">
         .error {color: #FF0000;font-size: 28px;}
         .errorEmail{color:#ff0000;}
+        body{
+            font-family: Arial !important;
+        }
+        input, select, option{
+            font-family: Arial !important;
+            font-size: 16px !important;
+        }
+        h4{
+            font-family: Arial;
+        }
     </style>
 </head>
 <div class='register_account'>
     <div class='wrap'>
-        <h4 class='title'><?php echo _t_newacc;?></h4>
-        <form method='POST' name="form">
-            <div class='col_1_of_2 span_1_of_2'>
-            <p class="errorEmail"><?php echo $regisErr;?></p>
-                <div><input type='text' name='name' value='' placeholder='<?php echo _t_name;?>' required>
-                <span class="error">*</div>
-                <div><input type='text' name='company_name' value='' placeholder='<?php echo _t_companyname;?>' ><span class="error">*</div>
-                <div><input type='text' name='address' value='' placeholder='<?php echo _t_address;?>' >
-                <span class="error">*</div>
-            </div>
-            <div class='col_1_of_2 span_1_of_2'>
+        <div class='col-md-6'>
+            <h4 class='title'><?php echo _t_newacc;?></h4>
+            <form method='POST' name="form">
+                <p class="errorEmail"><?php echo $regisErr;?></p>
                 <div>
-                <p class="errorEmail"><?php echo $emailErr;?></p>
-                <input type='text' name='email' value='' placeholder='<?php echo _t_email;?>' required>
-                <span class="error">*
+                    <input type='text' name='name' value='' placeholder='<?php echo _t_name;?>' required>
+                    <span class="error">*</span></div>
+                <div>
+                    <input type='text' name='company_name' value='' placeholder='<?php echo _t_companyname;?>' >
+                    <span class="error">*</span></div>
+                <div>
+                    <input type='text' name='address' value='' placeholder='<?php echo _t_address;?>' >
+                    <span class="error">*</span></div>
+                <div>
+                    <p class="errorEmail"><?php echo $emailErr;?></p>
+                    <input type='text' name='email' value='' placeholder='<?php echo _t_email;?>' required>
+                    <span class="error">*</span>
                 </div>
-                <div><input type='password' name='pass' value='' placeholder='<?php echo _t_pass;?>' required>
-                <span class="error">*</div>
-                <div><input type='text' name='phone' value='' placeholder='<?php echo _t_phonenum;?>' required><span class="error">*</div>
-            </div>
-            <div class='clear'></div>
-            <button class='grey' type='submit' name='btnSubmit' ><?php echo _t_signup;?></button>
-            <div class='clear'></div>
-        </form>
+                <div>
+                    <input type='password' name='pass' value='' placeholder='<?php echo _t_pass;?>' required>
+                    <span class="error">*</span></div>
+                <div>
+                    <input type='text' name='phone' value='' placeholder='<?php echo _t_phonenum;?>' required>
+                    <span class="error">*</span></div>
+                <div class='clear'></div>
+                <button class='grey' type='submit' name='btnSubmit' ><?php echo _t_signup;?></button>
+            </form>
+        </div>
+        <div class='col-md-6'>
+            <h4 class='title'>Client</h4>
+            <form method='post' name="form">
+                <div class="form-group">
+                    <label>User Name</label>
+                    <input class="form-control" type='text' name='name' value='<?php echo $name;?>' placeholder='Name' required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input class="form-control" type='email' name='email' value='<?php echo $email;?>' placeholder='Email' required style="width:91%">
+                </div>
+                <div class="form-group">
+                    <label>Address</label>
+                    <div class="province">
+                        <select class="form-control" id="txtProvince" name="province">
+                            <option value="" style="display: none;">Select Province</option>
+                            <?php
+                            $provin =  Product::selectProvince();
+                                foreach($provin as $provinces){?>
+                                <option value="<?php echo $provinces['id'];?>">
+                                    <?php echo $provinces['province_name']; ?>
+                                </option>
+                            <?php }?>
+                        </select>
+                    </div>
+                    <div id="showDistrict">
+                        <select class="form-control" id="txtDistrict" name="district">
+                            <option value="" style="display: none;">Selects District</option>
+                        </select>
+                    </div>
+                    <div id="showCommune">
+                        <select class="form-control" name="commune">
+                            <option value="" style="display:none;">Selects Commune</option>
+                        </select>
+                    </div>
+                </div>
+                <div class='clear'></div>
+                <button class='grey' type='submit' name='clientSub'>Sing Up</button>
+            </form>
+        </div>
+            
+        <div class='clear'></div>
     </div>
 </div>
+<script>
+    $(function(){
+        $("#txtProvince").change(function(){
+            var id =$(this).val();
+            $.get("../models/products.php?provinceID="+id, function(data, status){
+                $('#showDistrict').html(data);
+            });
+        });
+        $(document).on('change', "#txtDistrict",function () {
+            var idDis =$(this).val(); 
+            $.get("../models/products.php?districtID="+idDis, function(data, status){
+                $('#showCommune').html(data);
+            });
+        });
+    });
+</script>
 <?php
     include ('template/footer.php');
 ?>
