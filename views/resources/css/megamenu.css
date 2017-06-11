@@ -87,7 +87,7 @@ li a, .dropbtn {
 /*end drop down menu*/
 
 .megamenu>li.active>a {
-    color: #00405d;
+    color: #00ACD9;
 }
 
 .megamenu>li.right {
@@ -341,14 +341,14 @@ li a, .dropbtn {
 }
 .skyblue li>a,
 .skyblue>li.showhide span {
-    color: #000;
+    color: #00ACD9;
     float: inherit;
 }
 
 .skyblue>li:hover>a,
 .skyblue .dropdown li:hover>a {
     color: #555;
-    background: #ffffff;
+    background: #00ACD9;
 }
 
 . skyblue .megapanel img:hover,

@@ -18,8 +18,11 @@ class Products {
         return runNonQuery("DELETE from products where pro_id=".$id);
     }
 
+    // public static function getProducts(){
+    //    return runQuery("SELECT products.*, category.cat_name from products inner join category on products.cat_id=category.cat_id ORDER BY create_date DESC");
+    // }
     public static function getProducts(){
-       return runQuery("SELECT products.*, category.cat_name from products inner join category on products.cat_id=category.cat_id ORDER BY create_date DESC");
+        return runQuery("SELECT * from products");
     }
     public static function getProductByid($id){
         //return runQuery("SELECT * from products where pro_id = ".$id);

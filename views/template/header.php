@@ -119,25 +119,31 @@
 	<!-- start menu -->
 	
 	<script type="text/javascript" src="resources/js/megamenu.js"></script>
-	<script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
+	<script>
+		$(document).ready(function(){$(".megamenu").megamenu(
+			);
+		});
+	</script>
 	<link href="resources/css/etalage.css" rel="stylesheet">
 	<!-- <link rel="stylesheet" type="text/css" href="resoursec/css/bootstrap-datetimepicker.css"> -->
-
-    <script src="resources/js/slides.min.jquery.js"></script>
-    <script src="resources/js/jquery.flexisel.js"></script>
-    <script src="resources/js/jquery.etalage.min.js"></script>
+  <script src="resources/js/slides.min.jquery.js"></script>
+  <script src="resources/js/jquery.flexisel.js"></script>
+  <script src="resources/js/jquery.etalage.min.js"></script>
 	<script src="resources/js/jquery.easydropdown.js"></script>
+	<script src="resources/js/jquery-1.9.1.js"></script>
 	<script src="resources/js/bootstrap-datetimepicker.min.js"></script>
-
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("a.dropbtn").click(function(){
+				$("a.dropbtn.active").removeClass("active");
+				$(this).addClass("active");
+			});
+		});
+	</script>
 	<style>
 		div.headerStyle{
 			margin-top: 24px;
    			height: 70px;
-		}
-		img.imglogo{
-			width: 170px;
-    		height: 110px;
-    		margin-top:-10px;
 		}
 		b{
 			font-size: 14px;
@@ -165,7 +171,7 @@
 				<a href="..\lang/switch_lang.php?lang=1">ភាសាខ្មែរ</a> -->
 				<div class="col-md-3">
 					<a href="index.php">
-						<img src="resources/images/logo.png" alt="" class="imglogo" />
+						<img src="resources/images/logo.png" alt="" class="imglogo" style="height: 63px; margin-top:-16px;" />
 					</a>
 				</div>
 				<div class="col-md-9">
@@ -178,9 +184,9 @@
 					?>
 			 		<form class="navbar-form" role="search" method="post" action="search.php">
 				        <div class="input-group">
-				            <input type="text" class="form-control" placeholder="<?php echo _t_search;?>" name="search" style="height: 35px; width: 225px;font-size: 14px;" value="<?= $searchname ?>">
+				            <input type="text" class="form-control" placeholder="<?php echo _t_search;?>" name="search" style="height: 27px; width: 225px;font-size: 14px;" value="<?= $searchname ?>">
 				            <div class="input-group-btn">
-				                <button class="btn btn-default" type="submit" id="submit" name="submit" style="height:35px; background: #3b5998;color:#fff;margin-top:0px;">
+				                <button class="btn btn-default" type="submit" id="submit" name="submit" style="height:27px; background: #00ADC9;color:#fff;margin-top:0px;">
 				                	<i class="glyphicon glyphicon-search"></i>
 				                </button>
 				            </div>
@@ -224,7 +230,7 @@
 					}else{
 						echo '<li>
 								<a href="login.php"> '._t_login.' |</a>		
-								<a href="register.php">'._t_register.'</a>
+								<a href="register.php">'._t_signup.'</a>
 							</li>';
 					}
 				?>
@@ -306,24 +312,24 @@
 			<!-- <div class="promote"></div> -->
 	 		<!-- desktop menu -->
 			<div class="menu">
-	            <ul class="megamenu skyblue">
-	            	<li class="dropdown1">
-					    <a href="woman.php" class="dropbtn"><?php echo _t_trip;?></a>
+	      <ul class="megamenu skyblue">
+	        <li class="dropdown1">
+					  <a href="carDetail.php" class="dropbtn"><?php echo _t_carrent;?></a>
 					</li>
 					<li class="dropdown1">
-					    <a href="woman.php" class="dropbtn"><?php echo _t_shoppings;?></a>
+					    <a href="#" class="dropbtn"><?php echo _t_shoppings;?></a>
 					</li>
 					<li class="dropdown1">
-					    <a href="woman.php" class="dropbtn"><?php echo _t_troubleshooting;?></a>
+					    <a href="#" class="dropbtn"><?php echo _t_restuarant;?></a>
 					</li>
 					<li class="dropdown1">
-					    <a href="woman.php" class="dropbtn"><?php echo _t_food;?></a>
+					    <a href="#" class="dropbtn"><?php echo _t_fooddrink;?></a>
 					</li>
 					<li class="dropdown1">
-					    <a href="woman.php" class="dropbtn"><?php echo _t_cinemaandfootball;?></a>
+					    <a href="#" class="dropbtn"><?php echo _t_cinemaandfootball;?></a>
 					</li>
 					<li class="dropdown1">
-					    <a href="woman.php" class="dropbtn"><?php echo _t_hostroom;?></a>
+					    <a href="#" class="dropbtn"><?php echo _t_coupon;?></a>
 					</li>
 				</ul>
 			</div>

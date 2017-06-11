@@ -59,11 +59,17 @@ span.actual1 {
     float: right;
 }
 .header-top{
-    background-color: #3B5998;
+    background-color: #00ADC9;
     position: fixed;
     z-index: 10;
     margin-left: -135px;
-    height: 82px;
+    height: 54px;
+}
+img.imglogo {
+    width: 140px;
+    height: 66px;
+    margin-top: -18px;
+    margin-left: 48px;
 }
 .icon{
     width: 29%;
@@ -73,12 +79,17 @@ span.actual1 {
         width:80%;
     }
 }
-.logostyle {
+/*logo*/
+
+/*.logostyle {
     margin-top: 23px;
     margin-left: -197px;
-}
-.main{
+}*/
+/*.main{
     background-color: #fff;
+}*/
+.navbar-form{
+  margin-top: -3px;
 }
 body{
     background-color: #fff;
@@ -183,9 +194,9 @@ h1{
 }
 /*fa icon*/
 .fa {
-    padding: 6px;
+    padding: 16px;
     font-size: 22px;
-    width: 49px;
+    width: 27px;
     text-decoration: none;
     margin: -9px 11px -9px -9px;
     height: 31px;
@@ -298,4 +309,28 @@ p.m_5 {
 div.headerStyle {
     margin-top: 24px;
     height: 3px;
+}
+/*car detial*/
+h4.title{
+  line-height:2.2;
+  font-family: arial;
+}
+.wrap{
+  font-family: arial;
+}
+.register_account form select {
+  width: 91%;
+}
+/*menu*/
+.dropdown1:hover .dropbtn{
+  background:#00ADC9;
+}
+.skyblue li>a, .skyblue>li.showhide span{
+  color:#00ADC9;
+}
+.megamenu>li.active>a {
+  color: #00ACD9;
+}a.dropbtn.active{
+  background-color: #00ADC9;
+  color:#fff;
 }

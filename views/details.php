@@ -9,7 +9,7 @@
     $db_handle = new DBController();
     
     $id = $_GET['id'];
-    $product =  Product::getProducts($id);
+    $product =  Product::getProductImage($id);
     $row = mysqli_fetch_array($product);
     if($row){
         $pname = $row['pro_name'];
@@ -88,9 +88,8 @@
 </head>
     <div class="main">
         <div class="wrap">
-            <form method="post" action="details.php?action=add&code=<?php echo $_GET["code"]; ?>&id=<?php echo $_GET['id']; ?>">
-                <div class="cont col-lg-12">
-                    <div class="grid images_3_of_2" >
+                <div class="col-md-12">
+                    <!-- <div class="grid images_3_of_2" >
                         <ul id="etalage">
                             <li style="background: #f7f7f7;border: none;">
                                 <a href=''>
@@ -100,8 +99,11 @@
                             </li>
                         </ul> 
                         <div class='clearfix'></div>
+                    </div> -->
+                    <div class="col-md-6" >
+                        <img style="margin-left:63px" class='img-responsive' src='../uploads/<?php echo $pimage;?>' class='img-responsive'/>
                     </div>
-                    <div class='desc1 span_3_of_2'>
+                    <div class='col-md-6'>
                         <h3 class='m_3 p_title'><?php echo $pname;?><h3>
                         <p class='m_5' style="color:red;">Discount : <?php echo $disc;?>%</p>
                         <p class='m_5' style="color:red;">Close Date : <?php echo $pdate;?></p><br>
@@ -117,8 +119,7 @@
                     </div>
                     <!-- <div class="clearfix"></div> -->
                 </div>
-            </form>
-         <!--    <form method="post" action="details.php?action=like&code=<?php echo $_GET["code"]; ?>&id=<?php echo $_GET['id']; ?>">
+            <!-- <form method="post" action="details.php?action=like&code=<?php echo $_GET["code"]; ?>&id=<?php echo $_GET['id']; ?>">
                 <a href=''>
                     <img class='etalage_thumb_image hidden' src='../uploads/<?php echo $pimage;?>' class='img-responsive'/>
                 </a>

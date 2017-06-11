@@ -12,7 +12,9 @@
 		<div class="clear"></div>
 		<div class="col-md-12 col-lg-12">
 		<?php 
-			$id = $_GET['id'];
+				if(isset($_GET['id'])){
+				$id = $_GET['id'];
+			} 
 			$Product =  Product::listShop($id);
 				foreach ($Product as $shop){
 					?>
@@ -23,10 +25,9 @@
 						<div class='socail' style="margin-top: 10px;">
 	               			<a href="<?php echo $shop['facebook'];?>" class='fa fa-facebook' data-toggle='tooltip' data-placement='bottom'></a>
 							<a class='fa fa-phone' data-toggle='tooltip' data-placement='bottom' title="<?php echo $shop['phone'];?>"></a>
-							<a class='fa fa-google' data-toggle='tooltip' data-placement='bottom' title="<?php echo $shop['google'];?>"></a>
 							<a href="<?php echo $shop['location'];?>" class='fa fa-map-marker' data-toggle='tooltip' data-placement='bottom'></a>
-	                        <div class='clear'></div>
-	                    </div> 
+            <div class='clear'></div>
+            </div> 
 					</div>
 		<?php }?>
 		</div>

@@ -28,9 +28,9 @@
 	define("_t_description","Product Detail");
 	define("_t_order","Free shipping order");
 	define("_t_title", "Cambodia Intermarket");
-	define("_t_aboutcim", "Cambodia Intermarket is a leading online shopping offering a huge range of product from fashion to cosmetic. With Cambodia intermarket you can shop for brand bag, sunglasses to skin care product, cosmetic and perfume originally shipped direct from France. Our goal is to change your online shopping experience with our best quality product, stunning price, fast delivery and dedicated professional service.");
-	// define("_t_register", "You are new costomers, so need to be register with us. If you want to know more about our product, you can chat with us, we will guide with the quality product from France. Make new account with us today.");
-	define("_t_register", "Sign Up");
+	define("_t_aboutcim", "Cambodia Intermarket (CI) is a citizen cooperation that brings together several innovative companies in Cambodia. This structure includes two entities are professionals (Farmers, Hostelries-catering and Companies, etc...) and individuals (citizens). Cambodia Intermarket is the link between these two words. It is the eco-citizen account that connects citizens to farmers via a responsible use of their data, a security in the exchanges of new generation, to improve the daily life of each one.");
+	define("_t_register", "You are new costomers, so need to be register with us. If you want to know more about our product, you can chat with us, we will guide with the quality product from France. Make new account with us today.");
+	//define("_t_register", "Sign Up");
 	define("_t_france", "France");
 	define("_t_cambodia", "Cambodia");
 	define("_t_phone", "Phone");
@@ -43,8 +43,8 @@
 	define("_t_account", "My Account");
 	define("_t_welcome", "Welcome :");
 	define("_t_pass", "Password");
-	define("_t_newacc", "Create new account");
-	define("_t_newcus", "New Customer");
+	define("_t_newacc", "Create New");
+	define("_t_newcus", "Enterprise / Company Account");
 	define("_t_regcus", "Register Customer");
 	define("_t_name", "User Name");
 	define("_t_companyname", "Campany Name");
@@ -62,11 +62,11 @@
 	define("_t_sportbag","Sport Bag");
 	define("_t_wallet","Wallet");
 	define("_t_total","Total Price: $");
-	define("_t_trip","Trip");
+	define("_t_carrent","Car Rental");
 	define("_t_health","Health");
 	define("_t_shoppings","Shopping");
-	define("_t_troubleshooting","Troubleshooting");
-	define("_t_food","Food");
+	define("_t_restuarant","Restuarant");
+	define("_t_fooddrink","Food and Drink");
 	define("_t_cinemaandfootball","Cinema and Football");
-	define("_t_hostroom","Host Room");
+	define("_t_coupon","Coupon");
 ?>

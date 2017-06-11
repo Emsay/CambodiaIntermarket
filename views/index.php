@@ -9,6 +9,10 @@
 	#slider img{
 		height: 300px !important;
 	}
+	.main{
+		background-image: url(resources/images/cosmeticbanner.jpg);
+		height: 1365px;
+	}
 </style>
 <div class='main'>
 	<div class='wrap'>
@@ -18,24 +22,31 @@
 			<link href='resources/css/style.css' rel='stylesheet' type='text/css' media='all' />
 		 	<link href='resources/css/default.css' rel='stylesheet' type='text/css' media='all' />
 		 	<link href='resources/css/nivo-slider.css' rel='stylesheet' type='text/css' media='all' />
-		  	<script src='resources/js/jquery.nivo.slider.js'></script>
-		  	<script src="resources/js/bootstrap.mini.js" type="text/javascript"></script>
+		  <script src='resources/js/jquery.nivo.slider.js'></script>
+		  <script src="resources/js/bootstrap.mini.js" type="text/javascript"></script>
 			<script src="resources/js/bootstrap.js" type="text/javascript"></script>
-		    <script type='text/javascript'>
-		    	// slider 1
-			    $(window).load(function() {
-			        $('#slider').nivoSlider();
-			    });
-			    // slider 2
-			     $(window).load(function() {
-			        $('#slider1').nivoSlider();
-			    });
-			     // button tooltip
+	    <script type='text/javascript'>
+	    	// slider 1
+		    $(window).load(function() {
+		        $('#slider').nivoSlider();
+		    });
+		    // slider 2
+		     $(window).load(function() {
+		        $('#slider1').nivoSlider();
+		    });
+	     // button tooltip
 				$(document).ready(function(){
 				    $('[data-toggle="tooltip"]').tooltip();   
 				});
-			</script>
-			<!-- first slide show (home) -->
+				// detial image each product of shop or company
+				jQuery(document).ready(function() {
+                  jQuery('#more').jcarousel({
+                                  scroll:1,
+                  itemFallbackDimension: 300
+                      });
+                  });
+				</script>
+				<!-- first slide show (home) -->
 		    <!-- <div class='slider-wrapper theme-default'>
 		      	<div id='slider' class='nivoSlider'>
 		      		<?php 
@@ -57,26 +68,25 @@
 		</div>
 
 		<div class="clear"></div>
-		<div class="col-md-12 col-lg-12">
+		<div class="bg-custom col-md-12 col-lg-12">
 			<?php 
 				$Product =  Product::getProducts();
-					foreach ($Product as $sho){
+					foreach ($Product as $pro){
 						?>
 						<div class="col-md-4" style="padding-right:-1px;padding-bottom:25px">
-							<a href="details.php?id=<?php echo $sho['pro_id'];?>">
-								<img class="images" style="height: 300px;" src="../uploads/<?php echo $sho['pro_image'];?>" />
+							<a href="details.php?id=<?php echo $pro['pro_id'];?>">
+								<img class="images" style="height: 300px;" src="../uploads/<?php echo $pro['pro_image'];?>" />
 								<div class="overlay">
 							    	<div class="text" style="font-weight:bold; font-family:arial; font-size:90%; color: #286090;">
-							    		<?php echo 'Name : '.$sho['pro_name']; ?><br>
-							    		<?php echo 'Discount : '.$sho['pro_discount'].'%'; ?><br>
-							    		<?php echo 'Close : '.$sho['date_discount']; ?>
-							    	</div>
-							  	</div>
+							    		<?php echo 'Name : '.$pro['pro_name']; ?><br>
+							    		<?php echo 'Discount : '.$pro['pro_discount'].'%'; ?><br>
+							    		<?php echo 'Close : '.$pro['date_discount']; ?>
+							    	</div> 
+							  </div>
 							</a>
 						</div>
 			<?php }?>
 		</div>
-
 		<div class='clear'></div>
 
 		<div class="strike">
@@ -120,7 +130,6 @@
 		      				";
 		      			}
 		      		?>
-
 		      	</div>
 		    </div>
 	   	</div>

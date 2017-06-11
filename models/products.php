@@ -6,6 +6,10 @@
             return runQuery("SELECT * FROM products ORDER BY create_date DESC LIMIT 12");
         }
 
+        public static function getAdvs(){
+            return runQuery("SELECT * FROM advertise ORDER BY create_date DESC LIMIT 1");
+        }
+
         public static function getProductImage($id){
             return runQuery("SELECT * FROM products WHERE pro_id = ".$id);
         }
@@ -15,8 +19,8 @@
         // public static function getHouse(){
         //     return runQuery("SELECT * FROM products WHERE cat_id IN ('8') ORDER BY cat_id");
         // }
-        // public static function getHnew(){
-        //     return runQuery("SELECT * FROM products WHERE cat_id IN ('8') ORDER BY create_date DESC");
+        // public static function getCarCategory(){
+        //     return runQuery("SELECT * FROM products ORDER BY create_date DESC");
         // }
 
         public static function getSearch($result){

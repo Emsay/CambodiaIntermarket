@@ -75,9 +75,9 @@
     </style>
 </head>
 <div class='register_account'>
-    <div class='wrap'>
+    <div class='wrap' style="background: rgba(204, 204, 204, 0.2);">
         <div class='col-md-6'>
-            <h4 class='title'><?php echo _t_newacc;?></h4>
+            <h4 class='title'>Enterprise or Company</h4>
             <form method='POST' name="form">
                 <p class="errorEmail"><?php echo $regisErr;?></p>
                 <div>
