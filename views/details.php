@@ -101,7 +101,7 @@
                         <div class='clearfix'></div>
                     </div> -->
                     <div class="col-md-6" >
-                        <img style="margin-left:63px" class='img-responsive' src='../uploads/<?php echo $pimage;?>' class='img-responsive'/>
+                        <img class='img-responsive' src='../uploads/<?php echo $pimage;?>' class='img-responsive'/>
                     </div>
                     <div class='col-md-6'>
                         <h3 class='m_3 p_title'><?php echo $pname;?><h3>
