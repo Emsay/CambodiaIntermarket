@@ -6,7 +6,7 @@
     $codeErr="";
 
     if(isset($_POST['post'])){
-        $pname = $_POST['name'];
+        /*$pname = $_POST['name'];
         $pdis = $_POST['discount'];
         $pdate_discount = strtotime($_POST['datedisc']);
         $paddress = $_POST['address'];
@@ -31,13 +31,12 @@
             $yes = 0;
         }else{
             $to = "../uploads/".$_FILES['image']['name'];
-            echo "Hello path ".$to;
+            // echo "Hello path ".$to;
             move_uploaded_file($_FILES['image']['tmp_name'],$to);
-            $insert_product = Products::insert($pname,$pdis,$pimage,$date,$paddress,$pfacebook,$pphone,$pgmail,
-            $new_date_discount);
+            $insert_product = Products::insert($pname, $pdis, $pimage, $date, $paddress, $pfacebook, $pphone, $pgmail, $new_date_discount);
             $postSuceess="You have successfull post product.";
             $yes=1;
-        }
+        }*/
     }
 ?>
 <div id="wrapper">    
@@ -62,7 +61,7 @@
                 </div>
             </div>
             <div class="row">
-                <form role="form" method="POST" enctype="multipart/form-data" >
+                <form role="form" method="POST" enctype="multipart/form-data">
                     <div class="col-lg-6">
                         <div class="form-group">
                             <div class="col-xs-10">
@@ -81,15 +80,15 @@
                             <input class="form-control" id="date" name="datedisc" placeholder="M-D-Y" type="text"/>
                             <!-- <span class="fa fa-calendar"></span> -->
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <div class="col-xs-10">
                                 <label>Select Post</label>
                                 <select class="form-control" name="location">
-                                    <option value="0">Product Categories</option>
+                                    <option value="">Product Categories</option>
                                     <option value="1">Shop Information</option>
                                 </select>
                             </div>
-                        </div>
+                        </div> -->
                        <!--  <div class="form-group">
                             <div class="col-xs-10">
                                 <input name="stock" type="radio" value="In stock">
@@ -122,10 +121,15 @@
                                 <p class="success"><?php echo $postSuceess;?></p>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <div class="col-xs-10">
+                                <label>Select Gallery:</label>
+                                <input type="file" name="files[]" multiple="multiple" id="mulit_images" />
+                            </div>
+                        </div>
                         <script type="text/javascript">
                             $('#placeholder').previewImage( {uploader: '#uploader'});
                         </script>
-                        
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
@@ -153,7 +157,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-xs-10">
+                            <div class="col-xs-10" style="margin-top:20px;">
                                 <button type="submit" name="post" class="btn btn-success">Submit Post</button>
                             </div>
                         </div>
@@ -162,3 +166,103 @@
         </div>
     </div>
 </div>
+
+
+<?php
+    if(isset($_POST['post'])){
+        $pname = $_POST['name'];
+        $pdis = $_POST['discount'];
+        $pdate_discount = strtotime($_POST['datedisc']);
+        $paddress = $_POST['address'];
+        $pfacebook = $_POST['facebook'];
+        $pphone = $_POST['phone'];
+        $pgmail = $_POST['gmail'];
+        $type = basename($_FILES['image']['type']);
+        $pimage = basename($_FILES['image']['name']);
+        $date = date("Y/m/d H:i:s");
+        $yes = 1;
+        $new_date_discount = date('Y-m-d', $pdate_discount);
+
+        if(isset($_FILES['files'])){
+            $errors = array();
+            $uploadedFiles = array();
+            $extension = array("jpeg","jpg","png","gif","JPG","PNG");
+            $bytes = 1024;
+            $KB = 1024;
+            $totalBytes = $bytes * $KB;
+            $UploadFolder = "../uploads";
+             
+            $counter = 0;
+            $ext = pathinfo($pimage, PATHINFO_EXTENSION);
+            if(in_array($ext,$extension) == false){
+                echo "File invalid";
+            }else{
+                $to = "../uploads/".$_FILES['image']['name'];
+                move_uploaded_file($_FILES['image']['tmp_name'],$to);
+                $insert_product = Products::insert($pname, $pdis, $pimage, $date, $paddress, $pfacebook, $pphone, $pgmail, $new_date_discount);
+                $postSuceess="You have successfull post product.";
+            }
+            
+
+            foreach($_FILES["files"]["tmp_name"] as $key=>$tmp_name){
+                $temp = $_FILES["files"]["tmp_name"][$key];
+                $name = $_FILES["files"]["name"][$key];
+                 
+                if(empty($temp))
+                {
+                    break;
+                }
+                 
+                $counter++;
+                $UploadOk = true;
+                 
+                /*if($_FILES["files"]["size"][$key] > $totalBytes)
+                {
+                    $UploadOk = false;
+                    array_push($errors, $name." file size is larger than the 1 MB.");
+                }
+                 
+                $ext = pathinfo($name, PATHINFO_EXTENSION);
+                if(in_array($ext, $extension) == false){
+                    $UploadOk = false;
+                    array_push($errors, $name." is invalid file type.");
+                }*/
+
+                if($UploadOk == true){
+                    move_uploaded_file($temp,$UploadFolder."/".$name);
+                    $id = mysql_insert_id();
+                    $sql=Products::insertMultiImg($id,$name);
+                    array_push($uploadedFiles, $name);
+                }
+            }
+
+
+            /*if($counter>0){
+                if(count($errors)>0)
+                {
+                    echo "<b>Errors:</b>";
+                    echo "<br/><ul>";
+                    foreach($errors as $error)
+                    {
+                        echo "<li>".$error."</li>";
+                    }
+                    echo "</ul><br/>";
+                }
+                 
+                if(count($uploadedFiles)>0){
+                    echo "<b>Uploaded Files:</b>";
+                    echo "<br/><ul>";
+                    foreach($uploadedFiles as $fileName)
+                    {
+                        echo "<li>".$fileName."</li>";
+                    }
+                    echo "</ul><br/>";
+                     
+                    echo count($uploadedFiles)." file(s) are successfully uploaded.";
+                }                               
+            }else{
+                echo "Please, Select file(s) to upload.";
+            }*/
+        }
+    }
+?>
