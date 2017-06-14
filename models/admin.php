@@ -2,13 +2,15 @@
 include ("../include/functions.php");
 // Product class is used instead of above four get product by category functions
 class Products {
-    public static function insert($pname,$pdis,$pimage,$pdate,$paddress,$pfacebook,$pphone,$pgmail,
-            $date_discount){
-        $sql = "INSERT INTO products (pro_name,pro_discount,pro_image,create_date,address,facebook,phone,gmail,date_discount) values ('{$pname}','{$pdis}','{$pimage}','{$pdate}','{$paddress}','{$pfacebook}','{$pphone}','{$pgmail}',
-            '{$date_discount}')";
+    public static function insert($pname,$pdis,$pimage,$pdate,$paddress,$pfacebook,$pphone,$pgmail,$date_discount){
+        $sql = "INSERT INTO products (pro_name,pro_discount,pro_image,create_date,address,facebook,phone,gmail,date_discount) values ('{$pname}','{$pdis}','{$pimage}','{$pdate}','{$paddress}','{$pfacebook}','{$pphone}','{$pgmail}','{$date_discount}')";
         return runNonQuery($sql);
     }
-   
+    public static function insertMultiImg($pro_id,$name){
+        $sql = "INSERT INTO productImage(product_id,multi_images) 
+                            VALUES('{$pro_id}','{$name}')";
+        return runNonQuery($sql);
+    }
     public static function edit($id,$pname,$pprice,$pdis,$total,$pcode,$pcat,$stock,$pimage,$deskh,$desen,$pinfor,$paddress,$pfacebook,$pphone,$pgmail,$plocation,$pdate_discount){
         $sql = "UPDATE products SET pro_name='$pname',pro_price='$pprice',pro_discount='$pdis',total_price='$total',pro_code='$pcode',cat_id='$pcat',pro_stock='$stock',pro_image='$pimage',pro_descriptionKh='$deskh',pro_descriptionEn='$desen',pro_information='$pinfor',address='$paddress',facebook='$pfacebook',phone='$pphone',gmail='$pgmail',location='$plocation',date_dis='$pdate_discount' where pro_id='$id'";
         return runNonQuery($sql);
