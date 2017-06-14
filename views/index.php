@@ -1,51 +1,163 @@
 <?php
 	include ("template/header.php");
 	//include ("../models/products.php");
+
+	$emailErr='';
+  	$regisErr = '';
 ?>
 <style type="text/css">
+	.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: hidden;
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	}
+	/* Modal Content */
+	.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+	}
+	/* Add Animation */
+	@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+	}
+	@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+	}
+	/* alert modal on homepage*/
+	.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+	}
+
+	.close:hover,
+	.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+	}
+
+	.modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+	}
+	.modal-body {padding: 2px 16px;}
+	.modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+	}
+
 	#slider1 img{
 		height: 150px !important;
 	}
 	#slider img{
 		height: 300px !important;
 	}
-	.main{
-		background-image: url(resources/images/cosmeticbanner.jpg);
-		height: 1365px;
-	}
+	.error {color: #FF0000;font-size: 28px;}
+        .errorEmail{color:#ff0000;}
+        body{
+            font-family: Arial !important;
+        }
+        input, select, option{
+            font-family: Arial !important;
+            font-size: 16px !important;
+        }
+        h4{
+            font-family: Arial;
+        }
 </style>
-<div class='main'>
+<div id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+    </div>
+    <div class="modal-body">
+      <div class='col-md-12'>
+            <div class="form-group">
+                <label>User Name</label>
+                <input class="form-control" type='text' name='name' value='<?php echo $name;?>' placeholder='Name' required>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input class="form-control" type='email' name='email' value='<?php echo $email;?>' placeholder='Email' required style="width:91%">
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+    </div>
+  </div>
+</div>
+
+<div class='main' style="background-image: url(resources/images/pic.png);background-repeat: no-repeat;background-size: cover;height:1364px;background-position: center;">
 	<div class='wrap'>
 		<div class=''>
-			<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-			<link href='resources/css/mystyles.css' rel='stylesheet' type='text/css' media='all' />
-			<link href='resources/css/style.css' rel='stylesheet' type='text/css' media='all' />
-		 	<link href='resources/css/default.css' rel='stylesheet' type='text/css' media='all' />
-		 	<link href='resources/css/nivo-slider.css' rel='stylesheet' type='text/css' media='all' />
-		  <script src='resources/js/jquery.nivo.slider.js'></script>
-		  <script src="resources/js/bootstrap.mini.js" type="text/javascript"></script>
-			<script src="resources/js/bootstrap.js" type="text/javascript"></script>
-	    <script type='text/javascript'>
-	    	// slider 1
-		    $(window).load(function() {
-		        $('#slider').nivoSlider();
-		    });
-		    // slider 2
-		     $(window).load(function() {
-		        $('#slider1').nivoSlider();
-		    });
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+		<link href='resources/css/mystyles.css' rel='stylesheet' type='text/css' media='all' />
+		<link href='resources/css/style.css' rel='stylesheet' type='text/css' media='all' />
+	 	<link href='resources/css/default.css' rel='stylesheet' type='text/css' media='all' />
+	 	<link href='resources/css/nivo-slider.css' rel='stylesheet' type='text/css' media='all' />
+		<script src='resources/js/jquery.nivo.slider.js'></script>
+		<script src="resources/js/bootstrap.mini.js" type="text/javascript"></script>
+		<script src="resources/js/bootstrap.js" type="text/javascript"></script>
+	  <script type='text/javascript'>
+			// var modal = document.getElementById('myModal');
+			// // Get the button that opens the modal
+			// var btn = document.getElementById("myBtn");
+			// setTimeout(function(){
+			// 	$('#myModal').show('fade');
+			// },8000);
+			// // Get the <span> element that closes the modal
+			// var span = document.getElementsByClassName("close")[0];
+			// // When the user clicks the button, open the modal 
+			// btn.onclick = function() {
+			//     modal.style.display = "block";
+			// }
+			// // When the user clicks on <span> (x), close the modal
+			// span.onclick = function() {
+			//     modal.style.display = "none";
+			// }
+			// // When the user clicks anywhere outside of the modal, close it
+			// window.onclick = function(event) {
+			//     if (event.target == modal) {
+			//         modal.style.display = "none";
+			//     }
+			// }
+    	// slider 1
+	    $(window).load(function() {
+	        $('#slider').nivoSlider();
+	    });
+	    // slider 2
+	     $(window).load(function() {
+	        $('#slider1').nivoSlider();
+	    });
 	     // button tooltip
-				$(document).ready(function(){
-				    $('[data-toggle="tooltip"]').tooltip();   
-				});
-				// detial image each product of shop or company
-				jQuery(document).ready(function() {
-                  jQuery('#more').jcarousel({
-                                  scroll:1,
-                  itemFallbackDimension: 300
-                      });
-                  });
-				</script>
+			$(document).ready(function(){
+			    $('[data-toggle="tooltip"]').tooltip();   
+			});
+		</script>
 				<!-- first slide show (home) -->
 		    <!-- <div class='slider-wrapper theme-default'>
 		      	<div id='slider' class='nivoSlider'>

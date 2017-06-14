@@ -2686,7 +2686,10 @@ ul.delivery-list li a:hover{
 /*--responsive design--*/
 @media (max-width:1366px){
 	.wrap{
-		width:75%;
+		width:100%;
+	}
+	.header-top{
+		margin-left: -77px;
 	}
 	#products .pagination li a {
 		width: 96px;
@@ -2724,6 +2727,9 @@ ul.delivery-list li a:hover{
 	}
 }
 @media (max-width:1024px){
+	.header-top{
+		margin-left: -77px;
+	}
 	.wrap{
 		width:90%;
 	}

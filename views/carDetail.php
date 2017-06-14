@@ -35,83 +35,84 @@
 </style>
 
 <div class='register_accounts'>
-    <div class='wrap' style="background: rgba(204, 204, 204, 0.2);">
-        <div class='col-md-12'><h4 class='title'>Transportation</h4></div>
-            <form method='POST' name="form">
-                <div class='col-md-6'>
-                    <div class="form-group">
-                        <div class="col-md-12">
-                            <label>Car Type</label>
-                            <select class="form-control" name="car">
-                                <option value="No Cateogry" style="display:none;">Selects Car</option>
-                                <?php 
-                                    $car =  Product::getCarCategory();
-                                        foreach($car as $carName){?>
-                                            <option value="<?php echo $carName['id'];?>">
-                                                <?php echo $carName['car_name']; ?>
-                                            </option>
-                                <?php }?>
-                            </select>
-                        </div>
+    <div class='wrap'>
+    <hr style="border:1px solid #eee;">
+        <form method='POST' name="form">
+            <div class='col-md-6' style="background: #00ADC9; color: #fff; padding: 17px;}">
+                <div class='col-md-12'><h4 class='title' style="color:#fff;">TRANSPORTATION</h4></div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label>Car Type</label>
+                        <select class="form-control" name="car">
+                            <option value="No Cateogry" style="display:none;">Selects Car</option>
+                            <?php 
+                                $car =  Product::getCarCategory();
+                                    foreach($car as $carName){?>
+                                        <option value="<?php echo $carName['id'];?>">
+                                            <?php echo $carName['car_name']; ?>
+                                        </option>
+                            <?php }?>
+                        </select>
                     </div>
-                    <div class="form-group">
-                        <div class="col-md-6">
-                            <label>Departure</label>
-                            <select class="form-control" name="departure">
-                                <option value="No Cateogry" style="display:none;">Selects Departure</option>
-                                <?php 
-                                    $province =  Product::getProvince();
-                                        foreach($province as $p){?>
-                                            <option value="<?php echo $p['id'];?>">
-                                                <?php echo $p['province_name']; ?>
-                                            </option>
-                                <?php } ?>
-                            </select>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="control-label" for="date">Date Departure</label>
-                            <input class="form-control" id="date" name="datedepart" placeholder="M-D-Y" type="text"/>
-                            <span class="fa fa-calendar"></span>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-6">
-                            <label>Destination</label>
-                            <select class="form-control" name="destination">
-                                <option value="No Cateogry" style="display:none;">Selects Destination</option>
-                                <?php 
-                                    $province =  Product::getProvince();
-                                        foreach($province as $p){?>
-                                            <option value="<?php echo $p['id'];?>">
-                                                <?php echo $p['province_name']; ?>
-                                            </option>
-                                <?php } ?>
-                            </select>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="control-label" for="date">Date Destination</label>
-                            <input class="form-control" id="date" name="datedes" placeholder="M-D-Y" type="text"/>
-                            <span class="fa fa-calendar"></span>
-                        </div>
-                    </div>
-                    <div class='clear'></div>
-                    <button class='grey' type='submit' name='btnSubmit'>Submit</button>
                 </div>
-            </form>
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <label>Departure</label>
+                        <select class="form-control" name="departure">
+                            <option value="No Cateogry" style="display:none;">Selects Departure</option>
+                            <?php 
+                                $province =  Product::getProvince();
+                                    foreach($province as $p){?>
+                                        <option value="<?php echo $p['id'];?>">
+                                            <?php echo $p['province_name']; ?>
+                                        </option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="control-label" for="date">Date Departure</label>
+                        <input class="form-control" id="date" name="datedepart" placeholder="M-D-Y" type="text"/>
+                        <span class="fa fa-calendar"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <label>Destination</label>
+                        <select class="form-control" name="destination">
+                            <option value="No Cateogry" style="display:none;">Selects Destination</option>
+                            <?php 
+                                $province =  Product::getProvince();
+                                    foreach($province as $p){?>
+                                        <option value="<?php echo $p['id'];?>">
+                                            <?php echo $p['province_name']; ?>
+                                        </option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="control-label" for="date">Date Destination</label>
+                        <input class="form-control" id="date" name="datedes" placeholder="M-D-Y" type="text"/>
+                        <span class="fa fa-calendar"></span>
+                    </div>
+                </div>
+                <div class='clear'></div>
+                <button class='grey' type='submit' name='btnSubmit'>Submit</button>
+            </div>
+        </form>
         
         <div class="clear"></div>
-        <hr style="border:1px solid #eee;">
+        <!-- <hr style="border:1px solid #eee;"> -->
         <div class="col-md-12">
             
             <table class="table">
                 <thead>
-                    <tr>
-                        <th>Car Type</th>
-                        <th>Go To</th>
-                        <th style="text-align: center;">Date Departure</th>
-                        <th style="text-align: center;">Date Destination</th>
-                        <th style="text-align: center;">Amount of Date</th>
-                        <th style="text-align: center;">Price($)</th>
+                    <tr style=" color: #00ACD9;">
+                        <th>CAR TYPE</th>
+                        <th>GO TO</th>
+                        <th style="text-align: center;">DATE DEPARTURE</th>
+                        <th style="text-align: center;">DATE DESTINATION</th>
+                        <th style="text-align: center;">AMOUNT OF DATE</th>
+                        <th style="text-align: center;">PRICE($)</th>
                     </tr>
                 </thead>
                 <tbody>

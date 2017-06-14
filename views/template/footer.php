@@ -35,12 +35,13 @@
 					            <li><a href="#">Tduis dolore te feugait nulla</a></li>
 				         	</ul> -->
 	 					</div>
-					 	<div class="col_1_of_f_2 span_1_of_f_2">
+					 	<div class="col_1_of_f_2 span_1_of_f_2" style="font-family:arial;">
 					   		<h3 class="fb"><?php echo _t_contact;?></h3>
 							<div class="company_address">
-						        <p><?php echo _t_cambodia;?> : #559, Street 6A, Phnom Penh</p>
-						   		<p><?php echo _t_france;?> :(+33) 78 228 1638</p>
-						   		<p><?php echo _t_cambodia;?> : (+855) 88 812 1133 </p>
+						        <!-- <p><?php echo _t_cambodia;?> : #559, Street 6A, Phnom Penh</p> -->
+						   		<!-- <p><?php echo _t_france;?> :(+33) 78 228 1638</p> -->
+						   		<p><?php echo _t_cambodia;?> : (+855) 012 792 707/
+						   		010 571 889</p>
 						 	 	<p><?php echo _t_email;?>:<a href="#"><u>cambodiaintermarket
 						 	 	@gmail.com</u></a> </p>
 						   		

@@ -194,8 +194,8 @@ h1{
 }
 /*fa icon*/
 .fa {
-    padding: 16px;
-    font-size: 22px;
+    padding: 9px;
+    font-size: 15px;
     width: 27px;
     text-decoration: none;
     margin: -9px 11px -9px -9px;
@@ -279,7 +279,7 @@ ul.submenu li a {
   bottom: 0;
   left: 0;
   right: 0;
-  height: auto;
+  height: 301px;
   width: 100%;
   opacity: 0;
   transition: .5s ease;
@@ -333,4 +333,11 @@ h4.title{
 }a.dropbtn.active{
   background-color: #00ADC9;
   color:#fff;
+}
+/*ruler*/
+hr {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #eee;
 }

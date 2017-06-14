@@ -404,7 +404,7 @@ a>p.logotext:hover{
 }
 .header-bottom{
 	background:#fff;
-	padding:4% 0;
+	padding:1% 0;
 	/*position: fixed;
 	width: 100%;
 	z-index: 9999;
@@ -2978,6 +2978,7 @@ ul.delivery-list li a:hover{
 	.header-top{
 		height: 67px;
 		width: 100%;
+		margin-left:-78px;
 	}
 	div.showhim {
 	    height: 160px;

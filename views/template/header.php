@@ -323,7 +323,7 @@
 					    <a href="#" class="dropbtn"><?php echo _t_restuarant;?></a>
 					</li>
 					<li class="dropdown1">
-					    <a href="#" class="dropbtn"><?php echo _t_fooddrink;?></a>
+					    <a href="#?name=drink" class="dropbtn"><?php echo _t_fooddrink;?></a>
 					</li>
 					<li class="dropdown1">
 					    <a href="#" class="dropbtn"><?php echo _t_cinemaandfootball;?></a>
@@ -333,7 +333,6 @@
 					</li>
 				</ul>
 			</div>
-			
     <div class="clear"></div>
     </div>
 </div>
