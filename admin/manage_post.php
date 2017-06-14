@@ -80,39 +80,6 @@
                             <input class="form-control" id="date" name="datedisc" placeholder="M-D-Y" type="text"/>
                             <!-- <span class="fa fa-calendar"></span> -->
                         </div>
-                        <!-- <div class="form-group">
-                            <div class="col-xs-10">
-                                <label>Select Post</label>
-                                <select class="form-control" name="location">
-                                    <option value="">Product Categories</option>
-                                    <option value="1">Shop Information</option>
-                                </select>
-                            </div>
-                        </div> -->
-                       <!--  <div class="form-group">
-                            <div class="col-xs-10">
-                                <input name="stock" type="radio" value="In stock">
-                                <label>In stock</label><br/>
-                                <input name="stock" type="radio" value="In stock usually within 2 weeks after order">
-                                <label>In stock usually within 2 weeks after order</label>
-                            </div>
-                        </div> -->
-                      <!--   <div class="form-group">
-                            <div class="col-xs-10">
-                                <label>Selects category</label>
-                                <select class="form-control" name="cat">
-                                    <option value="No Cateogry" style="display:none;">Selects category</option>
-                                    <?php 
-                                        $category = Products::getCategory();
-                                        foreach($category as $cat){
-                                    ?>
-                                    <option value="<?php echo $cat['cat_id'];?>" name="cat">
-                                        <?php echo $cat['cat_name'];?>
-                                    </option>
-                                    <?php }?>
-                                </select>
-                            </div>
-                        </div> -->
                         <div class="form-group">
                             <div class="col-xs-10">
                                 <label>Selects Image</label>
@@ -166,13 +133,29 @@
         </div>
     </div>
 </div>
-
+<script>
+    $(function(){
+        var date_input1=$('input[name="datedisc"]'); 
+        var options={
+        format: 'mm/dd/yyyy',
+        container: container,
+        todayHighlight: true,
+        autoclose: true,
+      };
+      date_input1.datepicker(options);
+  });
+</script>
 
 <?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "cambodiaintermarket_com";
+$conn = new mysqli($servername, $username, $password, $dbname);
     if(isset($_POST['post'])){
         $pname = $_POST['name'];
         $pdis = $_POST['discount'];
-        $pdate_discount = strtotime($_POST['datedisc']);
+        
         $paddress = $_POST['address'];
         $pfacebook = $_POST['facebook'];
         $pphone = $_POST['phone'];
@@ -181,6 +164,7 @@
         $pimage = basename($_FILES['image']['name']);
         $date = date("Y/m/d H:i:s");
         $yes = 1;
+        $pdate_discount = strtotime($_POST['datedisc']);
         $new_date_discount = date('Y-m-d', $pdate_discount);
 
         if(isset($_FILES['files'])){
@@ -199,8 +183,16 @@
             }else{
                 $to = "../uploads/".$_FILES['image']['name'];
                 move_uploaded_file($_FILES['image']['tmp_name'],$to);
-                $insert_product = Products::insert($pname, $pdis, $pimage, $date, $paddress, $pfacebook, $pphone, $pgmail, $new_date_discount);
-                $postSuceess="You have successfull post product.";
+
+                $sql = "INSERT INTO products (pro_name,pro_discount,pro_image,create_date,address,facebook,phone,gmail,date_discount) 
+                    values ('$pname','$pdis','$pimage','$date','$paddress','$pfacebook','$pphone','$pgmail','$new_date_discount')";
+                if ($conn->query($sql) === TRUE) {
+                    $last_id= mysqli_insert_id($conn);
+                    $postSuceess="You have successfull post product.";
+                } else {
+                    echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+                
             }
             
 
@@ -230,8 +222,8 @@
 
                 if($UploadOk == true){
                     move_uploaded_file($temp,$UploadFolder."/".$name);
-                    $id = mysql_insert_id();
-                    $sql=Products::insertMultiImg($id,$name);
+                    
+                    $sql=Products::insertMultiImg($last_id,$name);
                     array_push($uploadedFiles, $name);
                 }
             }

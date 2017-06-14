@@ -21,4 +21,5 @@
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/image_upload_previewer.js"></script>
 <script type="text/javascript" src="js/fixed_table.js"></script>
+<script src="resources/js/bootstrap-datetimepicker.min.js"></script>
 <!-- <script type="text/javascript" src="../resources/js/jquery1.min.js"></script> -->

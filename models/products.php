@@ -13,6 +13,9 @@
         public static function getProductImage($id){
             return runQuery("SELECT * FROM products WHERE pro_id = ".$id);
         }
+        public static function getProductSubImage($id){
+            return runQuery("SELECT * FROM productimage WHERE product_id = ".$id);
+        }
         // public static function getWoman(){
         //     return runQuery("SELECT * FROM products WHERE cat_id IN ('6','5','4','3','1') ORDER BY cat_id");
         // }
