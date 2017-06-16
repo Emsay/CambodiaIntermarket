@@ -58,38 +58,47 @@
 ?>
 <head>
 
-</head>
+<style type="text/css">
+    #gallery_01 img{border:2px solid #ccc;} /*Change the colour*/ 
+    .active img{border:2px solid #00adc9 !important;}
+    #wrap #zoom_03{
+        height: 300px;
+    }
+    #wrap{
+        border: 2px solid #00adc9;
+        margin: 0 auto;
+        width: 300px;
+    }
+    #gallery_01{
+        margin-top: 10px;
+        text-align: center;
+    }
+</style>
+
     <div class="container">
-        <div id="main_area">
-            <div class="row" style="margin: 0 auto">
-                <div class="col-md-7" id="slider">
-                    <div class="row">
-                        <div class="col-md-12" id="carousel-bounding-box">
-                            <div class="carousel slide" id="myCarousel">
-                                <div class="carousel-inner">
-                                    <div class="active item" data-slide-number="0">
-                                        <img src="../uploads/<?php echo $pimage;?>" style="width: 440px;height: 310px;">
-                                    </div>
-                                </div>
-                            </div>
+        <div class="row" style="margin:0 auto;">
+            <div class="col-md-12">
+                <div class="col-md-6" style="overflow:hidden !important; ">
+                    <div class="product-img-box">
+                        <div id="wrap" style="top:0px;position:relative;">
+                            <img id="zoom_03" src="../uploads/<?php echo $pimage;?>" data-zoom-image="../uploads/<?php echo $pimage;?>"/> 
                         </div>
                     </div>
-                    <div class="row" id="slider-thumbs" style="margin-top: 10px;">
-                        <ul class="hide-bullets">
-                            <?php
-                                $productImg =  Product::getProductSubImage($id);
-                                foreach($productImg as $imgs){
-                            ?>
-                            <li class="col-md-3">
-                                <a class="thumbnail" id="carousel-selector-0">
-                                    <img src="../uploads/<?php echo $imgs['multi_images'];?>" style="height: 80px;width:96px;">
-                                </a>
-                            </li>
-                            <?php }?>
-                        </ul>
+                    <div id="gallery_01">
+                        <a href="#" data-image="../uploads/<?php echo $pimage;?>" data-zoom-image="../uploads/<?php echo $pimage;?>"> 
+                            <img id="zoom_03" src="../uploads/<?php echo $pimage;?>" width="50px" />
+                        </a>
+                        <?php
+                            $productImg =  Product::getProductSubImage($id);
+                            foreach($productImg as $imgs){
+                        ?>
+                            <a href="#" data-image="../uploads/<?php echo $imgs['multi_images'];?>" data-zoom-image="../uploads/<?php echo $imgs['multi_images'];?>"> 
+                                <img id="zoom_03" src="../uploads/<?php echo $imgs['multi_images'];?>" width="50px" />
+                            </a>
+                        <?php }?>
                     </div>
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <h3 class='m_3 p_title'><?php echo $pname;?><h3>
                     <p class='m_5' style="color:red;">Discount : <?php echo $disc;?>%</p>
                     <p class='m_5' style="color:red;">Close Date : <?php echo $pdate;?></p><br>
@@ -107,24 +116,19 @@
         </div>
     </div>
     <div class="clear"></div>
-    <script>
-         $(document).ready(function() {
-            $('#myCarousel').carousel({
-                interval: 5000
-            });
-            $('#carousel-text').html($('#slide-content-0').html());
-            $('[id^=carousel-selector-]').click( function(){
-                var id = this.id.substr(this.id.lastIndexOf("-") + 1);
-                var id = parseInt(id);
-                $('#myCarousel').carousel(id);
-            });
-            // When the carousel slides, auto update the text
-            $('#myCarousel').on('slid.bs.carousel', function (e) {
-                 var id = $('.item.active').data('slide-number');
-                $('#carousel-text').html($('#slide-content-'+id).html());
-            });
-        });
+    <script src="resources/js/jquery.elevatezoom.js" type="text/javascript"></script>
+    <script src="resources/js/cloud-zoom.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        $("#zoom_03").elevateZoom({gallery:'gallery_01', cursor: 'pointer', galleryActiveClass: 'active', imageCrossfade: true, loadingIcon: ''});
+        $("#zoom_03").bind("click", function(e) {
+            var ez = $('#zoom_03').data('elevateZoom'); 
+            $.fancybox(ez.getGalleryList()); 
+            return false; 
+        }); 
+
     </script>
+ 
 <?php
     include ('template/footer.php');
 ?>
