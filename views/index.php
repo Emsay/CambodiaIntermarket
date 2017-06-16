@@ -185,7 +185,7 @@
 				$Product =  Product::getProducts();
 					foreach ($Product as $pro){
 						?>
-						<div class="col-md-4" style="padding-right:-1px;padding-bottom:25px">
+						<div class="col-md-4" style="padding-right:-1px;padding-bottom:25px;">
 							<a href="details.php?id=<?php echo $pro['pro_id'];?>">
 								<img class="images" style="height: 300px;" src="../uploads/<?php echo $pro['pro_image'];?>" />
 								<div class="overlay">

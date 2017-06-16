@@ -18,6 +18,11 @@
     margin-left: 16px;
     margin-top: -23px;
 }
+@media (min-width: 992px){
+  .col-md-3 {
+      width: 21%;
+  }
+}
 span.actual1 {
     text-decoration: line-through;
     color:#000;

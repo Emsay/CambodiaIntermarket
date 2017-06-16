@@ -2692,6 +2692,11 @@ ul.delivery-list li a:hover{
 		top: 88px;
 	}
 }
+@media (max-width:1024px){
+	.header-top{
+		margin-left: -77px;
+	}
+}
 @media (max-width:1280px){
 	.wrap{
 		width:90%;

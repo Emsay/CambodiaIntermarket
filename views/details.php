@@ -57,11 +57,10 @@
     
 ?>
 <head>
-
 </head>
     <div class="container">
         <div id="main_area">
-            <div class="row" style="margin: 0 auto">
+            <div class="row" style="margin: 0 auto; padding:18px; margin-left:-151px;">
                 <div class="col-md-7" id="slider">
                     <div class="row">
                         <div class="col-md-12" id="carousel-bounding-box">
@@ -82,7 +81,7 @@
                             ?>
                             <li class="col-md-3">
                                 <a class="thumbnail" id="carousel-selector-0">
-                                    <img src="../uploads/<?php echo $imgs['multi_images'];?>" style="height: 80px;width:96px;">
+                                    <img style="height: 80px;width:96px;" src="../uploads/<?php echo $imgs['multi_images'];?>" >
                                 </a>
                             </li>
                             <?php }?>
@@ -90,7 +89,7 @@
                     </div>
                 </div>
                 <div class="col-md-5">
-                    <h3 class='m_3 p_title'><?php echo $pname;?><h3>
+                    <h3 class='m_3 p_title' style="background:#eee; padding:10px;"><?php echo $pname;?><h3>
                     <p class='m_5' style="color:red;">Discount : <?php echo $disc;?>%</p>
                     <p class='m_5' style="color:red;">Close Date : <?php echo $pdate;?></p><br>
                     <p class='m_3'>Contact for more information</p>

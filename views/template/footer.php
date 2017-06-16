@@ -1,7 +1,6 @@
-<hr style="border:1px solid #eee;">
-<div class='wrap'>
-<div class="footer">
-	<div class="footer-middle">
+<!-- <div class='wrap'> -->
+<div class="footer" style="margin-top:200px;">
+	<div class="footer-middle" style="padding:20px;">
 		<link href='resources/css/mystyles.css' rel='stylesheet' type='text/css' media='all' />
 			<div class="section group example">
 				<div class="col_1_of_f_1 span_1_of_f_1">
@@ -78,4 +77,3 @@
 			</div>
 		</div>
 	</div>
-</div>
