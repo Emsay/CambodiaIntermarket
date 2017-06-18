@@ -9,6 +9,7 @@
 		<div class="strike">
 		    <h1>ALL SHOP/ COMPANY</h1>
 		</div>
+		<?php echo ''; ?>
 		<div class="clear"></div>
 		<div style="padding:15px;" class="col-md-12 col-lg-12">
 			<?php 

@@ -1,5 +1,5 @@
 <!-- <div class='wrap'> -->
-<div class="footer" style="margin-top:200px;">
+<div class="footer" style="margin-top:400px;">
 	<div class="footer-middle" style="padding:20px;">
 		<link href='resources/css/mystyles.css' rel='stylesheet' type='text/css' media='all' />
 			<div class="section group example">
