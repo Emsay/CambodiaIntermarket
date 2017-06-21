@@ -75,8 +75,8 @@
     }
 </style>
 
-    <div class="container">
-        <div class="row" style="margin:0 auto;">
+    <div class="container"><hr>
+        <div class="row" style="margin:0 auto;>
             <div class="col-md-12">
                 <div class="col-md-6" style="overflow:hidden height:200px !important; ">
                     <div class="product-img-box">
@@ -100,12 +100,12 @@
                 </div>
                 <div class="col-md-6">
                     <h3 class='m_3 p_title' style="background:#eee; padding:20px;"><?php echo $pname;?><h3>
-                    <p class='m_5' style="color:red;">Discount : <?php echo $disc;?>%</p>
-                    <p class='m_5' style="color:red;">Close Date : <?php echo $pdate;?></p><br>
+                    <p class='m_5' style="color:red;">Discount : <?php echo $disc;?>%</p><br>
+                    <!-- <p class='m_5' style="color:red;">Close Date : <?php echo $pdate;?></p><br> -->
                     <p class='m_3'>Contact for more information</p>
                     <p class='m_5'>Address : <?php echo $paddress;?></p>
-                    <p class='m_5'>Facebook :<?php echo '<a href="'.$pface.'">Click for detial...</a>';?></p>
-                    <p class='m_5'>Tel Contact : 0<?php echo $pphone;?></p>
+                    <p class='m_5'>Facebook :<a href="https://www.facebook.com/CambodiaIntermarket/">Click for detial...</a></p>
+                    <p class='m_5'>Tel Contact : <?php echo $pphone;?></p>
                     <p>
                         <button type="submit" class="black" name="basket">
                             <?php echo _t_addbasket;?>

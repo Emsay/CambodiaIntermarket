@@ -10,7 +10,8 @@
 
 .megamenu li {
     margin-bottom: 0px;
-    display: inline
+    display: inline;
+    margin-right: -4px;
 }
 
 .megamenu>li>a {

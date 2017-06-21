@@ -76,12 +76,6 @@
              <li>
                 <a href="manage_slide.php"><i class="fa fa-fw fa-table"></i> Manage SlideShow</a>
             </li>
-            <li>
-                <a href="manage_adv.php"><i class="fa fa-fw fa-table"></i> Manage Advertise</a>
-            </li>
-             <li>
-                <a href="send_mail.php"><i class="fa fa-fw fa-table"></i> Send Email</a>
-            </li>
         </ul>
     </div>
 </nav>

@@ -62,7 +62,7 @@
     <style type="text/css">
         .error {color: #FF0000;font-size: 28px;}
         .errorEmail{color:#ff0000;}
-        body{
+        body, button{
             font-family: Arial !important;
         }
         input, select, option{
@@ -109,11 +109,11 @@
             <form method='post' name="form">
                 <div class="form-group">
                     <label>User Name</label>
-                    <input class="form-control" type='text' name='name' value='<?php echo $name;?>' placeholder='Name' required>
+                    <input class="form-control" type='text' name='name' value='' placeholder='Name' required>
                 </div>
                 <div class="form-group">
                     <label>Email</label>
-                    <input class="form-control" type='email' name='email' value='<?php echo $email;?>' placeholder='Email' required style="width:91%">
+                    <input class="form-control" type='email' name='email' value='' placeholder='Email' required style="width:91%">
                 </div>
                 <div class="form-group">
                     <label>Address</label>

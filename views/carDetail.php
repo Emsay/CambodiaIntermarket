@@ -32,6 +32,17 @@
         margin-top: -43px !important;
         margin-right: 17px !important;
     }
+    .control-label{
+        padding-top:10px;
+        padding-bottom: 10px;
+    }
+    .grey{
+        font-family: Arial !important; 
+    }
+    .grey:hover{
+        background-color: #fff !important;
+        color:#000 !important;
+    }
 </style>
 
 <div class='register_accounts'>
@@ -42,7 +53,7 @@
                 <div class='col-md-12'><h4 class='title' style="color:#fff;">TRANSPORTATION</h4></div>
                 <div class="form-group">
                     <div class="col-md-12">
-                        <label>Car Type</label>
+                        <label class="control-label">Car Type</label>
                         <select class="form-control" name="car">
                             <option value="No Cateogry" style="display:none;">Selects Car</option>
                             <?php 
@@ -57,7 +68,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-6">
-                        <label>Departure</label>
+                        <label class="control-label">Departure</label>
                         <select class="form-control" name="departure">
                             <option value="No Cateogry" style="display:none;">Selects Departure</option>
                             <?php 
@@ -72,12 +83,12 @@
                     <div class="col-md-6">
                         <label class="control-label" for="date">Date Departure</label>
                         <input class="form-control" id="date" name="datedepart" placeholder="M-D-Y" type="text"/>
-                        <span class="fa fa-calendar"></span>
+                        <!-- <span class="fa fa-calendar"></span> -->
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-md-6">
-                        <label>Destination</label>
+                        <label class="control-label">Destination</label>
                         <select class="form-control" name="destination">
                             <option value="No Cateogry" style="display:none;">Selects Destination</option>
                             <?php 
@@ -92,11 +103,15 @@
                     <div class="col-md-6">
                         <label class="control-label" for="date">Date Destination</label>
                         <input class="form-control" id="date" name="datedes" placeholder="M-D-Y" type="text"/>
-                        <span class="fa fa-calendar"></span>
+                        <!-- <span class="fa fa-calendar"></span> -->
                     </div>
                 </div>
-                <div class='clear'></div>
-                <button class='grey' type='submit' name='btnSubmit'>Submit</button>
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <div class='clear'></div>
+                        <button class='grey' type='submit' name='btnSubmit'>Submit</button>
+                    </div>
+                </div>
             </div>
         </form>
         
@@ -137,8 +152,8 @@
                         <td><?=$car['province_name']; ?></td>
                         <td style="text-align: center;"><?=$new_date_depart; ?></td>
                         <td style="text-align: center;"><?=$new_date_des; ?></td>
-                        <td style="text-align: center;"><?=$totalDate;?></td>
-                        <td style="text-align: center;"><?=$car['prices']*$totalDate; ?></td>
+                        <td style="text-align: center;"><?=$totalDate;?> day</td>
+                        <td style="text-align: center;">$ <?=$car['prices']*$totalDate; ?></td>
                     </tr>
                 <?php } ?>
                 </tbody>

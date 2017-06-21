@@ -6,6 +6,9 @@
   	$regisErr = '';
 ?>
 <style type="text/css">
+	li a,p,h3{
+		font-family: Arial !important;
+	}
 	.modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -87,31 +90,21 @@
         h4{
             font-family: Arial;
         }
+    .discounttxt{
+    	background-color: #00ADC9;
+	    width: 85px;
+	    height: 40px;
+	    color: #fff;
+	    position: absolute;
+	    text-align: center;
+	    padding-top: 8px;
+	    margin-left: -18px;
+	    margin-top: -12px;
+	    font-size: 22px;
+	    border: 1px solid #fff;
+    }
 </style>
-<div id="myModal" class="modal">
-  <!-- Modal content -->
-  <div class="modal-content">
-    <div class="modal-header">
-      <span class="close">&times;</span>
-    </div>
-    <div class="modal-body">
-      <div class='col-md-12'>
-            <div class="form-group">
-                <label>User Name</label>
-                <input class="form-control" type='text' name='name' value='<?php echo $name;?>' placeholder='Name' required>
-            </div>
-            <div class="form-group">
-                <label>Email</label>
-                <input class="form-control" type='email' name='email' value='<?php echo $email;?>' placeholder='Email' required style="width:91%">
-            </div>
-        </div>
-    </div>
-    <div class="modal-footer">
-    </div>
-  </div>
-</div>
-
-<div class='main' style="background-image: url(resources/images/pic.png);background-repeat: no-repeat;background-size: cover;height:1364px;background-position: center;">
+<div class='main' style="background-image: url(resources/images/pic.png),url(resources/images/pic2.jpg);height:1394px;background-color: #6fd4ed;background-position:0 0, 0 bottom; background-repeat:no-repeat;position: absolute; background-size: 100% 49%;" >
 	<div class='wrap'>
 		<div class=''>
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
@@ -122,7 +115,7 @@
 		<script src='resources/js/jquery.nivo.slider.js'></script>
 		<script src="resources/js/bootstrap.mini.js" type="text/javascript"></script>
 		<script src="resources/js/bootstrap.js" type="text/javascript"></script>
-	  <script type='text/javascript'>
+	  	<script type='text/javascript'>
 			// var modal = document.getElementById('myModal');
 			// // Get the button that opens the modal
 			// var btn = document.getElementById("myBtn");
@@ -174,25 +167,21 @@
 		    </div> -->
 		</div>
 		<div class="clear"></div>
-
-		<div class="strike">
-		    <h1>ALL SHOP/ COMPANY DISCOUNT</h1>
-		</div>
-
-		<div class="clear"></div>
 		<div class="bg-custom col-md-12 col-lg-12">
+		<h1 style="text-align:center; color:#fff; font-size:bold;"></h1><hr>
 			<?php 
 				$Product =  Product::getProducts();
 					foreach ($Product as $pro){
 						?>
 						<div class="col-md-4" style="padding-right:-1px;padding-bottom:25px;">
+							<div class="discounttxt"><?php echo $pro['pro_discount']; ?>%</div>
 							<a href="details.php?id=<?php echo $pro['pro_id'];?>">
-								<img class="images" style="height: 300px;" src="../uploads/<?php echo $pro['pro_image'];?>" />
+								
+								<img class="images" style="height: 300px;border:1px solid #ccc" src="../uploads/<?php echo $pro['pro_image'];?>" />
 								<div class="overlay">
 							    	<div class="text" style="font-weight:bold; font-family:arial; font-size:90%; color: #286090;">
 							    		<?php echo 'Name : '.$pro['pro_name']; ?><br>
 							    		<?php echo 'Discount : '.$pro['pro_discount'].'%'; ?><br>
-							    		<?php echo 'Close : '.$pro['date_discount']; ?>
 							    	</div> 
 							  </div>
 							</a>
@@ -201,10 +190,11 @@
 		</div>
 		<div class='clear'></div>
 
-		<div class="strike">
+		<!-- <div class="strike">
 		    <h1>ALL PRODUCT CATEGORIES</h1>
-		</div>
-
+		</div> -->
+		<h1 style="text-align:center; color:#00ADC9; font-size:bold;">ALL PRODUCT CATEGORIES</h1>
+		<hr>
 		<div class="clear"></div>
 		<!-- manage shop category -->
 		<div class="col-md-12 col-lg-12">
@@ -225,10 +215,11 @@
 		<!-- manage shop category -->
 		<div class="clear"></div>
 
-		<div class="strike">
+		<!-- <div class="strike">
 		    <h1>SPECIAL PROMOTION</h1>
-		</div>
-
+		</div> -->
+		<h1 style="text-align:center; color:#00ADC9; font-size:bold;">SPECIAL PROMOTION</h1>
+		<hr>
 		<div class="clear"></div>
 		<!-- second slide show (product)-->
 	   	<div class="col-md-12 col-lg-12">
@@ -248,10 +239,11 @@
 
 	   	<div class="clear"></div>
 
-		<div class="strike">
+		<!-- <div class="strike">
 		    <h1>ABOUT US</h1>
-		</div>
-
+		</div> -->
+		<h1 style="text-align:center; color:#00ADC9; font-size:bold;">ABOUT US</h1>
+		<hr>
 		<div class='clear'></div>
 
 		<h1>Who are we?</h1>
@@ -275,10 +267,11 @@
 
             <div class="col-md-12">
 
-				<div class="strike">
+				<!-- <div class="strike">
 				    <h1>CONTACT US</h1>
-				</div>
-
+				</div> -->
+				<h1 style="text-align:center; color: #00ADC9; font-size:bold;">CONTACT US</h1>
+				<hr>
 				<div class='clear'></div>
 				<!-- google map -->
 				<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAZFsa3xsng8xZ_-NuGKeP-V41HtTi9Obk'></script>

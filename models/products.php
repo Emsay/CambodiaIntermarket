@@ -16,15 +16,6 @@
         public static function getProductSubImage($id){
             return runQuery("SELECT * FROM productimage WHERE product_id = ".$id);
         }
-        // public static function getWoman(){
-        //     return runQuery("SELECT * FROM products WHERE cat_id IN ('6','5','4','3','1') ORDER BY cat_id");
-        // }
-        // public static function getHouse(){
-        //     return runQuery("SELECT * FROM products WHERE cat_id IN ('8') ORDER BY cat_id");
-        // }
-        // public static function getCarCategory(){
-        //     return runQuery("SELECT * FROM products ORDER BY create_date DESC");
-        // }
 
         public static function getSearch($result){
             $sql = "SELECT * FROM products WHERE pro_name LIKE '%".$result."%' or pro_price LIKE '%".$result."%'";
@@ -87,6 +78,9 @@
                     AND shop.id in ( select max(id) from shop GROUP by shop_cat_id order by id desc)";
             return runQuery($sql);
         }
+        public static function getShop($id){
+            return runQuery("SELECT * FROM shop WHERE id = ".$id);
+        }
         public static function listShop($id){
             $sql = "SELECT * from shop WHERE shop_cat_id =".$id;
             return runQuery($sql);
@@ -98,7 +92,7 @@
 
         //get province
         public static function getProvince(){
-            return runQuery("SELECT * from province");
+            return runQuery("SELECT * from tbl_provinces");
         }
 
         //insert car detail

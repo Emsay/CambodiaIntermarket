@@ -1,12 +1,12 @@
 <!-- <div class='wrap'> -->
-<div class="footer" style="margin-top:400px;">
-	<div class="footer-middle" style="padding:20px;">
+<div class="footer" style="margin-top:200px;">
+	<div class="footer-middle" style="padding:20px;  background:#3F3D42;">
 		<link href='resources/css/mystyles.css' rel='stylesheet' type='text/css' media='all' />
 			<div class="section group example">
 				<div class="col_1_of_f_1 span_1_of_f_1">
 					<div class="section group example">
 						<div class="col_1_of_f_2 span_1_of_f_2">
-						    <h3 class="fb"><?php echo _t_fb;?></h3>
+						    <h3 class="fb" style="color:#fff; font-family:arial;"><?php echo _t_fb;?></h3>
 							<script>(function(d, s, id) {
 								  var js, fjs = d.getElementsByTagName(s)[0];
 								  if (d.getElementById(id)) return;
@@ -24,7 +24,7 @@
 			 	<div class="col_1_of_f_1 span_1_of_f_1">
 			   		<div class="section group example">
 					 	<div class="col_1_of_f_2 span_1_of_f_2">
-					    	<h3 class="fb"><?php echo _t_infor;?></h3>
+					    	<h3 class="fb" style="color:#fff; font-family:arial;"><?php echo _t_infor;?></h3>
 							<!-- <ul class="f-list1">
 							    <li><a href="#">Duis autem vel eum iriure </a></li>
 					            <li><a href="#">anteposuerit litterarum formas </a></li>
@@ -35,13 +35,13 @@
 				         	</ul> -->
 	 					</div>
 					 	<div class="col_1_of_f_2 span_1_of_f_2" style="font-family:arial;">
-					   		<h3 class="fb"><?php echo _t_contact;?></h3>
-							<div class="company_address">
+					   		<h3 class="fb" style="color:#fff; font-family:arial;"><?php echo _t_contact;?></h3>
+							<div class="company_address" style="color:#fff;">
 						        <!-- <p><?php echo _t_cambodia;?> : #559, Street 6A, Phnom Penh</p> -->
 						   		<!-- <p><?php echo _t_france;?> :(+33) 78 228 1638</p> -->
-						   		<p><?php echo _t_cambodia;?> : (+855) 012 792 707/
-						   		010 571 889</p>
-						 	 	<p><?php echo _t_email;?>:<a href="#"><u>cambodiaintermarket
+						   		<p><?php echo _t_cambodia;?> : (+855) 012 792 707
+						   		/010 571 889</p>
+						 	 	<p><?php echo _t_email;?>:<a href="#" style="color:#00ADC9; font-family:arial;"><u>cambodiaintermarket
 						 	 	@gmail.com</u></a> </p>
 						   		
 						   </div>

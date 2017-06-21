@@ -165,16 +165,16 @@
 </head>
 <div class="wrap">
 	<div class="header-top col-md-12 col-xs-12">
-		<div class="col-md-4 col-xs-12">
-			<ul class="list-inline lang">
+		<div class="col-md-4" style="padding-top:16px;">
+			<!-- <ul class="list-inline lang"> -->
 				<!-- <a href="..\lang/switch_lang.php?lang=2" style="color:#fff; font-family:'Arial';font-size:14px;margin-left:91px;">English</a> |
 				<a href="..\lang/switch_lang.php?lang=1">ភាសាខ្មែរ</a> -->
-				<div class="col-md-3">
+				<div class="col-md-4" style="margin-top:-9px;text-align:right;">
 					<a href="index.php">
-						<img src="resources/images/logo.png" alt="" class="imglogo" style="height: 63px; margin-top:-16px;" />
+						<img src="resources/images/logo.png" alt="" class="" style="width:43%;" />
 					</a>
 				</div>
-				<div class="col-md-9">
+				<div class="col-md-8">
 				<?php
 						if(!isset($_POST['search'])){
 						    $searchname = "";
@@ -193,14 +193,7 @@
 				        </div>
 				    </form>
 				</div>
-				<!-- <?php
-			    if(isset($_SESSION['login_user'])=='Undefined'){
-					echo "<li style='color:#fff; font-family:'Arial';font-size:14px;margin-left:91px;'>"._t_welcome." ".$_SESSION['login_user']."</li>";
-					}else{
-						echo "";
-					}
-				?> -->
-			</ul>
+			<!-- </ul> -->
 		</div>
 		<?php
 			// $session_items = 0;

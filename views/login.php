@@ -33,7 +33,12 @@
 	    }
 	}
 	
-?>	
+?>
+<style type="text/css">
+	body, p, input, button{
+		font-family: Arial !important;
+	}
+</style>
 <div class="login">
   	<div class="wrap">
 		<div class="col_1_of_login span_1_of_login">

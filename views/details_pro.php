@@ -9,16 +9,16 @@
     $db_handle = new DBController();
     
     $id = $_GET['id'];
-    $product =  Product::getProductImage($id);
+    $product =  product::getShop($id);
     $row = mysqli_fetch_array($product);
     if($row){
-        $pname = $row['pro_name'];
-        $pimage = $row['pro_image'];
-        $pface = $row['facebook'];
-        $pphone = $row['phone'];
+        $sname = $row['shop_name'];
+        $simage = $row['images'];
+        $sface = $row['facebook'];
+        $sphone = $row['phone'];
     }
 
-    $select = "select * from products where pro_id = ".$id;
+    $select = "select * from shop where id = ".$id;
     $query = mysqli_query($db,$select);
     $numrow = mysqli_num_rows($query);
     if($numrow>0){
@@ -34,22 +34,20 @@
 ?>
 <head>
     <meta charset='utf-8' />
-    <script>
-
-    </script>
-</head>
+</head><hr>
     <div class="main">
         <div class="wrap">
             <div class="col-md-6" > 
-                <img class='img-responsive' src='../uploads/<?php echo $pimage;?>' class='img-responsive'/>
+                <img class='img-responsive' src='../uploads/<?php echo $simage;?>' class='img-responsive'/>
             </div>
             <div class='col-md-6'>
-                <h3 class='m_3 p_title' style="background:#eee; padding:20px; color: #00ADC9;"><?php echo $pname;?><h3>
+                <h3 class='m_3 p_title' style="background:#eee; padding:20px; color: #00ADC9;"><?php echo $sname;?><h3>
                 <p class='m_3' style="color:red;">Contact for more information</p>
-                <p class='m_5'>Facebook :<?php echo '<a href="' . $pface . '">Click for detial...</a>';?></p>
-                <p class='m_5'>Tel Contact : 0<?php echo $pphone;?></p>
+                <p class='m_5'>Facebook :<a href="https://www.facebook.com/CambodiaIntermarket/">Click for detial...</a></p>
+                <p class='m_5'>Tel Contact : <?php echo $sphone;?></p>
             </div>
         </div>
+    </div>
     <div class="col-lg-12">
         <div style="height:50px"></div>
     </div>

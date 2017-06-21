@@ -32,7 +32,7 @@
 	define("_t_register", "You are new costomers, so need to be register with us. If you want to know more about our product, you can chat with us, we will guide with the quality product from France. Make new account with us today.");
 	//define("_t_register", "Sign Up");
 	define("_t_france", "France");
-	define("_t_cambodia", "Cambodia");
+	define("_t_cambodia", "Tell");
 	define("_t_phone", "Phone");
 	define("_t_email", "Email");
  	define("_t_price", "Price: $");
