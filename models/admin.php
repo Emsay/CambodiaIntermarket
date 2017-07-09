@@ -7,7 +7,7 @@ class Products {
         return runNonQuery($sql);
     }
     public static function insertMultiImg($pro_id,$name){
-        $sql = "INSERT INTO productImage(product_id,multi_images) 
+        $sql = "INSERT INTO productimage(product_id,multi_images) 
                             VALUES('{$pro_id}','{$name}')";
         return runNonQuery($sql);
     }

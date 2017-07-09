@@ -4,41 +4,9 @@
 
     $postSuceess="";
     $codeErr="";
-
-    if(isset($_POST['post'])){
-        /*$pname = $_POST['name'];
-        $pdis = $_POST['discount'];
-        $pdate_discount = strtotime($_POST['datedisc']);
-        $paddress = $_POST['address'];
-        $pfacebook = $_POST['facebook'];
-        $pphone = $_POST['phone'];
-        $pgmail = $_POST['gmail'];
-        $type = basename($_FILES['image']['type']);
-        $pimage = basename($_FILES['image']['name']);
-        $date = date("Y/m/d H:i:s");
-        $yes = 1;
-
-        $new_date_discount = date('Y-m-d', $pdate_discount);
-        // $checkCode = Products::checkCode($pcode);
-        // if($checkCode=='already'){
-        //     $codeErr = "Product Code has already added.";
-        // }else{
-        //     echo "";
-        // }
-
-        if($type != "png" && $type != "jpg" && $type != "jpeg"){
-            echo "This file not respond because it is not file image.";
-            $yes = 0;
-        }else{
-            $to = "../uploads/".$_FILES['image']['name'];
-            // echo "Hello path ".$to;
-            move_uploaded_file($_FILES['image']['tmp_name'],$to);
-            $insert_product = Products::insert($pname, $pdis, $pimage, $date, $paddress, $pfacebook, $pphone, $pgmail, $new_date_discount);
-            $postSuceess="You have successfull post product.";
-            $yes=1;
-        }*/
-    }
 ?>
+
+
 <div id="wrapper">    
     <?php 
         include ("menu_admin.php");
@@ -69,16 +37,17 @@
                                 <input class="form-control" name="name" required>
                             </div>
                         </div>
+                        
+                        <div class="col-md-10">
+                            <label class="control-label" for="date">Date Discount</label>
+                            <input class="form-control" id="date" name="datedisc" placeholder="M-D-Y" type="text"/>
+                            <!-- <span class="fa fa-calendar"></span> -->
+                        </div>
                         <div class="form-group">
                             <div class="col-xs-10">
                                 <label>Discount</label>
                                 <input class="form-control" name="discount" required>
                             </div>
-                        </div>
-                        <div class="col-md-10">
-                            <label class="control-label" for="date">Date Discount</label>
-                            <input class="form-control" id="date" name="datedisc" placeholder="M-D-Y" type="text"/>
-                            <!-- <span class="fa fa-calendar"></span> -->
                         </div>
                         <div class="form-group">
                             <div class="col-xs-10">
@@ -133,17 +102,21 @@
         </div>
     </div>
 </div>
+
+<link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.css">
+<script src="js/bootstrap-datetimepicker.min.js"></script>
 <script>
     $(function(){
-        var date_input1=$('input[name="datedisc"]'); 
+        var date_input=$('input[name="datedisc"]'); 
+        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
         var options={
-        format: 'mm/dd/yyyy',
-        container: container,
-        todayHighlight: true,
-        autoclose: true,
-      };
-      date_input1.datepicker(options);
-  });
+            format: 'mm/dd/yyyy',
+            container: container,
+            todayHighlight: true,
+            autoclose: true,
+        };
+        date_input.datepicker(options);
+    });
 </script>
 
 <?php

@@ -127,13 +127,13 @@
 		});
 	</script> -->
 	<link href="resources/css/etalage.css" rel="stylesheet">
-	<!-- <link rel="stylesheet" type="text/css" href="resoursec/css/bootstrap-datetimepicker.css"> -->
+
   <script src="resources/js/slides.min.jquery.js"></script>
   <script src="resources/js/jquery.flexisel.js"></script>
   <script src="resources/js/jquery.etalage.min.js"></script>
 	<script src="resources/js/jquery.easydropdown.js"></script>
-	<script src="resources/js/jquery-1.9.1.js"></script>
-	<script src="resources/js/bootstrap-datetimepicker.min.js"></script>
+	<!-- <script src="resources/js/jquery-1.9.1.js"></script> -->
+	
 	<style>
 		div.headerStyle{
 			margin-top: 24px;

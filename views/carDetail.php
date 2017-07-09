@@ -22,7 +22,24 @@
     }
 ?>
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="resources/css/bootstrap-datetimepicker.css">
+<script src="resources/js/bootstrap-datetimepicker.min.js"></script>
 <link href='resources/css/mystyles.css' rel='stylesheet' type='text/css' media='all' />
+<script>
+    $(document).ready(function(){
+      var date_input1=$('input[name="datedepart"]'); //our date input has the name "date"
+      var date_input=$('input[name="datedes"]');
+      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+      var options={
+        format: 'mm/dd/yyyy',
+        container: container,
+        todayHighlight: true,
+        autoclose: true,
+      };
+      date_input1.datepicker(options);
+      date_input.datepicker(options);
+    })
+</script>
 <style type="text/css">
     .btn-success{
         margin-top:10px;
@@ -163,21 +180,7 @@
         <div class='clear'></div>
     </div>
 </div>
-<script>
-    $(document).ready(function(){
-      var date_input1=$('input[name="datedepart"]'); //our date input has the name "date"
-      var date_input=$('input[name="datedes"]');
-      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-      var options={
-        format: 'mm/dd/yyyy',
-        container: container,
-        todayHighlight: true,
-        autoclose: true,
-      };
-      date_input1.datepicker(options);
-      date_input.datepicker(options);
-    })
-</script>
+
 <?php
     include ('template/footer.php');
 ?>
