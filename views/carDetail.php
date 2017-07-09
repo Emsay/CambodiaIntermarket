@@ -15,9 +15,9 @@
         
         $query = Product::insertCarDetail($user_id,$car_id,$departure,$destination,$new_date_depart,$new_date_des);
         if($query){
-            echo "";
+            echo "yes";
         }else{
-            echo "";
+            echo "no";
         }
     }
 ?>

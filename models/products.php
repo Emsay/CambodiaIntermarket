@@ -96,18 +96,17 @@
         }
 
         //insert car detail
-        public static function insertCarDetail($user_id,$car_id,$province_depart_id,$province_destination_id
-            ,$date_departure,$date_destination){
+        public static function insertCarDetail($user_id,$car_id,$province_depart_id,$province_destination_id,$date_departure,$date_destination){
             $sql = "INSERT INTO rentCarDetail (user_id,car_id,province_depart_id,province_destination_id,date_departure,date_destination) 
                 values ('{$user_id}','{$car_id}','{$province_depart_id}','{$province_destination_id}','{$date_departure}','{$date_destination}')";
             return runNonQuery($sql);
         }
 
         public static function getCarDetail($user_id){
-            $sql = "SELECT car.*,province.province_name,rentCarDetail.*
+            $sql = "SELECT car.*,tbl_provinces.province_name,rentCarDetail.*
                     FROM rentCarDetail
                     INNER JOIN car ON car.id = rentCarDetail.car_id
-                    INNER JOIN province ON province.id = rentCarDetail.province_destination_id
+                    INNER JOIN tbl_provinces ON tbl_provinces.id = rentCarDetail.province_destination_id
                     where rentCarDetail.user_id=".$user_id;
             return runQuery($sql);
         }
