@@ -6,7 +6,7 @@
     $emailErr='';
     $regisErr = '';
 
-    if(isset($_POST['btnSubmit'])){
+       if(isset($_POST['btnSubmit'])){
         //session_start();
         $name = $_POST['name'];
         $company_name = $_POST['company_name'];
@@ -74,6 +74,7 @@
         }
     </style>
 </head>
+<hr> 
 <div class='register_account'>
     <div class='wrap' style="background: rgba(204, 204, 204, 0.2);">
         <div class='col-md-6'>

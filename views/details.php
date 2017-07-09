@@ -104,13 +104,8 @@
                     <!-- <p class='m_5' style="color:red;">Close Date : <?php echo $pdate;?></p><br> -->
                     <p class='m_3'>Contact for more information</p>
                     <p class='m_5'>Address : <?php echo $paddress;?></p>
-                    <p class='m_5'>Facebook :<a href="https://www.facebook.com/CambodiaIntermarket/">Click for detial...</a></p>
+                    <p class='m_5'>Facebook : <a href="<?php echo $pface;?>"> Click detail... </a></p>
                     <p class='m_5'>Tel Contact : <?php echo $pphone;?></p>
-                    <p>
-                        <button type="submit" class="black" name="basket">
-                            <?php echo _t_addbasket;?>
-                        </button>
-                    </p>
                 </div>
             </div>
         </div>

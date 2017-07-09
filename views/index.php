@@ -104,7 +104,7 @@
 	    border: 1px solid #fff;
     }
 </style>
-<div class='main' style="background-image: url(resources/images/pic.png),url(resources/images/pic2.jpg);height:1394px;background-color: #6fd4ed;background-position:0 0, 0 bottom; background-repeat:no-repeat;position: absolute; background-size: 100% 49%;" >
+<div class='main' style="" >
 	<div class='wrap'>
 		<div class=''>
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
@@ -113,7 +113,7 @@
 	 	<link href='resources/css/default.css' rel='stylesheet' type='text/css' media='all' />
 	 	<link href='resources/css/nivo-slider.css' rel='stylesheet' type='text/css' media='all' />
 		<script src='resources/js/jquery.nivo.slider.js'></script>
-		<script src="resources/js/bootstrap.mini.js" type="text/javascript"></script>
+		<script src="resources/js/bootstrap.min.js" type="text/javascript"></script>
 		<script src="resources/js/bootstrap.js" type="text/javascript"></script>
 	  	<script type='text/javascript'>
 			// var modal = document.getElementById('myModal');
@@ -179,9 +179,8 @@
 								
 								<img class="images" style="height: 300px;border:1px solid #ccc" src="../uploads/<?php echo $pro['pro_image'];?>" />
 								<div class="overlay">
-							    	<div class="text" style="font-weight:bold; font-family:arial; font-size:90%; color: #286090;">
-							    		<?php echo 'Name : '.$pro['pro_name']; ?><br>
-							    		<?php echo 'Discount : '.$pro['pro_discount'].'%'; ?><br>
+							    	<div class="text" style="font-weight:bold; font-family:arial; font-size:90%; color: #fff;">
+							    		<?php echo $pro['pro_name']; ?><br>
 							    	</div> 
 							  </div>
 							</a>
@@ -204,7 +203,7 @@
 					?>
 				<div class="col-md-4" style="padding-right:-1px;padding-bottom:25px">
 					<a href="list_shop.php?id=<?php echo $cat['shop_cat_id'];?>">
-						<img class="image" style="height:250px;" src="../uploads/<?php echo $cat['images'];?>"/>
+						<img class="image" style="height:250px; border:1px solid #eee;" src="../uploads/<?php echo $cat['images'];?>"/>
 					</a>
 					<div class="caption">
 		            	<button type="button" class="btn btn-primary"><?php echo $cat['shop_category'];?></button>
@@ -252,7 +251,7 @@
                 <div class="testimonials ">
                     <div class="testi-item" style="width:235px;">
                         <a href="#" >
-                            <img src="resources/images/logo1.jpg">
+                            <img src="resources/images/logo.png">
                         </a>
                     </div>
                     <h3 style="margin-top:-65px;"><?php echo _t_title;?></h3>

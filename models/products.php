@@ -3,7 +3,7 @@
     // Product class is used instead of above four get product by category functions
     class Product {
         public static function getProducts(){
-            return runQuery("SELECT * FROM products ORDER BY create_date DESC LIMIT 12");
+            return runQuery("SELECT * FROM products ORDER BY create_date DESC LIMIT 24");
         }
 
         public static function getAdvs(){

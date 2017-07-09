@@ -19,7 +19,6 @@ class Products {
     public static function delect($id){
         return runNonQuery("DELETE from products where pro_id=".$id);
     }
-
     // public static function getProducts(){
     //    return runQuery("SELECT products.*, category.cat_name from products inner join category on products.cat_id=category.cat_id ORDER BY create_date DESC");
     // }
@@ -48,7 +47,6 @@ class Products {
     //     }
     // }
     ///////////////////////////////////////////////////////////////////////////////////////////
-
     //manage slideshow
     public static function insertslide($description,$image,$date,$location){
         $sql = "INSERT INTO slides (description,image,date_add,location) 
@@ -72,13 +70,11 @@ class Products {
         return runQuery($sql);
     }
     /////////////////////////////////////////////////////////////////////////////////////////
-
     //manage shop category
     public static function getShopCategory(){
         return runQuery("SELECT * from shop_category");
     }
     //manage shop 
-
     public static function insertShop($scat,$sname,$sdesen,$simage,$saddress,$sphone,$sfacebook,$sgmail,$slocation,$sdate){
         $sql = "INSERT INTO shop (shop_cat_id, shop_name, shop_desen, images, address, phone, facebook, google, map,date_time) values ('{$scat}','{$sname}','{$sdesen}','{$simage}','{$saddress}','{$sphone}','{$sfacebook}','{$sgmail}','{$slocation}','{$sdate}')";
         return runNonQuery($sql);
@@ -130,7 +126,6 @@ class Products {
         $sql = "SELECT * from advertises";
         return runQuery($sql);
     }
-
     //manage province
     public static function insertProvince($code,$province_name){
         $sql = "INSERT INTO tbl_provinces (province_code, province_name) 
@@ -141,7 +136,6 @@ class Products {
         $sql = "SELECT * from tbl_provinces ORDER BY id DESC ";
         return runQuery($sql);
     }
-
     //manage district
     public static function insertDistrict($province_code,$code,$name){
         $sql = "INSERT INTO tbl_districts(province_id, district_code, district_name) 
@@ -152,7 +146,6 @@ class Products {
         $sql = "SELECT * from tbl_districts ORDER BY id DESC ";
         return runQuery($sql);
     }
-
     //manage commune
     public static function insertCommune($district_code,$code,$commune_name){
         $sql = "INSERT INTO tbl_communes (district_id,commune_code, communes_name) 
@@ -163,5 +156,4 @@ class Products {
         $sql = "SELECT * from tbl_communes ORDER BY id DESC ";
         return runQuery($sql);
     }
-
 }
