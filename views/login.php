@@ -39,7 +39,8 @@
 		font-family: Arial !important;
 	}
 </style>
-<div class="login">
+<hr>
+<div class="login" >
   	<div class="wrap">
 		<div class="col_1_of_login span_1_of_login">
 			<h4 class="title"><?php echo _t_newcus;?></h4>

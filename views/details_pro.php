@@ -43,7 +43,7 @@
             <div class='col-md-6'>
                 <h3 class='m_3 p_title' style="background:#eee; padding:20px; color: #00ADC9;"><?php echo $sname;?><h3>
                 <p class='m_3' style="color:red;">Contact for more information</p>
-                <p class='m_5'>Facebook :<a href="https://www.facebook.com/CambodiaIntermarket/">Click for detial...</a></p>
+                <p class='m_5'>Facebook : <a href="<?php echo $sface;?>"> Click detail... </a></p>
                 <p class='m_5'>Tel Contact : <?php echo $sphone;?></p>
             </div>
         </div>

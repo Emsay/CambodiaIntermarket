@@ -6,10 +6,8 @@
 
 <div class="main">
     <div class="wrap">
-		<div class="clear"></div>
-		<div class="strike">
-		    <h1>ALL SHOP/ COMPANY</h1>
-		</div>
+		<div class="clear"></div><hr>
+		<h1 style="text-align:center; color:#00ADC9; font-size:bold;">SHOP AND COMPANY</h1>
 		<?php echo ''; ?>
 		<div class="clear"></div>
 		<div style="padding:15px; background: #eee;" class="col-md-12 col-lg-12">
@@ -20,7 +18,7 @@
 			$Product =  Product::listShop($id);
 				foreach ($Product as $shop){
 					?>
-					<div class="col-md-2" style="">
+					<div class="col-md-3" style="">
 						<a href="details_pro.php?id=<?php echo $shop['id'];?>">
 							<img style="height:150px; width:500px;" src="../uploads/<?php echo $shop['images'];?>" />
 						</a>

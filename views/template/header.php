@@ -94,8 +94,9 @@
 		}
 	?>
 	<link href="resources/css/mystyles.css" rel="stylesheet" type="text/css" media="all" />
-	<link rel="icon" type="image/gif/png" href="resources/images/logo1.jpg">
+	<link rel="icon" type="image/gif/png" href="resources/images/logo.png">
 	<meta name="google-site-verification" content="Ry4SC9lqacxjYGDI_lYE9LC_Kg6POipip5-QEJCG4ZA" />
+	<!-- this codeline defined the default zoom for mobile devices -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -116,14 +117,15 @@
 	<link href="resources/css/form.css" rel="stylesheet" type="text/css" media="all" />
 	<link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
 	<script type="text/javascript" src="resources/js/jquery1.min.js"></script>
+	<script type="text/javascript" src="resources/js/jquery-1.9.1.js"></script>
 	<!-- start menu -->
 	
 	<script type="text/javascript" src="resources/js/megamenu.js"></script>
-	<script>
+	<!-- <script>
 		$(document).ready(function(){$(".megamenu").megamenu(
 			);
 		});
-	</script>
+	</script> -->
 	<link href="resources/css/etalage.css" rel="stylesheet">
 	<!-- <link rel="stylesheet" type="text/css" href="resoursec/css/bootstrap-datetimepicker.css"> -->
   <script src="resources/js/slides.min.jquery.js"></script>
@@ -132,14 +134,6 @@
 	<script src="resources/js/jquery.easydropdown.js"></script>
 	<script src="resources/js/jquery-1.9.1.js"></script>
 	<script src="resources/js/bootstrap-datetimepicker.min.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function(){
-			$("a.dropbtn").click(function(){
-				$("a.dropbtn.active").removeClass("active");
-				$(this).addClass("active");
-			});
-		});
-	</script>
 	<style>
 		div.headerStyle{
 			margin-top: 24px;
@@ -165,57 +159,6 @@
 </head>
 <div class="wrap">
 	<div class="header-top col-md-12 col-xs-12">
-		<div class="col-md-4" style="padding-top:16px;">
-			<!-- <ul class="list-inline lang"> -->
-				<!-- <a href="..\lang/switch_lang.php?lang=2" style="color:#fff; font-family:'Arial';font-size:14px;margin-left:91px;">English</a> |
-				<a href="..\lang/switch_lang.php?lang=1">ភាសាខ្មែរ</a> -->
-				<div class="col-md-4" style="margin-top:-9px;text-align:right;">
-					<a href="index.php">
-						<img src="resources/images/logo.png" alt="" class="" style="width:43%;" />
-					</a>
-				</div>
-				<div class="col-md-8">
-				<?php
-						if(!isset($_POST['search'])){
-						    $searchname = "";
-						} else {
-						    $searchname = $_POST['search'];
-						}  
-					?>
-			 		<form class="navbar-form" role="search" method="post" action="search.php">
-				        <div class="input-group">
-				            <input type="text" class="form-control" placeholder="<?php echo _t_search;?>" name="search" style="height: 27px; width: 225px;font-size: 14px;" value="<?= $searchname ?>">
-				            <div class="input-group-btn">
-				                <button class="btn btn-default" type="submit" id="submit" name="submit" style="height:27px; background: #00ADC9;color:#fff;margin-top:0px;">
-				                	<i class="glyphicon glyphicon-search"></i>
-				                </button>
-				            </div>
-				        </div>
-				    </form>
-				</div>
-			<!-- </ul> -->
-		</div>
-		<?php
-			// $session_items = 0;
-	  //       $session_like = 0;
-	  //       if(!empty($_SESSION["cart_item"])){
-	  //           $session_items = count($_SESSION["cart_item"]);
-	  //       }
-	  //       if(!empty($_SESSION["like_item"])){
-	  //           $session_like = count($_SESSION["like_item"]);
-	  //       } 
-	    ?>
-		<div class="col-md-4 col-xs-12 threeicon">
-			<div class="col-md-4 col-xs-4 styleicon">
-				<!-- <a href="mywishlist.php">
-		    		<img src="resources/images/heart.png" class="icon">
-		    		<span class="divItems" style="color:#fff;">
-		    		<?php echo $session_like; ?></span>
-		    		<p class="texticon"><?php echo _t_wishlist;?></p>
-		    	</a> -->
-			</div>
-		</div>
-		<div class="col-offset-2 col-md-2 col-xs-9">
 			<ul class="list-inline loginheader">
 				<?php
 					if(isset($_SESSION['login_user'])=='Undefined'){
@@ -228,7 +171,9 @@
 					}
 				?>
 			</ul>
-		</div>
+			<a href="index.php">
+				<img src="resources/images/logo.png" alt="" class="logocim"/>
+			</a>
 		<div class="clear"></div>
 		<?php
 		    if(isset($_SESSION['login_user'])=='Undefined'){
@@ -237,76 +182,47 @@
 				// echo "<div class='animation'>Please register to get 5% off.</div>";
 			}
 		?>
+		<?php
+			if(!isset($_POST['search'])){
+			    $searchname = "";
+			} else {
+			    $searchname = $_POST['search'];
+			}  
+		?>
+		<!-- <form class="navbar-form" role="search" method="post" action="search.php">
+	        <div class="input-group">
+	            <input type="text" class="form-control" placeholder="<?php echo _t_search;?>" name="search" value="<?= $searchname ?>">
+	        </div>
+	    </form> -->
+	   <!--  <div class="container">
+			<div class="row">
+		        <div class="col-sm-6 col-sm-offset-3">
+		            <div id="imaginary_container"> 
+		                <div class="input-group stylish-input-group">
+		                    <input type="text" class="form-control" placeholder="<?php echo _t_search;?>" name="search" value="<?= $searchname ?>">
+		                    <span class="input-group-addon">
+		                        <button type="submit">
+		                            <span class="glyphicon glyphicon-search"></span>
+		                        </button>  
+		                    </span>
+		                </div>
+		            </div>
+		        </div>
+			</div>
+		</div> -->
  	</div>
 </div>
 	<div class="header-bottom">
 	    <div class="wrap">
 		    <div class="col-md-12 headerStyle">
-			    <!-- <div class="col-md-3">
-			    	<a href="index.php">
-						<img src="resources/images/logo.png" alt="" class="imglogo" />
-					</a>
-			    </div> -->
-			    <div class="col-md-4">
-			    	<!-- <?php
-						if(!isset($_POST['search'])){
-						    $searchname = "";
-						} else {
-						    $searchname = $_POST['search'];
-						}  
-					?>
-			 		<form class="navbar-form" role="search" method="post" action="search.php">
-				        <div class="input-group">
-				            <input type="text" class="form-control" placeholder="<?php echo _t_search;?>" name="search" style="height: 50px;width: 201px;font-size: 20px;" value="<?= $searchname ?>">
-				            <div class="input-group-btn">
-				                <button class="btn btn-default" type="submit" id="submit" name="submit" style="height:50px;background: #3b5998;color:#fff;margin-top:0px;">
-				                	<i class="glyphicon glyphicon-search"></i>
-				                </button>
-				            </div>
-				        </div>
-				    </form> -->
-			    </div>
-			    <div class="col-md-1"></div>
-			    <div class="col-md-2">
-			    	<?php
-						/*if(isset($_SESSION['login_user'])=='Undefined'){
-							echo "<a href='profile.php?id=".$_SESSION['uid']."'>
-						    		<span class='glyphicon glyphicon-user' aria-hidden='true'>
-						    		<b>My Account</b></span>
-						    	</a>";
-						}else{
-							echo "<a href='login.php'>
-						    		<span class='glyphicon glyphicon-user' aria-hidden='true'>
-						    		<b>My Account</b></span>
-						    	</a>";
-						}*/
-					?>
-			    </div>
-			    <div class="col-md-2">
-					<?php
-					  //   if(isset($_SESSION['login_user'])=='Undefined'){
-							// echo "<a href='mycart.php'>
-							// <span class='cartCount'>".$countcart."</span>
-					  //   		<span class='glyphicon glyphicon-shopping-cart'>
-					  //   		<b'>Cart</b></span>
-					  //   	</a>";
-					  //   }else{
-					  //   	echo "<a href='mycart.php'>
-					  //   	<span class='cartCount'>".$session_items."</span>
-					  //   		<span class='glyphicon glyphicon-shopping-cart'>
-					  //   		<b>Cart</b></span>
-					  //   	</a>";
-					  //   }
-					?>
-			    </div>
+			    
 		    </div>
 		    <!-- <hr style="border:1px solid #eee;"> -->
 	 		<div class="clear"></div>
-			<!-- <div class="promote"></div> -->
-	 		<!-- desktop menu -->
+			<span class="menu-trigger">MENU</span>
 			<div class="menu">
-	      <ul class="megamenu skyblue">
-	        <li class="dropdown1">
+			    <ul class="megamenu skyblue">
+			        <li class="dropdown1">
 					  <a href="carDetail.php" class="dropbtn"><?php echo _t_carrent;?></a>
 					</li>
 					<li class="dropdown1">
@@ -328,6 +244,13 @@
 			</div>
     <div class="clear"></div>
     </div>
+    <script type="text/javascript">
+    	jQuery(document).ready(function(){
+			jQuery(".menu-trigger").click(function(){
+				jQuery(".menu").slideToggle();
+			});
+		});
+    </script>
 </div>
 
 

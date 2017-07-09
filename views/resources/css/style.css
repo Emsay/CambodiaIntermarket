@@ -2317,7 +2317,7 @@ p.m_text{
 .nbs-flexisel-item > img {
 	/*--width:60%;--*/
 	cursor: pointer;
-	positon: relative;
+	position: relative;
 	margin-top:10px;
 	margin-bottom: 10px;
 	max-width:150px;
@@ -2339,7 +2339,7 @@ p.m_text{
 }
 .nbs-flexisel-item > img {
 	cursor: pointer;
-	positon: relative;
+	position: relative;
 }
 /*** Navigation ***/
 .nbs-flexisel-nav-right, .nbs-flexisel-nav-left{
@@ -2694,10 +2694,6 @@ ul.delivery-list li a:hover{
 	.icon1 ul {
 		top: 88px;
 	}
-}
-@media (max-width: 1024px){}
-.header-top {
-    width: 104%;
 }
 @media (max-width:1280px){
 	.wrap{

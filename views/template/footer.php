@@ -1,6 +1,6 @@
 <!-- <div class='wrap'> -->
 <div class="footer" style="margin-top:200px;">
-	<div class="footer-middle" style="padding:20px;  background:#3F3D42;">
+	<div class="footer-middle" style="padding:20px;  background:#00ADC9;">
 		<link href='resources/css/mystyles.css' rel='stylesheet' type='text/css' media='all' />
 			<div class="section group example">
 				<div class="col_1_of_f_1 span_1_of_f_1">
@@ -41,7 +41,7 @@
 						   		<!-- <p><?php echo _t_france;?> :(+33) 78 228 1638</p> -->
 						   		<p><?php echo _t_cambodia;?> : (+855) 012 792 707
 						   		/010 571 889</p>
-						 	 	<p><?php echo _t_email;?>:<a href="#" style="color:#00ADC9; font-family:arial;"><u>cambodiaintermarket
+						 	 	<p><?php echo _t_email;?>:<a href="#" style="color:#000; font-family:arial;"><u>cambodiaintermarket
 						 	 	@gmail.com</u></a> </p>
 						   		
 						   </div>
